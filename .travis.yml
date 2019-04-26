@@ -1,6 +1,6 @@
 #.travis.yml文件
 language: objective-c
-xcode_workspace: Yuudee2.xcworkspace # path to your xcodeproj folder
+xcode_workspace: Yuudee2.xcworkspace # path to your xcodeproj folder 
 xcode_scheme: Yuudee2
 osx_image: xcode10.2
 xcode_destination: platform=iOS Simulator,OS=12.2,name=iPhone X
