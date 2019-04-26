@@ -9,7 +9,7 @@ before_install:
   - gem install cocoapods --pre
   - pod install --repo-update 
 
-script:
+# script:
 #   - xcodebuild test -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X' -enableCodeCoverage YES -workspace Yuudee2.xcworkspace -scheme Yuudee2 CODE_SIGNING_REQUIRED=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty -f `xcpretty-travis-formatter`
 
 # after_success:
