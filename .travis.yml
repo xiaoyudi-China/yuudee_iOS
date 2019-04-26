@@ -1,0 +1,16 @@
+#.travis.yml文件
+language: objective-c
+xcode_workspace: Yuudee2.xcworkspace # path to your xcodeproj folder
+xcode_scheme: Yuudee2
+osx_image: xcode10.2
+xcode_destination: platform=iOS Simulator,OS=12.2,name=iPhone X
+podfile: podfile
+before_install:
+  - gem install cocoapods --pre
+  - pod install --repo-update 
+
+script:
+  - xcodebuild test -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X' -enableCodeCoverage YES -workspace Yuudee2.xcworkspace -scheme Yuudee2 CODE_SIGNING_REQUIRED=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty -f `xcpretty-travis-formatter`
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash) 
