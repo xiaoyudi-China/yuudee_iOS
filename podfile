@@ -1,0 +1,22 @@
+platform:ios,'8.0'
+target 'Yuudee2'do
+use_frameworks!
+pod 'JPush'
+pod 'FMDB'
+pod 'Masonry'
+pod 'MJRefresh'
+pod 'YYModel'
+pod 'SDWebImage'
+pod 'BRPickerView'
+pod 'UMCCommon'
+pod 'UMCSecurityPlugins'
+pod 'UMCShare/Social/ReducedWeChat'
+pod 'UMCShare/Social/ReducedQQ'
+pod 'MBProgressHUD'
+pod 'AFNetworking'
+pod 'IQKeyboardManager'
+pod 'WebViewJavascriptBridge'
+pod 'UMCCommon'
+pod 'UMCSecurityPlugins'
+pod 'UMCAnalytics'
+end

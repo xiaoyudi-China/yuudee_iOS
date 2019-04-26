@@ -1,0 +1,65 @@
+//
+//  PrefixHeader.pch
+//  Yuudee2
+//
+//  Created by 北京道口贷科技有限公司 on 2018/8/23.
+//  Copyright © 2018年 北京道口贷科技有限公司. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+#define Screen_W [[UIScreen mainScreen] bounds].size.width
+#define Screen_H [[UIScreen mainScreen] bounds].size.height
+#define KeJianWH AdFloat(500)
+#import "XLAgainVC.h"
+#import "MCXLVC.h"
+#import "ZLTimingView.h"
+#import "YuudeeDate.h"
+#import "PassVC.h"
+#import "QHWVC.h"
+#import "GZPModel.h"
+#import "YuudeeRequest.h"
+#import "ZJNLoginAndRegisterViewController.h"
+#import "QHWVC.h"
+#import "AppDelegate.h"
+#import "PlayerManager.h"
+#import "MCCSVC.h"
+#import "GuoDuVC.h"
+#import "MainVC.h"
+#import <AudioToolbox/AudioToolbox.h>
+#import "ZLSpreadView.h"
+#import "ZLMergeTextView.h"
+#import "GZPLabel.h"
+#import "ShiPei.h"
+#import "UIView+Position.h"
+#import "NSString+Color.h"
+#import "UIView+Controller.h"
+#import "ZJNNavigationController.h"
+#import "Masonry.h"
+#import "YYModel.h"
+#import "YuudeeConst.h"
+#import "UIView+ZJNCategory.h"
+#import "UILabel+ZJNCategory.h"
+#import "UIImageView+ZJNCategory.h"
+#import "UIButton+ZJNCategory.h"
+#import "UIApplication+ZJNCategory.h"
+#import "UIColor+ZJNCategory.h"
+#import "NSString+ZJNCategory.h"
+#import "MBProgressHUD.h"
+#import "UIViewController+HUD.h"
+#import "ZJNRequestManager.h"
+#import "UIImageView+WebCache.h"
+#import "ZJNFMDBManager.h"
+#import "ZJNTool.h"
+#import "YDInline.h"
+
+// 极光
+#define kJPushAppKey      @"ee9177f68df4a5eac387b555"
+#define kJPushChannel     @"App Store"
+#define kJpushRegistrationID  @"JPUSHREGISTRATIONID"
+
+//static BOOL isProduction = YES;//true  生产
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
