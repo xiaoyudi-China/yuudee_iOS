@@ -19,5 +19,6 @@
 - (void)testSendCode:(NSString *)phoneNum districeId:(NSInteger )code
              success:(void (^) (id json))success
              failure:(void (^)(NSError *error))failure;
+- (void)testFunction;
 
 @end

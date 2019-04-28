@@ -96,5 +96,9 @@
     }];
 }
 
+- (void)testFunction{
+    ZJNForgetPasswordViewController *vc = [[ZJNForgetPasswordViewController alloc]init];
+    [vc testFunction];
+}
 
 @end

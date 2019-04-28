@@ -414,6 +414,9 @@
 
 - (void)testFunction{
      [self viewDidLoad];
+    self.passwordTextField.text = @"123445666";
+    [self textFieldDidEndEditing:self.passwordTextField];
+    BOOL isRun = [self textField:self.passwordTextField shouldChangeCharactersInRange:NSMakeRange(0, 1) replacementString:@"3"];
 }
 
 - (void)testUpdatePhoneIsRegister:(NSString *)phoneNum districeId:(NSInteger)code success:(void (^)(id))success failure:(void (^)(NSError *))failure{
@@ -442,9 +445,11 @@
     self.failure = failure;
     self.areaId = code;
     self.phoneTextField.plainPhoneNum = phoneNum;
+    self.kSlider.value = 1;
+    [self sliderValueChanged:self.kSlider];
     [self sliderValueChanged:nil];
-    [self getAutoCode];
+    self.getCodeTextField.text = @"1234";
+    [self textFieldDidEndEditing:self.phoneTextField];
 }
-
 
 @end
