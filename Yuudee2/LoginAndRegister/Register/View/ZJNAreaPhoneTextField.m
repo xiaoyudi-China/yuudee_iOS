@@ -221,12 +221,15 @@
         NSLog(@"%@",error);
     }];
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+- (void)testFunction{
+    [self leftButtonClick];
+    self.text = @"13661316354";
+    self.areaCode = @"1234";
+    [self textFieldDidEndEditing:self];
+    [self isNum:self.text];
+    
+    [self textField:self shouldChangeCharactersInRange:NSMakeRange(0, 1) replacementString:@"1"];
 }
-*/
 
 @end

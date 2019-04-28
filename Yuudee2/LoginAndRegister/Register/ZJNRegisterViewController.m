@@ -367,7 +367,8 @@
     [self zjnRegisterAlertViewVerifySuccess];
     [self protocolBtnClick];
     [self zjnRegisterAlertViewGoToLogin];
+    
+    [self.phoneTextField testFunction];
 }
-
 
 @end

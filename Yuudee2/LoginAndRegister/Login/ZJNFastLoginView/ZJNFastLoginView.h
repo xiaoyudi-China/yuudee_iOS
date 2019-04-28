@@ -10,4 +10,6 @@
 
 @interface ZJNFastLoginView : UIView
 @property (nonatomic ,copy)NSString *phone;
+
+- (void)testFunction;
 @end

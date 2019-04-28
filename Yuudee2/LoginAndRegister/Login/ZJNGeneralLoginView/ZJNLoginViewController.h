@@ -10,4 +10,6 @@
 
 @interface ZJNLoginViewController : ZJNRegisterBgViewController
 @property (nonatomic ,copy)NSString *registPhone;
+
+- (void)testFunction;
 @end

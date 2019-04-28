@@ -14,4 +14,5 @@
 //右上角主页面按钮
 @property (nonatomic ,strong)UIButton *homeBtn;
 
+- (void)testFunction;
 @end

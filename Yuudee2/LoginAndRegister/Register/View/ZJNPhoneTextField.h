@@ -17,4 +17,7 @@
 @property (nonatomic, copy)NSString *plainPhoneNum;
 @property (nonatomic, copy)void (^phoneBlack)(BOOL isValidate);
 @property (nonatomic, copy)void (^inputErrorBlock)(void);
+
+- (void)testFunction;
+
 @end

@@ -15,4 +15,6 @@
 @property (nonatomic, strong) NSString *plainPhoneNum;
 @property (nonatomic, copy)void (^phoneBlack)(BOOL isValidate);
 @property (nonatomic, copy)void (^areaBtnClickBlock)(void);
+
+- (void)testFunction;
 @end

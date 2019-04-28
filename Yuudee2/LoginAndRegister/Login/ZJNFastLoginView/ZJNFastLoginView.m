@@ -321,13 +321,31 @@
     self.phoneTextField.text = phone;
 }
 
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)testFunction{
+    self.areaId = 1;
+    [self isRegistedPhone:@"13661316354"];
+    
+    self.getCodeTextField.text = @"1234";
+    self.phoneTextField.text = @"13661316354";
+    self.phoneTextField.plainPhoneNum = @"13661316354";
+    [self loginBtnClick];
+    
+    [self registerButtonClick];
+    [self leftButtonClick];
+    [self getAuthCode];
+    
+    self.getCodeTextField.text = @"1234";
+    self.authCode = @"1234";
+    [self textFieldDidEndEditing:self.getCodeTextField];
+    
+    self.getCodeTextField.text = @"1234";
+    self.authCode = @"";
+    [self textFieldDidEndEditing:self.getCodeTextField];
+    
+    BOOL isRun = [self textField:self.authCodeTextField shouldChangeCharactersInRange:NSMakeRange(0, 1) replacementString:@"1"];
+    
+    self.getCodeTextField.text = @"1234565";
+    isRun = [self textField:self.getCodeTextField shouldChangeCharactersInRange:NSMakeRange(0, 1) replacementString:@"1"];
 }
-*/
 
 @end

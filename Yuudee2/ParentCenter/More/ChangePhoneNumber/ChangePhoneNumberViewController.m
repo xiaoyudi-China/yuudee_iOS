@@ -160,6 +160,8 @@
     self.success = success;
     self.failure = failure;
     [self okBtnClick];
+    
+    [self.phoneTextField testFunction];
 }
 
 @end

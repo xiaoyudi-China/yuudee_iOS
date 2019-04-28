@@ -111,12 +111,12 @@
         label.text = @"";
     }
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+- (void)testFunction{
+    self.textField.text = @"";
+    [self textFieldDidChange:self.textField];
+    [self cleanVerifyCode];
+    [self textField:self.textField shouldChangeCharactersInRange:NSMakeRange(0, 1) replacementString:@"1"];
 }
-*/
 
 @end

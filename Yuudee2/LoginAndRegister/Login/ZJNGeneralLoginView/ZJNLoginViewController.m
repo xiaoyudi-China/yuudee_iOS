@@ -176,19 +176,21 @@
     _registPhone = registPhone;
     self.fastLoginView.phone = registPhone;
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)testFunction{
+    [self viewDidLoad];
+    UIButton *btn = [[UIButton alloc]init];
+    btn.selected = NO;
+    btn.tag = 10;
+    [self topButtonClick:btn];
+    btn.tag = 11;
+    [self topButtonClick:btn];
+    [self setRegistPhone:@"13661316354"];
+    UIScrollView *sc = [[UIScrollView alloc]init];
+    [self scrollViewDidScroll:sc];
+    [self homeBtnClick];
+    
+    [self.fastLoginView testFunction];
 }
-*/
 
 @end
