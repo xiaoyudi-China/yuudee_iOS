@@ -10,4 +10,5 @@
 
 @interface ZJNLoginAndRegisterViewController : ZJNBasicViewController
 
+- (void)testFunction;
 @end

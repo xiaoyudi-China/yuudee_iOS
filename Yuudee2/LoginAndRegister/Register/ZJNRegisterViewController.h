@@ -10,4 +10,11 @@
 
 @interface ZJNRegisterViewController : ZJNBasicViewController
 
+- (void)testPhoneIsRegister:(NSString *)phoneNum disId:(NSInteger )disId
+                    success:(void (^) (id json))success
+                    failure:(void (^)(NSError *error))failure;
+- (void)testRegisterSendCode:(NSString *)phoneNum disId:(NSInteger )disId
+                    success:(void (^) (id json))success
+                    failure:(void (^)(NSError *error))failure;
+
 @end

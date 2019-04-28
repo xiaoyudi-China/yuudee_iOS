@@ -23,6 +23,9 @@
 @property (nonatomic ,strong)UIButton             *OKBtn;
 //注册成功弹出
 @property (nonatomic ,strong)ZJNRegisterSuccessAlertView *successAlertView;
+
+@property (nonatomic, copy) void (^success) (id json);
+@property (nonatomic, copy) void (^failure) (NSError *error);
 @end
 
 @implementation ZJNRegisterSetPasswordViewController
@@ -142,10 +145,16 @@
             [self showHint:data[@"msg"]];
         }
         [self hideHud];
+        if (self.success) {
+            self.success(data);
+        }
     } failure:^(NSError *error) {
         [self showHint:ErrorInfo];
         [self hideHud];
         NSLog(@"%@",error);
+        if (self.failure) {
+            self.failure(error);
+        }
     }];
 }
 
@@ -180,20 +189,21 @@
         }else{
             [self showHint:data[@"msg"]];
         }
+        if (self.success) {
+            self.success(data);
+        }
     } failure:^(NSError *error) {
-        
         [self showHint:ErrorInfo];
+        if (self.failure) {
+            self.failure(error);
+        }
     }];
 }
 #pragma mark-输入密码
--(void)topPhoneTFValueChanged{
-    
-}
+-(void)topPhoneTFValueChanged{}
 
 #pragma mark-验证密码
--(void)bottomPhoneTFValueChanged{
-    
-}
+-(void)bottomPhoneTFValueChanged{}
 
 #pragma mark-输入框代理方法
 
@@ -260,19 +270,30 @@
 -(void)setRequestModel:(ZJNRequestModel *)requestModel{
     _requestModel = requestModel;
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (void)testGeneralLogin:(NSString *)phoneNum disId:(NSInteger )disId psw:(NSString *)psw
+                    success:(void (^) (id json))success
+                    failure:(void (^)(NSError *error))failure{
+    self.requestModel.districeId = disId;
+    self.requestModel.phone = phoneNum;
+    self.topPhoneTF.text = psw;
+    self.success = success;
+    self.failure = failure;
+    [self login];
+    [self homeBtnClick];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)testRegister:(NSString *)phoneNum disId:(NSInteger )disId psw:(NSString *)psw
+                 success:(void (^) (id json))success
+                 failure:(void (^)(NSError *error))failure{
+    [self viewDidLoad];
+    self.requestModel.districeId = disId;
+    self.requestModel.phone = phoneNum;
+    self.topPhoneTF.text = psw;
+    self.bottomPhoneTF.text = psw;
+    self.success = success;
+    self.failure = failure;
+    [self okBtnClick];
 }
-*/
 
 @end

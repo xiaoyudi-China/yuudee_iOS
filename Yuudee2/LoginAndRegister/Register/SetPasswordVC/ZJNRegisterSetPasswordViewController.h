@@ -11,4 +11,11 @@
 @interface ZJNRegisterSetPasswordViewController : ZJNRegisterBgViewController
 
 @property (nonatomic ,strong)ZJNRequestModel *requestModel;
+
+- (void)testRegister:(NSString *)phoneNum disId:(NSInteger )disId psw:(NSString *)psw
+             success:(void (^) (id json))success
+             failure:(void (^)(NSError *error))failure;
+- (void)testGeneralLogin:(NSString *)phoneNum disId:(NSInteger )disId psw:(NSString *)psw
+                 success:(void (^) (id json))success
+                 failure:(void (^)(NSError *error))failure;
 @end

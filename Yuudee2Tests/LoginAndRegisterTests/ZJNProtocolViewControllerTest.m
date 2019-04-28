@@ -35,4 +35,9 @@
     }];
 }
 
+- (void)testFunction{
+    ZJNProtocolViewController *vc = [[ZJNProtocolViewController alloc]init];
+    [vc testFunction];
+}
+
 @end

@@ -46,6 +46,9 @@
 @property (nonatomic ,strong)ZJNRegisterAlertView *alertView;
 //请求model
 @property (nonatomic ,strong)ZJNRequestModel *requestModel;
+
+@property (nonatomic, copy) void (^success) (id json);
+@property (nonatomic, copy) void (^failure) (NSError *error);
 @end
 
 @implementation ZJNRegisterViewController
@@ -275,15 +278,20 @@
             //其他情况
             [self showHint:data[@"msg"]];
         }
+        if (self.success) {
+            self.success(data);
+        }
     } failure:^(NSError *error) {
         [self showHint:ErrorInfo];
+        if (self.failure) {
+            self.failure(error);
+        }
     }];
 }
 
 #pragma mark-提示框代理-ZJNRegisterAlertViewDelegate
 //跳转到设置密码控制器
 -(void)zjnRegisterAlertViewVerifySuccess{
-    
     NSDictionary *dic = @{@"phone":self.requestModel.phone,@"districeId":@(self.requestModel.districeId)};
     [[ZJNRequestManager sharedManager] postWithUrlString:RegisterSendCode parameters:dic success:^(id data) {
         if ([[data[@"code"] stringValue] isEqualToString:@"200"]) {
@@ -294,8 +302,14 @@
             [self.alertView removeFromSuperview];
             self.alertView = nil;
         }
+        if (self.success) {
+            self.success(data);
+        }
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
+        if (self.failure) {
+            self.failure(error);
+        }
     }];
 }
 //去登录
@@ -335,19 +349,25 @@
     ZJNProtocolViewController *vc = [[ZJNProtocolViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (void)testPhoneIsRegister:(NSString *)phoneNum disId:(NSInteger)disId success:(void (^)(id))success failure:(void (^)(NSError *))failure{
+    [self viewDidLoad];
+    self.success = success;
+    self.failure = failure;
+    self.requestModel.districeId = disId;
+    self.phoneTextField.plainPhoneNum = phoneNum;
+    [self nextBtnClick];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)testRegisterSendCode:(NSString *)phoneNum disId:(NSInteger)disId success:(void (^)(id))success failure:(void (^)(NSError *))failure{
+    self.success = success;
+    self.failure = failure;
+    self.requestModel.districeId = disId;
+    self.requestModel.phone = phoneNum;
+    [self zjnRegisterAlertViewVerifySuccess];
+    [self protocolBtnClick];
+    [self zjnRegisterAlertViewGoToLogin];
 }
-*/
+
 
 @end

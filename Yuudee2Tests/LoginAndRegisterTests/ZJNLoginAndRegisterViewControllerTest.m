@@ -35,4 +35,9 @@
     }];
 }
 
+- (void)testFunction{
+    ZJNLoginAndRegisterViewController *vc = [[ZJNLoginAndRegisterViewController alloc]init];
+    [vc testFunction];
+}
+
 @end

@@ -11,4 +11,8 @@
 @interface ZJNRegisterVerifyCodeViewController : ZJNRegisterBgViewController
 
 @property (nonatomic ,strong)ZJNRequestModel *requestModel;
+
+- (void)testRegisterSendCode:(NSString *)phoneNum disId:(NSInteger)disId success:(void (^)(id))success failure:(void (^)(NSError *))failure;
+- (void)testRegisterCodeverify:(NSString *)phoneNum disId:(NSInteger)disId verifyCode:(NSString *)code success:(void (^)(id))success failure:(void (^)(NSError *))failure;
+
 @end

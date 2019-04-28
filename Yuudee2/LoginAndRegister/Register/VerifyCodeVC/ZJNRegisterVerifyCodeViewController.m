@@ -14,6 +14,8 @@
 @property (nonatomic ,strong)UIButton *getCodeBtn;
 @property (nonatomic ,strong)ZJNVerifyCodeView *verifyCodeView;
 
+@property (nonatomic, copy) void (^success) (id json);
+@property (nonatomic, copy) void (^failure) (NSError *error);
 @end
 
 @implementation ZJNRegisterVerifyCodeViewController
@@ -88,9 +90,15 @@
             [self.verifyCodeView cleanVerifyCode];
             [self showHint:data[@"msg"]];
         }
+        if (self.success) {
+            self.success(data);
+        }
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
         [self showHint:ErrorInfo];
+        if (self.failure) {
+            self.failure(error);
+        }
     }];
 }
 #pragma mark-重新获取验证码
@@ -146,27 +154,37 @@
             [self timer];
         }
         [self showHint:data[@"msg"]];
+        if (self.success) {
+            self.success(data);
+        }
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
+        if (self.failure) {
+            self.failure(error);
+        }
     }];
 }
 -(void)setRequestModel:(ZJNRequestModel *)requestModel{
     _requestModel = requestModel;
     self.titleLabel.text = [NSString stringWithFormat:@"验证码已发送至+%@ %@",requestModel.districe,requestModel.phone];
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (void)testRegisterCodeverify:(NSString *)phoneNum disId:(NSInteger)disId verifyCode:(NSString *)code success:(void (^)(id))success failure:(void (^)(NSError *))failure{
+    self.success = success;
+    self.failure = failure;
+    self.requestModel.districeId = disId;
+    self.requestModel.phone = phoneNum;
+    [self verifyCodeWithCode:code];
+    [self homeBtnClick];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)testRegisterSendCode:(NSString *)phoneNum disId:(NSInteger)disId success:(void (^)(id))success failure:(void (^)(NSError *))failure{
+    [self viewDidLoad];
+    self.success = success;
+    self.failure = failure;
+    self.requestModel.districeId = disId;
+    self.requestModel.phone = phoneNum;
+    [self getCodeBtnClick];
 }
-*/
 
 @end
