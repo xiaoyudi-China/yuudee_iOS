@@ -7,7 +7,7 @@
 //
 
 #import "ZJNBasicViewController.h"
-typedef NS_ENUM(NSInteger ,PushType) {
+typedef NS_ENUM(NSInteger,PushType) {
     FormRegister,//注册成功后进入
     FromHomePage//从首页进入
 };

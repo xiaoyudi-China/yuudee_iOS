@@ -220,4 +220,10 @@
     self.failure = failure;
 }
 
+- (void)testFunction{
+    [self viewDidLoad];
+    [self btnClick:nil];
+    [self backBtnClick];
+}
+
 @end

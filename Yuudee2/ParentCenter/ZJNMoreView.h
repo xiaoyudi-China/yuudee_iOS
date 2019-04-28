@@ -10,4 +10,5 @@
 
 @interface ZJNMoreView : ZJNParentCenterBasicView
 
+- (void)testFunction;
 @end

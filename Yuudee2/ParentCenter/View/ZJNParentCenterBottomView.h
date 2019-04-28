@@ -10,4 +10,7 @@
 
 @interface ZJNParentCenterBottomView : UIView
 @property (nonatomic ,copy)void (^bottomViewBlock)(NSInteger tag);
+
+- (void)testFunction;
+
 @end

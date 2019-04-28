@@ -202,20 +202,20 @@
 -(BOOL)prefersStatusBarHidden{
     return YES;
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 -(void)setPushType:(PushType)pushType{
     _pushType = pushType;
 }
 
 - (void)testFunction{
     [self viewDidLoad];
-    [self viewWillDisappear:YES];
-    [self viewDidDisappear:YES];
+    [self viewWillAppear:YES];
+    [self.bottomView testFunction];
     [self homeBtnClick];
     [self goToPerfectInfo];
+    self.topAlertView.hidden = YES;
+    [self.moreView testFunction];
+    [self viewWillDisappear:YES];
 }
 
 @end

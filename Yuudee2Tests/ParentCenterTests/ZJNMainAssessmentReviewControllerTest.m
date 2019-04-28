@@ -35,8 +35,10 @@
     }];
 }
 
-#warning 报错
-//- (void)testToAssess{
+- (void)testToAssess{
+    ZJNMainAssessmentReviewController *vc = [[ZJNMainAssessmentReviewController alloc]init];
+    [vc testFunction];
+    
 //    XCTestExpectation *expectation = [self expectationWithDescription:@"..."];
 //    ZJNMainAssessmentReviewController *vc = [[ZJNMainAssessmentReviewController alloc]init];
 //    [vc testToAssess:@"123" success:^(id json) {
@@ -54,6 +56,6 @@
 //    [self waitForExpectationsWithTimeout:30.f handler:^(NSError * _Nullable error) {
 //        NSLog(@"...");
 //    }];
-//}
+}
 
 @end

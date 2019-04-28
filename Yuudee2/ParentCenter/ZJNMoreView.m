@@ -380,12 +380,18 @@
     }];
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)testFunction{
+    [self showQRCodeButtonClick];
+    [self shareQRCode];
+    [self shareWebPageToPlatformType:UMSocialPlatformType_QQ];
+    [self saveImageWithResult:@"单元测试"];
+    [self firstInfoButtonClick];
+    [self personSecondInfoViewChangeInfoWithType:0];
+    [self personSecondInfoViewChangeInfoWithType:1];
+    [self personSecondInfoViewChangeInfoWithType:2];
+    [self changeHeaderImage];
+    [self imguploadwithimg:[UIImage imageNamed:@"白狗"]];
+    [self uploadChildPhoto:@"http://www.baidu.com"];
 }
-*/
 
 @end

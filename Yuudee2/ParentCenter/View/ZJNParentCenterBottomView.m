@@ -80,12 +80,20 @@
         self.bottomViewBlock(button.tag-10);
     }
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+- (void)testFunction{
+    self.signBtn.selected = NO;
+    self.signBtn.tag = 10;
+    [self buttonClick:self.signBtn];
+    
+    self.signBtn.tag = 11;
+    [self buttonClick:self.signBtn];
+    
+    self.signBtn.tag = 12;
+    [self buttonClick:self.signBtn];
+    
+    self.signBtn.tag = 13;
+    [self buttonClick:self.signBtn];
 }
-*/
 
 @end

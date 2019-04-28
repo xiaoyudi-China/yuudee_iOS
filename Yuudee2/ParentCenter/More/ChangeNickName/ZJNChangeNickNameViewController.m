@@ -173,9 +173,9 @@
         }
     }
 }
--(void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"UITextFieldTextDidChangeNotification" object:self.nickNameTextField];
-}
+//-(void)dealloc{
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"UITextFieldTextDidChangeNotification" object:self.nickNameTextField];
+//}
 
 - (void)testUpdateChildInfo:(NSString *)token userName:(NSString *)name
                 success:(void (^) (id json))success
