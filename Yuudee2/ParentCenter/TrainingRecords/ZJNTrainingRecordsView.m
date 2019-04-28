@@ -198,6 +198,9 @@
     [self getTotalProgress];
     [self refreshName];
     [self nextButtonClick:nil];
+    
+    ZJNStudyProgressView *view = [[ZJNStudyProgressView alloc]init];
+    [view testFunction];
 }
 
 @end

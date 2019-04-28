@@ -15,4 +15,6 @@ typedef NS_ENUM(NSInteger ,StudyType) {
 };
 @interface ZJNStudyProgressView : ZJNParentCenterBasicView
 @property (nonatomic ,assign)StudyType studyType;
+
+- (void)testFunction;
 @end

@@ -379,12 +379,33 @@
     }
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)testFunction{
+    self.dayModel.countTime = @"3610";
+    self.studyType = MCDYStruct;
+    [self showDayTitle];
+    
+    self.dayModel.countTime = @"610";
+    self.studyType = DCDYStruct;
+    [self showDayTitle];
+    
+    self.dayModel.countTime = @"30";
+    self.studyType = JZJGZCStruct;
+    [self showDayTitle];
+    
+    self.dayModel.countTime = @"30";
+    self.studyType = JZJGFJStruct;
+    [self showDayTitle];
+    
+    self.studyType = MCDYStruct;
+    [self monthStudyHistory];
+    [self weekStudyHistory];
+    [self dayStudyHistory];
+    
+    [self monthBtnClick];
+    [self weakBtnClick];
+    [self dayBtnClick];
+    
+    [self homeBtnClick];
 }
-*/
 
 @end
