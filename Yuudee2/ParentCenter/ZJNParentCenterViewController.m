@@ -215,6 +215,7 @@
     [self goToPerfectInfo];
     self.topAlertView.hidden = YES;
     [self.moreView testFunction];
+    [self.recordsView testFunction];
     [self viewWillDisappear:YES];
 }
 

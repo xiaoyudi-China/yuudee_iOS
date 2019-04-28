@@ -10,4 +10,6 @@
 
 @interface ZJNTrainingRecordsView : ZJNParentCenterBasicView
 @property (nonatomic ,copy)void (^signViewBlock)(UIView *view);
+
+- (void)testFunction;
 @end

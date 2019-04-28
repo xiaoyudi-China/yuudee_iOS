@@ -193,12 +193,11 @@
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"refreshName" object:nil];
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+- (void)testFunction{
+    [self getTotalProgress];
+    [self refreshName];
+    [self nextButtonClick:nil];
 }
-*/
 
 @end

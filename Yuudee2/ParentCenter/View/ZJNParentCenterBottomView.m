@@ -86,12 +86,15 @@
     self.signBtn.tag = 10;
     [self buttonClick:self.signBtn];
     
+    self.signBtn.selected = NO;
     self.signBtn.tag = 11;
     [self buttonClick:self.signBtn];
     
+    self.signBtn.selected = NO;
     self.signBtn.tag = 12;
     [self buttonClick:self.signBtn];
     
+    self.signBtn.selected = NO;
     self.signBtn.tag = 13;
     [self buttonClick:self.signBtn];
 }
