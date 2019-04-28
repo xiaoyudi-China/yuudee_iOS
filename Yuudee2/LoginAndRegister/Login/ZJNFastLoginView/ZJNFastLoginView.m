@@ -13,7 +13,7 @@
 #import "ZJNRegisterViewController.h"
 //切换手机号归属地
 #import "ZJNCityListViewController.h"
-#import <JPUSHService.h>
+//#import <JPUSHService.h>
 @interface ZJNFastLoginView()<UITextFieldDelegate>
 @property (nonatomic ,strong)ZJNAreaPhoneTextField *phoneTextField;
 @property (nonatomic ,strong)ZJNAuthCodeTextField *authCodeTextField;
@@ -196,9 +196,9 @@
             model.chilPhoto = data[@"data"][@"chilPhoto"];
             [[ZJNTool shareManager] loginWithModel:model];
             [[ZJNFMDBManager shareManager] addCurrentUserInfoWithModel:model];
-            [JPUSHService setAlias:model.id completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
-                NSLog(@"rescode: %ld, \ntags: %@, \nalias: %@\n", (long)iResCode, @"tag" , iAlias);
-            } seq:0];
+//            [JPUSHService setAlias:model.id completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
+//                NSLog(@"rescode: %ld, \ntags: %@, \nalias: %@\n", (long)iResCode, @"tag" , iAlias);
+//            } seq:0];
             AppDelegate * delegate = (id)[UIApplication sharedApplication].delegate;
             delegate.window.rootViewController = [[ZJNNavigationController alloc]initWithRootViewController:[MainVC new]];
             

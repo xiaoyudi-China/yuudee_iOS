@@ -11,7 +11,7 @@
 #import "ZJNRegisterSuccessAlertView.h"
 //#import "ZJNParentCenterViewController.h"
 #import "ZJNPerfectInfoViewController.h"
-#import <JPUSHService.h>
+//#import <JPUSHService.h>
 @interface ZJNRegisterSetPasswordViewController ()<UITextFieldDelegate>
 //顶部label
 @property (nonatomic ,strong)UILabel              *titleLabel;
@@ -131,9 +131,9 @@
             model.chilPhoto = data[@"data"][@"chilPhoto"];
             [[ZJNTool shareManager] loginWithModel:model];
             [[ZJNFMDBManager shareManager] addCurrentUserInfoWithModel:model];
-            [JPUSHService setAlias:model.id completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
-                NSLog(@"rescode: %ld, \ntags: %@, \nalias: %@\n", (long)iResCode, @"tag" , iAlias);
-            } seq:0];
+//            [JPUSHService setAlias:model.id completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
+//                NSLog(@"rescode: %ld, \ntags: %@, \nalias: %@\n", (long)iResCode, @"tag" , iAlias);
+//            } seq:0];
             ZJNPerfectInfoViewController *viewC = [[ZJNPerfectInfoViewController alloc]init];
             viewC.pushFrom = @"register";
             [self.navigationController pushViewController:viewC animated:YES];

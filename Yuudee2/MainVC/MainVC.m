@@ -22,7 +22,7 @@
 #import "AppDelegate.h"
 #import "MCXLVC.h"
 #import "JZFJCSVC.h"
-#import "JPUSHService.h"
+//#import "JPUSHService.h"
 //家长中心
 #import "ZJNParentCenterViewController.h"
 #define imageView_W AdFloat(240)
@@ -309,9 +309,9 @@
                 if (self.netState == 1 && !self.dissVC) {
                     [[ZJNFMDBManager shareManager] deleteCurrentUserInfoWithUserId:[[ZJNTool shareManager] getUserId]];
                     [[ZJNTool shareManager] logout];
-                    [JPUSHService deleteAlias:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
-                        NSLog(@"rescode: %ld, \ntags: %@, \nalias: %@\n", (long)iResCode, @"tag" , iAlias);
-                    } seq:0];
+//                    [JPUSHService deleteAlias:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
+//                        NSLog(@"rescode: %ld, \ntags: %@, \nalias: %@\n", (long)iResCode, @"tag" , iAlias);
+//                    } seq:0];
                     AppDelegate * delegate = (id)[UIApplication sharedApplication].delegate;
                     delegate.window.rootViewController = [[ZJNNavigationController alloc] initWithRootViewController:[ZJNLoginAndRegisterViewController new]];
                 }

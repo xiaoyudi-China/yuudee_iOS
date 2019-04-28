@@ -1,7 +1,7 @@
 platform:ios,'8.0'
 target 'Yuudee2'do
 use_frameworks!
-pod 'JPush'
+#pod 'JPush'
 pod 'FMDB'
 pod 'Masonry'
 pod 'MJRefresh'

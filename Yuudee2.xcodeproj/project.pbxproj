@@ -284,7 +284,6 @@
 		E35F1E36212E8BCA004D4706 /* Yuudee2UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E35F1E35212E8BCA004D4706 /* Yuudee2UITests.m */; };
 		E35F1E48212E9876004D4706 /* YuudeeConst.m in Sources */ = {isa = PBXBuildFile; fileRef = E35F1E47212E9876004D4706 /* YuudeeConst.m */; };
 		E35F1E4C212EA041004D4706 /* ZJNRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E35F1E4B212EA041004D4706 /* ZJNRequestManager.m */; };
-		E365022221A56FD000225E35 /* AppDelegate+JPush.m in Sources */ = {isa = PBXBuildFile; fileRef = E365022021A56FCF00225E35 /* AppDelegate+JPush.m */; };
 		E36D93FB214F83160084DFA0 /* ZJNWeChatQRCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E36D93FA214F83160084DFA0 /* ZJNWeChatQRCodeView.m */; };
 		E383B518215B38C900949B94 /* ZJNTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E383B517215B38C900949B94 /* ZJNTextTableViewCell.m */; };
 		E39A01662192D94E004822EF /* ZJNDayHistoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E39A01652192D94E004822EF /* ZJNDayHistoryModel.m */; };
@@ -743,8 +742,6 @@
 		E35F1E47212E9876004D4706 /* YuudeeConst.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YuudeeConst.m; sourceTree = "<group>"; };
 		E35F1E4A212EA041004D4706 /* ZJNRequestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJNRequestManager.h; sourceTree = "<group>"; };
 		E35F1E4B212EA041004D4706 /* ZJNRequestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNRequestManager.m; sourceTree = "<group>"; };
-		E365022021A56FCF00225E35 /* AppDelegate+JPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+JPush.m"; sourceTree = "<group>"; };
-		E365022121A56FD000225E35 /* AppDelegate+JPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+JPush.h"; sourceTree = "<group>"; };
 		E36D93F9214F83160084DFA0 /* ZJNWeChatQRCodeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJNWeChatQRCodeView.h; sourceTree = "<group>"; };
 		E36D93FA214F83160084DFA0 /* ZJNWeChatQRCodeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNWeChatQRCodeView.m; sourceTree = "<group>"; };
 		E383B516215B38C900949B94 /* ZJNTextTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJNTextTableViewCell.h; sourceTree = "<group>"; };
@@ -1789,8 +1786,6 @@
 		E35F1E4E212EBFF2004D4706 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				E365022121A56FD000225E35 /* AppDelegate+JPush.h */,
-				E365022021A56FCF00225E35 /* AppDelegate+JPush.m */,
 				E3F4B7DB21A6BE6900DC7805 /* AppDelegate+UShare.h */,
 				E3F4B7DC21A6BE6900DC7805 /* AppDelegate+UShare.m */,
 				E3136FA6212FB05C00770D02 /* UIView+ZJNCategory.h */,
@@ -2292,7 +2287,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Yuudee2/Pods-Yuudee2-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Yuudee2/Pods-Yuudee2-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/BRPickerView/BRPickerView.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
@@ -2319,7 +2314,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Yuudee2/Pods-Yuudee2-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Yuudee2/Pods-Yuudee2-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2424,7 +2419,6 @@
 				198C68A021A25C17001735C9 /* XHLaunchAdDownloader.m in Sources */,
 				E3EF7A5B21465C3A00814F4B /* MQVerCodeImageView.m in Sources */,
 				E32FEE51214F44C10008B2B8 /* ZJNPersonCircleView.m in Sources */,
-				E365022221A56FD000225E35 /* AppDelegate+JPush.m in Sources */,
 				198C689E21A25C17001735C9 /* XHLaunchAd.m in Sources */,
 				1966F0A02170AE31009ED508 /* GZPTipView.m in Sources */,
 				19C01FF4215E2D18001B9874 /* ZLSpreadView.m in Sources */,

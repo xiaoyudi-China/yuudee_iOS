@@ -7,7 +7,7 @@
 //
 
 #import "ZJNRequestManager.h"
-#import <JPUSHService.h>
+//#import <JPUSHService.h>
 @implementation ZJNRequestManager
 static ZJNRequestManager *manager = nil;
 +(ZJNRequestManager *)sharedManager{
@@ -82,9 +82,9 @@ static ZJNRequestManager *manager = nil;
             //退出登录时，清空用户相关信息
             [[ZJNFMDBManager shareManager] deleteCurrentUserInfoWithUserId:[[ZJNTool shareManager] getUserId]];
             [[ZJNTool shareManager] logout];
-            [JPUSHService deleteAlias:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
-                NSLog(@"rescode: %ld, \ntags: %@, \nalias: %@\n", (long)iResCode, @"tag" , iAlias);
-            } seq:0];
+//            [JPUSHService deleteAlias:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
+//                NSLog(@"rescode: %ld, \ntags: %@, \nalias: %@\n", (long)iResCode, @"tag" , iAlias);
+//            } seq:0];
             AppDelegate * delegate = (id)[UIApplication sharedApplication].delegate;
             delegate.window.rootViewController = [[ZJNNavigationController alloc] initWithRootViewController:[ZJNLoginAndRegisterViewController new]];
             //这里就不return了

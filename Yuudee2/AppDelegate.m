@@ -11,7 +11,7 @@
 #import "IQKeyboardManager.h"
 #import "ZJNNavigationController.h"
 #import "ZJNLoginAndRegisterViewController.h"
-#import "AppDelegate+JPush.h"
+//#import "AppDelegate+JPush.h"
 #import "AppDelegate+UShare.h"
 #import <objc/runtime.h>
 #import <UMCommon/UMCommon.h>
@@ -41,7 +41,7 @@
     //友盟分享
     [self configUShare];
     // 极光推送
-    [self configJPushWithLaunchOptions:launchOptions appKey:kJPushAppKey channel:kJPushChannel apsForProduction:NO advertisingId:nil];
+//    [self configJPushWithLaunchOptions:launchOptions appKey:kJPushAppKey channel:kJPushChannel apsForProduction:NO advertisingId:nil];
     
     if ([[ZJNTool shareManager] isLogin]) {
         ZJNNavigationController *nav = [[ZJNNavigationController alloc]initWithRootViewController:[MainVC new]];
