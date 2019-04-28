@@ -59,6 +59,18 @@
 //
 //    NSLog(@"%@",array);
     // Override point for customization after application launch.
+    
+#warning 临时添加
+#if !TARGET_IPHONE_SIMULATOR
+    NSArray *PATHS = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [PATHS objectAtIndex:0];
+    setenv("GCOV_PREFIX", [documentsDirectory cStringUsingEncoding:NSUTF8StringEncoding], 1);
+    setenv("GCOV_PREFIX_STRIP", "13", 1);
+    
+#endif
+    extern void __gcov_flush(void);
+    __gcov_flush();
+    
     return YES;
 }
 

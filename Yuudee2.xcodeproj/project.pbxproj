@@ -1293,7 +1293,7 @@
 			path = "句子成组";
 			sourceTree = "<group>";
 		};
-		3AF413422272978D00C18E1B /* OtherTests */ = {
+		3A3554F622757E4E00758085 /* OtherTests */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -1726,8 +1726,8 @@
 				3AF413432272978E00C18E1B /* ParentCenterTests */,
 				3AF413442272978E00C18E1B /* BasicClassTests */,
 				3AF413462272978E00C18E1B /* LoginAndRegisterTests */,
+				3A3554F622757E4E00758085 /* OtherTests */,
 				3AF413452272978E00C18E1B /* MainVCTests */,
-				3AF413422272978D00C18E1B /* OtherTests */,
 				E35F1E2A212E8BCA004D4706 /* Yuudee2Tests.m */,
 				E35F1E2C212E8BCA004D4706 /* Info.plist */,
 			);
@@ -1991,6 +1991,7 @@
 				E35F1E0C212E8BC8004D4706 /* Resources */,
 				E3CAC9B021532F1A00C7AAB9 /* Embed Frameworks */,
 				4678B8F1FF2007C48FEA9355 /* [CP] Embed Pods Frameworks */,
+				3A3554F7227582FE00758085 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -2280,6 +2281,23 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		3A3554F7227582FE00758085 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nPods/XcodeCoverage/exportenv.sh\n";
 		};
 		4678B8F1FF2007C48FEA9355 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2665,6 +2683,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Yuudee2/SupportFiles/GZP/Libs",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Yuudee2/SupportFiles/PrefixHeader.pch";
 				INFOPLIST_FILE = Yuudee2/Info.plist;
@@ -2697,6 +2717,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Yuudee2/SupportFiles/GZP/Libs",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Yuudee2/SupportFiles/PrefixHeader.pch";
 				INFOPLIST_FILE = Yuudee2/Info.plist;

@@ -19,4 +19,5 @@ pod 'WebViewJavascriptBridge'
 pod 'UMCCommon'
 pod 'UMCSecurityPlugins'
 pod 'UMCAnalytics'
+pod 'XcodeCoverage'
 end

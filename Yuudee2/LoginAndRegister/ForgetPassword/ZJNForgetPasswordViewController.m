@@ -412,8 +412,11 @@
     [self.navigationController pushViewController:listVC animated:YES];
 }
 
+- (void)testFunction{
+     [self viewDidLoad];
+}
+
 - (void)testUpdatePhoneIsRegister:(NSString *)phoneNum districeId:(NSInteger)code success:(void (^)(id))success failure:(void (^)(NSError *))failure{
-    [self viewDidLoad];
     self.success = success;
     self.failure = failure;
     self.areaId = code;
