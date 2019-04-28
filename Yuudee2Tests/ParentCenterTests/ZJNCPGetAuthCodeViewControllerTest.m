@@ -36,24 +36,23 @@
 }
 
 - (void)testEfficacy{
-    #warning 错误注释
-//    XCTestExpectation *expectation = [self expectationWithDescription:@"..."];
-//    ZJNCPGetAuthCodeViewController *vc = [[ZJNCPGetAuthCodeViewController alloc]init];
-//    [vc testEfficacyPhoneNum:@"13661316354" phoneCode:@"1234" districeId:1 success:^(id json) {
-//        [expectation fulfill];
-//        XCTAssertNotNil(json, @"json 对象不为空");
-//        if ([[json[@"code"] stringValue] isEqualToString:@"200"]) {
-//            XCTAssertTrue(YES, @"接口请求成功");
-//        }else{
-//            XCTAssertFalse(NO, @"接口请求失败");
-//        }
-//    } failure:^(NSError *error) {
-//        [expectation fulfill];
-//        XCTAssertNotNil(error, @"error 不为空");
-//    }];
-//    [self waitForExpectationsWithTimeout:30.f handler:^(NSError * _Nullable error) {
-//        NSLog(@"...");
-//    }];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"..."];
+    ZJNCPGetAuthCodeViewController *vc = [[ZJNCPGetAuthCodeViewController alloc]init];
+    [vc testEfficacyPhoneNum:@"13661316354" phoneCode:@"1234" districeId:1 success:^(id json) {
+        [expectation fulfill];
+        XCTAssertNotNil(json, @"json 对象不为空");
+        if ([[json[@"code"] stringValue] isEqualToString:@"200"]) {
+            XCTAssertTrue(YES, @"接口请求成功");
+        }else{
+            XCTAssertFalse(NO, @"接口请求失败");
+        }
+    } failure:^(NSError *error) {
+        [expectation fulfill];
+        XCTAssertNotNil(error, @"error 不为空");
+    }];
+    [self waitForExpectationsWithTimeout:30.f handler:^(NSError * _Nullable error) {
+        NSLog(@"...");
+    }];
 }
 
 @end
