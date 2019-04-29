@@ -1009,27 +1009,78 @@
 }
 
 - (void)testFunction {
+    
+    [self testData];
     [self viewDidLoad];
+    
+    self.hasGetProgress = YES;
     UIButton *btn1 = [self.view viewWithTag:10];
-    [self imageClick:btn1];
+    for (int a=0; a<3; a++) {
+        self.mcNum = 10*(a+1);
+        [self imageClick:btn1];
+    }
+    
     UIButton *btn2 = [self.view viewWithTag:11];
-    [self imageClick:btn2];
+    self.latest = 300;
+    for (int a=0; a<2; a++) {
+        self.mcNum = 10*(a+1);
+        [self imageClick:btn2];
+    }
+    
     UIButton *btn3 = [self.view viewWithTag:12];
-    [self imageClick:btn3];
+    self.mcNum = 30;
+    
+    for (int a =0; a<4; a++) {
+        self.latest = 100*(a+3);
+        [self imageClick:btn3];
+    }
+    
     [self parentsClick];
+    [self move];
+    [self sureClick];
+    [self ImageSpring:[[UIImageView alloc] init]];
+    [self gray2];
+    [self gray3];
+    [self light2];
+    [self light3];
+    [self fillLatest:@[] andData:nil andList:nil];
 }
 
+- (void)testData {
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"MainVC_mingci" ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:path options:NSDataReadingMappedIfSafe error:nil];
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+    NSMutableArray *helpTimes = [NSMutableArray array];
+    NSMutableArray *trainArr = [NSMutableArray array];
+    NSMutableArray *testArr = [NSMutableArray array];
+    NSMutableArray *yyTestArr = [NSMutableArray array];
+    
+    for (NSDictionary * item in dict[@"nounTraining"]) {
+        [trainArr addObject:[GZPModel setModelWithDic:item]];
+    }
+    for (NSDictionary * item in dict[@"nounTest"]) {
+        [testArr addObject:[GZPModel setModelWithDic:item]];
+    }
+    for (NSDictionary * item in dict[@"nounSense"]) {
+        [yyTestArr addObject:[GZPModel setModelWithDic:item]];
+    }
+    [helpTimes addObject:[NSString stringWithFormat:@"%@",dict[@"time"][@"helpTime"]]];
+    
+    self.DCHelpTime = helpTimes;
+    self.DCTrainArr = trainArr;
+    self.DCTestArr = testArr;
+}
 
-- (void)testRequestServerToken:(NSString *)token
-                       success:(void (^) (id json))success
-                       failure:(void (^)(NSError *error))failure{
-#warning 单元测试
+//- (void)testRequestServerToken:(NSString *)token
+//                       success:(void (^) (id json))success
+//                       failure:(void (^)(NSError *error))failure{
 //    self.success = success;
 //    self.failure = failure;
 //    self.testToken = token;
-//    
-//    [self viewDidLoad];
-//    [self viewWillAppear:YES];
+//
+//    [self HTTPMC];
+////    [self viewDidLoad];
+////    [self viewWillAppear:YES];
 //
 //    UIButton *btn1 = [self.view viewWithTag:10];
 //    [self imageClick:btn1];
@@ -1038,8 +1089,8 @@
 //    UIButton *btn3 = [self.view viewWithTag:12];
 //    [self imageClick:btn3];
 //    [self parentsClick];
-
-}
+//
+//}
 
 
 

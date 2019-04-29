@@ -36,14 +36,15 @@
 }
 
 - (void)testMainVC {
-    MainVC *mainVC = [[MainVC alloc] init];
-    [mainVC testFunction];
+    MainVC *vc = [[MainVC alloc] init];
+    [vc testFunction];
+    
 }
 
 - (void)testRequestServer {
 //    XCTestExpectation *expectation = [self expectationWithDescription:@"..."];
 //    MainVC *vc = [[MainVC alloc] init];
-//    [vc testRequestServerToken:@"QUU5WiL3zxi8KRIktLIX0A==" success:^(id json) {
+//    [vc testRequestServerToken:@"eGK5ZCXQgxeQ8n3OZxJHA==" success:^(id json) {
 //        [expectation fulfill];
 //        XCTAssertNotNil(json, @"json 对象不为空");
 //        if ([[json[@"code"] stringValue] isEqualToString:@"200"]) {
