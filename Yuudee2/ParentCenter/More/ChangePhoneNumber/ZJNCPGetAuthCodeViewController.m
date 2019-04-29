@@ -161,6 +161,10 @@
 
 - (void)testEfficacyPhoneNum:(NSString *)phoneNum phoneCode:(NSString *)code districeId:(NSInteger)disId success:(void (^)(id))success failure:(void (^)(NSError *))failure{
     [self viewDidLoad];
+    
+    [self getCode];
+    [self EditChanged:self.getCodeTextField];
+    
     self.success = success;
     self.failure = failure;
     self.getCodeTextField.text = code;

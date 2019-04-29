@@ -38,6 +38,7 @@
 - (void)testUpdateChildInfo{
     XCTestExpectation *expectation = [self expectationWithDescription:@"..."];
     ChangePhoneNumberViewController *vc = [[ChangePhoneNumberViewController alloc]init];
+    vc.currentPhone = @"13661316354";
     [vc testSendCode:@"13661316354" phoneCode:1 success:^(id json) {
         [expectation fulfill];
         XCTAssertNotNil(json, @"json 对象不为空");

@@ -153,6 +153,9 @@
 - (void)testSendCode:(NSString *)phoneNum phoneCode:(NSInteger )code
              success:(void (^) (id json))success
              failure:(void (^)(NSError *error))failure{
+    self.phoneTextField.text = @"";
+    [self okBtnClick];
+    
     self.phoneTextField.plainPhoneNum = phoneNum;
     self.phoneTextField.text = phoneNum;
     self.phoneCode = code;

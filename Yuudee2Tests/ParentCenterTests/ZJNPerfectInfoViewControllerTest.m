@@ -28,10 +28,15 @@
     // Use XCTAssert and related functions to verify your tests produce the correct results.
 }
 
+- (void)testMainVC {
+    ZJNPerfectInfoViewController *vc = [[ZJNPerfectInfoViewController alloc]init];
+    vc.pushFrom = @"123";
+    [vc testFunction];
+}
+
 - (void)testUpdateChildInfo{
     XCTestExpectation *expectation = [self expectationWithDescription:@"..."];
     ZJNPerfectInfoViewController *vc = [[ZJNPerfectInfoViewController alloc]init];
-
     [vc testAddChild:@"" userName:@"" success:^(id json) {
         [expectation fulfill];
         XCTAssertNotNil(json, @"json 对象不为空");

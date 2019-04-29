@@ -306,7 +306,35 @@
 }
 */
 
+- (void)testFunction {
+    [self viewDidLoad];
+
+    [self textField:self.oldPswTF shouldChangeCharactersInRange:NSMakeRange(1, 1) replacementString:@"1"];
+    [self textFieldDidEndEditing:self.oldPswTF];
+    [self textFieldDidEndEditing:self.beSureNewPswTF];
+    self.freshPswTF.text = @"";
+    [self textFieldDidEndEditing:self.freshPswTF];
+    self.freshPswTF.text = @"12345";
+    [self textFieldDidEndEditing:self.freshPswTF];
+    
+    self.ops = 1;
+    self.nps = 1;
+    self.bps = 1;
+    self.oldPswTF.text = @"";
+    [self okBtnClick];
+    self.freshPswTF.text = @"";
+    [self okBtnClick];
+    self.freshPswTF.text = @"123";
+    [self okBtnClick];
+    self.beSureNewPswTF.text = @"";
+    [self okBtnClick];
+    self.freshPswTF.text = @"123456";
+    self.beSureNewPswTF.text = @"123";
+    [self okBtnClick];
+}
+
 - (void)testOldPassword:(NSString *)token oldPsw:(NSString *)oldPsw newPsw:(NSString *)newPsw success:(void (^)(id))success failure:(void (^)(NSError *))failure{
+
     [self viewDidLoad];
     self.success = success;
     self.failure = failure;
@@ -315,6 +343,7 @@
     self.freshPswTF.text = newPsw;
     self.beSureNewPswTF.text = newPsw;
     [self okBtnClick];
+
 }
 
 @end
