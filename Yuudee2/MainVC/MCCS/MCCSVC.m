@@ -51,10 +51,12 @@
 
 @property(nonatomic,assign)BOOL dissVC; //页面是否消失了,否则不提交答题进度了
 @property(nonatomic,assign)BOOL overCourse; //标识课件各种操作已完成,可以跳转了
-//单元测试
+
+/** 单元测试*/
 @property (nonatomic, copy) void (^success) (id json);
 @property (nonatomic, copy) void (^failure) (NSError *error);
 @property (nonatomic, copy) NSString *testToken;
+@property (nonatomic) BOOL isTest;
 
 @end
 
@@ -256,6 +258,9 @@
     __weak typeof(self)weakSelf = self;
 
     GZPLabel * label = (id)[huaBan viewWithTag:huaBan.tag+20];
+    if (self.isTest) {//单元测试
+        label.text = @"汽车1";
+    }
     if ([label.text isEqualToString:self.model.cardColorChar]) { //点击的卡片为第一个正确的卡片
         [self.circleView stop];
         if ([self.isPass isEqualToString:@"1"]) {
@@ -716,6 +721,11 @@
     UIView *view = [self.view viewWithTag:10];
     self.hasRight1 = YES;
     self.isPass = @"1";
+    self.isTest = YES;
+    
+    _model.cardColorChar = @"汽车1";
+    [self huaBanClick:[view gestureRecognizers][0]];
+    _model.cardColorChar = @"汽车";
     [self huaBanClick:[view gestureRecognizers][0]];
 
     [self Gogo];

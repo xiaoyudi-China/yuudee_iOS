@@ -52,7 +52,8 @@
 
 @property(nonatomic,assign)BOOL dissVC;
 @property(nonatomic,assign)BOOL overCourse; //标识课件各种操作已完成,可以跳转了
-
+/** 单元测试*/
+@property (nonatomic) BOOL isTest;
 @end
 
 @implementation MCYYCSVC
@@ -226,6 +227,9 @@
     __weak typeof(self)weakSelf = self;
 
     GZPLabel * label = (id)[huaBan viewWithTag:huaBan.tag+20];
+    if (self.isTest) {//单元测试
+        label.text = [NSString stringWithFormat:@"汽车%d",(int)(huaBan.tag-9)];
+    }
     if ([label.text isEqualToString:self.model.cardAdjectiveChar]) { //点击了第一个正确卡片
         [self.circleView stop];
         if ([self.isPass isEqualToString:@"1"]) {
@@ -567,10 +571,19 @@
 }
 - (void)testFunction {
     [self viewDidLoad];
-    UIView *view = [self.view viewWithTag:10];
     self.hasRight1 = YES;
     self.isPass = @"1";
-    [self huaBanClick:[view gestureRecognizers][0]];
+    self.isTest = YES;
+    for (int a =0 ; a<3; a++) {
+        UIView *view = [self.view viewWithTag:10+a];
+        if (a == 0) {
+            self.model.cardAdjectiveChar = @"汽车1";
+        }else if(a == 1) {
+            self.model.cardAdjectiveChar = @"汽车2";
+            self.model.cardNounChar = @"汽车2";
+        }
+        [self huaBanClick:[view gestureRecognizers][0]];
+    }
     
     [self Gogo];
     [self overPlay];

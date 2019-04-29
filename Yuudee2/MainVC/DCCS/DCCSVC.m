@@ -54,6 +54,8 @@
 
 @property(nonatomic,assign)BOOL dissVC;
 @property(nonatomic,assign)BOOL overCourse; //标识课件各种操作已完成,可以跳转了
+/** 单元测试*/
+@property (nonatomic) BOOL isTest;
 
 @end
 
@@ -285,6 +287,9 @@
 {
     UIImageView * huaBan = (id)tap.view;
     GZPLabel * label = (id)[huaBan viewWithTag:20+huaBan.tag];
+    if (self.isTest) {//单元测试
+        label.text = @"汽车1";
+    }
     if ([label.text isEqualToString:_model.verbChar]) { //点击了第一个正确卡片
         [self.circleView stop];
         if ([self.isPass isEqualToString:@"1"]) {
@@ -650,12 +655,20 @@
 }
 
 - (void)testFunction {
+    [self viewDidLoad];
     self.hasRight1 = YES;
     self.isPass = @"1";
-    [self viewDidLoad];
+    self.isTest = YES;
     UIView *view = [self.view viewWithTag:10];
+    _model.verbChar = @"汽车1";
+    [self huaBanClick:[view gestureRecognizers][0]];
+    self.isPass = @"0";
+    _model.verbChar = @"汽车";
+    [self huaBanClick:[view gestureRecognizers][0]];
+    self.isPass = @"1";
     [self huaBanClick:[view gestureRecognizers][0]];
 
+    
     [self Gogo];
     [self overPlay];
     [self goNextVC];

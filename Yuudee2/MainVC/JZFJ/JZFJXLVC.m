@@ -48,6 +48,8 @@
 
 @property(nonatomic,assign)BOOL dissVC;
 @property(nonatomic,assign)BOOL overCourse; //标识课件各种操作已完成,可以跳转了
+/** 单元测试*/
+@property (nonatomic) BOOL isTest;
 
 @end
 
@@ -280,7 +282,9 @@
     GZPLabel * fit3 = (id)[self.view viewWithTag:302];
     GZPLabel * fit4 = (id)[self.view viewWithTag:303];
     GZPLabel * label = (id)[huaBan viewWithTag:huaBan.tag + 20];
-    
+    if (self.isTest) {//单元测试
+        label.text = [NSString stringWithFormat:@"汽车%d",(int)(huaBan.tag-9)];
+    }
     if ([label.text isEqualToString:self.model.cardOneChar]) { //点击了第一个正确的卡片
         if ([self.isPass isEqualToString:@"1"]) {
             self.stayTimeList = [NSString stringWithFormat:@"%.f,",[self.circleView stop]];
@@ -686,14 +690,10 @@
 
 - (void)testFunction {
     self.isPass = @"1";
-
     [self viewDidLoad];
+    self.isTest = YES;
     for (int a =0 ; a<4; a++) {
         UIView *view = [self.view viewWithTag:10+a];
-        UILabel *lab = [[UILabel alloc] init];
-        lab.text = [NSString stringWithFormat:@"汽车%d",a+1];
-        lab.tag = view.tag+20;
-        [view addSubview:lab];
         [self huaBanClick:[view gestureRecognizers][0]];
     }
     

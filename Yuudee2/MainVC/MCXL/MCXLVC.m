@@ -533,6 +533,9 @@
     [self action];
     [self homeClick];
     [self PostResult];
+    [self swingPen1];
+    [self swingPen2];
+    [self errorClick];
 }
 
 @end
