@@ -17,4 +17,6 @@
 @property (nonatomic ,assign)CGFloat maxX;
 @property (nonatomic ,assign)CGFloat maxY;
 @property (nonatomic ,strong)UIColor *dotColor;
+
+- (void)testFunction;
 @end
