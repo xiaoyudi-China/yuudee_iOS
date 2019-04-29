@@ -38,6 +38,7 @@
 - (void)testEfficacy{
     XCTestExpectation *expectation = [self expectationWithDescription:@"..."];
     ZJNCPGetAuthCodeViewController *vc = [[ZJNCPGetAuthCodeViewController alloc]init];
+    vc.areaCode = @"1234";
     [vc testEfficacyPhoneNum:@"13661316354" phoneCode:@"1234" districeId:1 success:^(id json) {
         [expectation fulfill];
         XCTAssertNotNil(json, @"json 对象不为空");

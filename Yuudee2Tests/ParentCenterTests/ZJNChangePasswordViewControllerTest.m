@@ -35,6 +35,11 @@
     }];
 }
 
+- (void)testMainVC {
+    ZJNChangePasswordViewController *vc = [[ZJNChangePasswordViewController alloc]init];
+    [vc testFunction];
+}
+
 - (void)testUpdateChildInfo{
     XCTestExpectation *expectation = [self expectationWithDescription:@"..."];
     ZJNChangePasswordViewController *vc = [[ZJNChangePasswordViewController alloc]init];

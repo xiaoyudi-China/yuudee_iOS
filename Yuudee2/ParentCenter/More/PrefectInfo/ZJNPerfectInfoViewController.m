@@ -570,6 +570,37 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"UITextFieldTextDidChangeNotification" object:nil];
 }
 
+- (void)testFunction {
+    [self viewDidLoad];
+    ZJNPerfectSaveInfoModel *model = [[ZJNPerfectSaveInfoModel alloc] init];
+    model.name = @"12";
+    model.birthdate = @"12";
+    model.address = @"12";
+    model.medical = @"12";
+    model.firstLanguage = @"12";
+    model.secondLanguage = @"12";
+    model.fatherCulture = @"12";
+    model.motherCulture = @"12";
+    model.trainingMethod = @"12";
+    
+    ZJNAreaModel *model1 = [[ZJNAreaModel alloc] init];
+    model1.areaid = @"areaid";
+    model1.areacode = @"areaid";
+    model1.areaname = @"areaid";
+    model1.level = @"areaid";
+    model1.citycode = @"areaid";
+    model1.center = @"areaid";
+    model1.parentid = @"areaid";
+        
+    for (int a = 0; a<10; a++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:a inSection:0];
+        [self tableView:self.tableView heightForRowAtIndexPath:indexPath];
+        [self tableView:self.tableView cellForRowAtIndexPath:indexPath];
+        [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
+    }
+    
+}
+
 - (void)testAddChild:(NSString *)token userName:(NSString *)name success:(void (^)(id))success failure:(void (^)(NSError *))failure{
     [self viewDidLoad];
     self.success = success;
