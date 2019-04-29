@@ -387,10 +387,18 @@
 
 - (void)testFunctionWithDayModel:(ZJNDayHistoryModel *)model{
     self.dayModel = model;
+    [self tableView:self.tableView viewForHeaderInSection:0];
+    NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self tableView:self.tableView cellForRowAtIndexPath:path];
+    [self tableView:self.tableView heightForRowAtIndexPath:path];
 }
 
 - (void)testFunctionWithWeekModel:(ZJNWeekHistoryModel *)model{
     self.weekModel = model;
+    [self tableView:self.tableView viewForHeaderInSection:0];
+    NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self tableView:self.tableView cellForRowAtIndexPath:path];
+    [self tableView:self.tableView heightForRowAtIndexPath:path];
 }
 
 - (void)testFunctionWithMonthModel:(ZJNMonthHistoryModel *)model{
