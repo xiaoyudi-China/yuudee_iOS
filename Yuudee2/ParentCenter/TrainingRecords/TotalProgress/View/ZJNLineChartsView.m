@@ -272,4 +272,16 @@
 -(void)setDotColor:(UIColor *)dotColor{
     _dotColor = dotColor;
 }
+
+- (void)testFunction{
+    isFinish = NO;
+    self.xArr = @[@"第一周",@"第二周",@"第三周",@"第四周",@"第五周"];
+    self.yArr = @[@"50",@"100"];
+    self.xStr = @"测试正确率/百分比";
+    self.dotArr = @[@"2",@"2",@"2",@"2",@"2"];
+    [self layoutSubviews];
+    [self setUpXView];
+    [self setUpYView];
+    
+}
 @end
