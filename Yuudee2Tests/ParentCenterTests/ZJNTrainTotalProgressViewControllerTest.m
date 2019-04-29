@@ -36,7 +36,12 @@
 }
 
 - (void)testFunction{
-    ZJNTrainTotalProgressViewController *vc = [[ZJNTrainTotalProgressViewController alloc]init];
+    ZJNTotalModel *lastModel = [[ZJNTotalModel alloc]init];
+    lastModel.id = @"22";
+    lastModel.rate_all = @"33";
+    lastModel.learning_time = @"44";
+    lastModel.score = @"100";
+    ZJNTrainTotalProgressViewController *vc = [[ZJNTrainTotalProgressViewController alloc]initWithModelArray:@[lastModel,lastModel,lastModel] progress:1];
     [vc testFunction];
 }
 
