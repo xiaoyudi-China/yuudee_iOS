@@ -1,0 +1,641 @@
+
+{
+    "nounTraining": [
+        {
+            "startSlideshow": "http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png",
+            "cardTwoImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png",
+            "cardOneChar": "汽车",
+            "cardTwoChar": "汽车",
+            "cardThreeChar": "汽车",
+            "cardFourChar": "汽车",
+            "id": 41,
+            "wireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png",
+            "wireChar": "汽车",
+            "wireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/53a5f7ab65097961299bd564420c6d32.mp3",
+            "colorPenChar": "黑",
+            "colorPenRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/55d69cc18b4f27af501a4fbb50dbc755.mp3",
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/183f956e23f014fb5be01144bcb87f5f.png",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/6fcb52dba04a4d4e317ba7d87d0b9bfd.mp3",
+            "createTime": 1552443306000,
+            "updateTime": 1552443306000,
+            "states": "1",
+            "groupWord": "黑汽车"
+        },
+        {
+            "startSlideshow": "http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png",
+            "cardTwoImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png",
+            "id": 48,
+            "wireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/e9221156c701b9e659fcc4b0b6321c9d.png",
+            "wireChar": "球",
+            "wireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/5ba7451c3b2649954d2218fe7f74c4cf.mp3",
+            "colorPenChar": "白",
+            "colorPenRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/fbac6d62ea71ff4255078ee0b3d02662.mp3",
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/9dd0e9d1cdc23559e5820506c1688c18.png",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/835a0f32a628d289a462ee850af798bd.mp3",
+            "createTime": 1552443306000,
+            "updateTime": 1552443306000,
+            "states": "1",
+            "groupWord": "白球"
+        },
+        {
+            "id": 58,
+            "wireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/9ce628e2e43f7831f0e83847be55f847.png",
+            "wireChar": "衣服",
+            "wireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/e068561380c84f299e050fe177d9cb88.mp3",
+            "colorPenChar": "红",
+            "colorPenRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/8bb69b1e857f4bc9ee10375f54d8f456.mp3",
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/7862fc359f3d44a817df07e4a599c224.png",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/f644a7e0d5fedb53c512b92495ed97ef.mp3",
+            "createTime": 1552443306000,
+            "updateTime": 1552443306000,
+            "states": "1",
+            "groupWord": "红衣服"
+        },
+        {
+            "id": 17,
+            "wireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/4a1993fe430335594392da472c5f0813.png",
+            "wireChar": "猴",
+            "wireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/d8a1b29cd11aac5e8e27d0756b0d411f.mp3",
+            "colorPenChar": "灰",
+            "colorPenRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/431bc2c1aefb1ce4f7f8d7b1e0ce6221.mp3",
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/9eb77cf58827f1a5fe6e6b472fc32d2b.png",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/45237cb0fcfe481ce548a0f1775f0af4.mp3",
+            "createTime": 1552443306000,
+            "updateTime": 1552443306000,
+            "states": "1",
+            "groupWord": "灰猴"
+        },
+        {
+            "id": 43,
+            "wireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png",
+            "wireChar": "汽车",
+            "wireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/53a5f7ab65097961299bd564420c6d32.mp3",
+            "colorPenChar": "黄",
+            "colorPenRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/1c2434fe5ff0f32d3d3a9aac088a0b59.mp3",
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/8a8770d44474d2007fe22a23e481e7f2.png",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/9094b01d97e7b2e06bc0749087932aa5.mp3",
+            "createTime": 1552443306000,
+            "updateTime": 1552443306000,
+            "states": "1",
+            "groupWord": "黄汽车"
+        },
+        {
+            "id": 12,
+            "wireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/29eb65fbfd883a7a767e38302448fd68.png",
+            "wireChar": "鸟",
+            "wireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/96eac3c67022bb62132a18c5683b21bb.mp3",
+            "colorPenChar": "灰",
+            "colorPenRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/431bc2c1aefb1ce4f7f8d7b1e0ce6221.mp3",
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/eb6cf050087e7f9632998cac8b2cb62d.png",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/257135a30fa4df869de1985d712b08dc.mp3",
+            "createTime": 1553775984000,
+            "updateTime": 1553775984000,
+            "states": "1",
+            "groupWord": "灰鸟"
+        },
+        {
+            "id": 13,
+            "wireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/29eb65fbfd883a7a767e38302448fd68.png",
+            "wireChar": "鸟",
+            "wireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/96eac3c67022bb62132a18c5683b21bb.mp3",
+            "colorPenChar": "蓝",
+            "colorPenRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/a9ef9e501cd3f938a07adc3a898e081f.mp3",
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/b12959cba63219fde6b3a58adcbdd995.png",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/cb7d8b0770f6e124002d0f4536511a8d.mp3",
+            "createTime": 1553776000000,
+            "updateTime": 1553776000000,
+            "states": "1",
+            "groupWord": "蓝鸟"
+        },
+        {
+            "id": 1,
+            "wireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/fa3bdde9152b63fbc317298242a0ab5d.png",
+            "wireChar": "猫",
+            "wireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/4cf41ae09244e753963ca108955d041d.mp3",
+            "colorPenChar": "黑",
+            "colorPenRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/55d69cc18b4f27af501a4fbb50dbc755.mp3",
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/bcf56c9fa9e2021c3c1a447ce1a414aa.png",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/3445845df5f1095b1034090aaa2dfe32.mp3",
+            "createTime": 1552443765000,
+            "updateTime": 1552443765000,
+            "states": "1",
+            "groupWord": "黑猫"
+        },
+        {
+            "id": 33,
+            "wireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/90913ae3853cb8e06c599ffb479f89b7.png",
+            "wireChar": "蛋糕",
+            "wireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/6547a67caeae5087df4608edc636c79a.mp3",
+            "colorPenChar": "黄",
+            "colorPenRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/1c2434fe5ff0f32d3d3a9aac088a0b59.mp3",
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/8e718cc1d64c05bcebfe892328034da2.png",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/ee3b1decfbdf1503af2e92d15eb02efa.mp3",
+            "createTime": 1552443306000,
+            "updateTime": 1552443306000,
+            "states": "1",
+            "groupWord": "黄蛋糕"
+        },
+        {
+            "id": 10,
+            "wireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/29eb65fbfd883a7a767e38302448fd68.png",
+            "wireChar": "鸟",
+            "wireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/96eac3c67022bb62132a18c5683b21bb.mp3",
+            "colorPenChar": "白",
+            "colorPenRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/fbac6d62ea71ff4255078ee0b3d02662.mp3",
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/dae357d49aa29668dc82129d4e175d29.png",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/6f78c0d71ec5fe6911a9ba2ca4167dfd.mp3",
+            "createTime": 1553775955000,
+            "updateTime": 1553775955000,
+            "states": "1",
+            "groupWord": "白鸟"
+        }
+    ],
+    "time": {
+        "id": 1,
+        "topicType": 1,
+        "sort": 1,
+        "helpTime": 4,
+        "states": "1",
+        "createTime": 1552443269000,
+        "updateTime": 1553493785000
+    },
+    "nounTest": [
+        {
+            "startSlideshow": "http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png",
+            "cardTwoImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png",
+            "cardOneChar": "汽车",
+            "cardTwoChar": "汽车",
+            "cardThreeChar": "汽车",
+            "cardFourChar": "汽车",
+            
+            "id": 41,
+            "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/e63f44ac83e8583715011d7c0adcb255.png",
+            "cardColorChar": "黑",
+            "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/55d69cc18b4f27af501a4fbb50dbc755.mp3",
+            "fristAssistTime": 10,
+            "cardWireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png",
+            "cardWireChar": "汽车",
+            "cardWireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/53a5f7ab65097961299bd564420c6d32.mp3",
+            "secondAssistTime": 10,
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/183f956e23f014fb5be01144bcb87f5f.png",
+            "groupChar": "黑汽车",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/6fcb52dba04a4d4e317ba7d87d0b9bfd.mp3",
+            "createTime": 1552141320000,
+            "updateTime": 1552446028000,
+            "states": "1",
+            "list": [
+                {
+                    "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png",
+                    "cardColorChar": "汽车",
+                    "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/53a5f7ab65097961299bd564420c6d32.mp3",
+                    "assistTime": 10
+                },
+                {
+                    "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png",
+                    "cardColorChar": "汽车",
+                    "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/53a5f7ab65097961299bd564420c6d32.mp3",
+                    "assistTime": 10
+                },
+                {
+                    "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png",
+                    "cardColorChar": "汽车",
+                    "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/53a5f7ab65097961299bd564420c6d32.mp3",
+                    "assistTime": 10
+                },
+                {
+                    "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/e63f44ac83e8583715011d7c0adcb255.png",
+                    "cardColorChar": "黑",
+                    "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/55d69cc18b4f27af501a4fbb50dbc755.mp3",
+                    "assistTime": 10
+                }
+            ]
+        },
+        {
+            "id": 56,
+            "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/cbb374aba6949d90d51bba7a83cf5a92.png",
+            "cardColorChar": "灰",
+            "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/431bc2c1aefb1ce4f7f8d7b1e0ce6221.mp3",
+            "fristAssistTime": 10,
+            "cardWireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/9ce628e2e43f7831f0e83847be55f847.png",
+            "cardWireChar": "衣服",
+            "cardWireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/e068561380c84f299e050fe177d9cb88.mp3",
+            "secondAssistTime": 5,
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/df94ca35b6b56e463c51a7f4d834967f.png",
+            "groupChar": "灰衣服",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/a02b6c20ff2d5347c7992baf354602cc.mp3",
+            "createTime": 1553437320000,
+            "updateTime": null,
+            "states": "1",
+            "list": [
+                {
+                    "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/cbb374aba6949d90d51bba7a83cf5a92.png",
+                    "cardColorChar": "灰",
+                    "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/431bc2c1aefb1ce4f7f8d7b1e0ce6221.mp3",
+                    "assistTime": 10
+                },
+                {
+                    "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/9ce628e2e43f7831f0e83847be55f847.png",
+                    "cardColorChar": "衣服",
+                    "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/e068561380c84f299e050fe177d9cb88.mp3",
+                    "assistTime": 5
+                }
+            ]
+        },
+        {
+            "id": 20,
+            "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/fcd5482c1f4173903f03525cade0e69e.png",
+            "cardColorChar": "黄",
+            "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/1c2434fe5ff0f32d3d3a9aac088a0b59.mp3",
+            "fristAssistTime": 10,
+            "cardWireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/3cba640abd6aabddab15340e70e30a86.png",
+            "cardWireChar": "兔",
+            "cardWireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/af944df0e3d129eacfb0b2ec821b158c.mp3",
+            "secondAssistTime": 5,
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/5eef48d000641c84b41f30e3034174b1.png",
+            "groupChar": "黄兔",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/8ec9de0d5502ecb96dfa96076d8c1254.mp3",
+            "createTime": 1550326920000,
+            "updateTime": null,
+            "states": "1",
+            "list": [
+                {
+                    "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/3cba640abd6aabddab15340e70e30a86.png",
+                    "cardColorChar": "兔",
+                    "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/af944df0e3d129eacfb0b2ec821b158c.mp3",
+                    "assistTime": 5
+                },
+                {
+                    "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/fcd5482c1f4173903f03525cade0e69e.png",
+                    "cardColorChar": "黄",
+                    "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/1c2434fe5ff0f32d3d3a9aac088a0b59.mp3",
+                    "assistTime": 10
+                }
+            ]
+        },
+        {
+            "id": 51,
+            "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/32955fef861b3132b8b99038d1195b69.png",
+            "cardColorChar": "蓝",
+            "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/a9ef9e501cd3f938a07adc3a898e081f.mp3",
+            "fristAssistTime": 10,
+            "cardWireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/e9221156c701b9e659fcc4b0b6321c9d.png",
+            "cardWireChar": "球",
+            "cardWireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/5ba7451c3b2649954d2218fe7f74c4cf.mp3",
+            "secondAssistTime": 5,
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/7e91e13bb370491de7af5127074d0666.png",
+            "groupChar": "蓝球",
+            "groupRecord": "",
+            "createTime": 1553005320000,
+            "updateTime": null,
+            "states": "1",
+            "list": [
+                {
+                    "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/e9221156c701b9e659fcc4b0b6321c9d.png",
+                    "cardColorChar": "球",
+                    "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/5ba7451c3b2649954d2218fe7f74c4cf.mp3",
+                    "assistTime": 5
+                },
+                {
+                    "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/32955fef861b3132b8b99038d1195b69.png",
+                    "cardColorChar": "蓝",
+                    "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/a9ef9e501cd3f938a07adc3a898e081f.mp3",
+                    "assistTime": 10
+                }
+            ]
+        },
+        {
+            "id": 12,
+            "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/cbb374aba6949d90d51bba7a83cf5a92.png",
+            "cardColorChar": "灰",
+            "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/431bc2c1aefb1ce4f7f8d7b1e0ce6221.mp3",
+            "fristAssistTime": 10,
+            "cardWireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/29eb65fbfd883a7a767e38302448fd68.png",
+            "cardWireChar": "鸟",
+            "cardWireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/96eac3c67022bb62132a18c5683b21bb.mp3",
+            "secondAssistTime": 10,
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/eb6cf050087e7f9632998cac8b2cb62d.png",
+            "groupChar": "灰鸟",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/257135a30fa4df869de1985d712b08dc.mp3",
+            "createTime": 1549635720000,
+            "updateTime": 1553776075000,
+            "states": "1",
+            "list": [
+                {
+                    "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/cbb374aba6949d90d51bba7a83cf5a92.png",
+                    "cardColorChar": "灰",
+                    "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/431bc2c1aefb1ce4f7f8d7b1e0ce6221.mp3",
+                    "assistTime": 10
+                },
+                {
+                    "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/29eb65fbfd883a7a767e38302448fd68.png",
+                    "cardColorChar": "鸟",
+                    "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/96eac3c67022bb62132a18c5683b21bb.mp3",
+                    "assistTime": 10
+                }
+            ]
+        },
+        {
+            "id": 43,
+            "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/fcd5482c1f4173903f03525cade0e69e.png",
+            "cardColorChar": "黄",
+            "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/1c2434fe5ff0f32d3d3a9aac088a0b59.mp3",
+            "fristAssistTime": 10,
+            "cardWireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png",
+            "cardWireChar": "汽车",
+            "cardWireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/53a5f7ab65097961299bd564420c6d32.mp3",
+            "secondAssistTime": 5,
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/8a8770d44474d2007fe22a23e481e7f2.png",
+            "groupChar": "黄汽车",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/9094b01d97e7b2e06bc0749087932aa5.mp3",
+            "createTime": 1552314120000,
+            "updateTime": null,
+            "states": "1",
+            "list": [
+                {
+                    "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/fcd5482c1f4173903f03525cade0e69e.png",
+                    "cardColorChar": "黄",
+                    "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/1c2434fe5ff0f32d3d3a9aac088a0b59.mp3",
+                    "assistTime": 10
+                },
+                {
+                    "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png",
+                    "cardColorChar": "汽车",
+                    "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/53a5f7ab65097961299bd564420c6d32.mp3",
+                    "assistTime": 5
+                }
+            ]
+        },
+        {
+            "id": 11,
+            "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/fcd5482c1f4173903f03525cade0e69e.png",
+            "cardColorChar": "黄",
+            "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/1c2434fe5ff0f32d3d3a9aac088a0b59.mp3",
+            "fristAssistTime": 10,
+            "cardWireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/29eb65fbfd883a7a767e38302448fd68.png",
+            "cardWireChar": "鸟",
+            "cardWireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/96eac3c67022bb62132a18c5683b21bb.mp3",
+            "secondAssistTime": 10,
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/74b9166ed72e9e3ccebaea0b10e8a756.png",
+            "groupChar": "黄鸟",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/ff19381fcb543f9de9c030c172d43bf4.mp3",
+            "createTime": 1549549320000,
+            "updateTime": 1553776061000,
+            "states": "1",
+            "list": [
+                {
+                    "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/29eb65fbfd883a7a767e38302448fd68.png",
+                    "cardColorChar": "鸟",
+                    "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/96eac3c67022bb62132a18c5683b21bb.mp3",
+                    "assistTime": 10
+                },
+                {
+                    "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/fcd5482c1f4173903f03525cade0e69e.png",
+                    "cardColorChar": "黄",
+                    "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/1c2434fe5ff0f32d3d3a9aac088a0b59.mp3",
+                    "assistTime": 10
+                }
+            ]
+        },
+        {
+            "id": 23,
+            "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/1924bdf305773b67b70c06a11458fe50.png",
+            "cardColorChar": "红",
+            "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/8bb69b1e857f4bc9ee10375f54d8f456.mp3",
+            "fristAssistTime": 10,
+            "cardWireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/77666ffb2abdfad9268f976e625cb016.png",
+            "cardWireChar": "苹果",
+            "cardWireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/0318228ca79daeabd842dbd4524476e9.mp3",
+            "secondAssistTime": 5,
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/8cf171012996623d5ba3c20b9340abb3.png",
+            "groupChar": "红苹果",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/ec4146d0a9173808f82b9ef3b331a988.mp3",
+            "createTime": 1550586120000,
+            "updateTime": null,
+            "states": "1",
+            "list": [
+                {
+                    "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/1924bdf305773b67b70c06a11458fe50.png",
+                    "cardColorChar": "红",
+                    "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/8bb69b1e857f4bc9ee10375f54d8f456.mp3",
+                    "assistTime": 10
+                },
+                {
+                    "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/77666ffb2abdfad9268f976e625cb016.png",
+                    "cardColorChar": "苹果",
+                    "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/0318228ca79daeabd842dbd4524476e9.mp3",
+                    "assistTime": 5
+                }
+            ]
+        },
+        {
+            "id": 21,
+            "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/cbb374aba6949d90d51bba7a83cf5a92.png",
+            "cardColorChar": "灰",
+            "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/431bc2c1aefb1ce4f7f8d7b1e0ce6221.mp3",
+            "fristAssistTime": 10,
+            "cardWireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/3cba640abd6aabddab15340e70e30a86.png",
+            "cardWireChar": "兔",
+            "cardWireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/af944df0e3d129eacfb0b2ec821b158c.mp3",
+            "secondAssistTime": 5,
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/ca49ddb5fd3eed3225b7e74ab8e3119c.png",
+            "groupChar": "灰兔",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/f9a4a7dca93e8dd0fa0da672420bdb57.mp3",
+            "createTime": 1550413320000,
+            "updateTime": null,
+            "states": "1",
+            "list": [
+                {
+                    "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/3cba640abd6aabddab15340e70e30a86.png",
+                    "cardColorChar": "兔",
+                    "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/af944df0e3d129eacfb0b2ec821b158c.mp3",
+                    "assistTime": 5
+                },
+                {
+                    "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/cbb374aba6949d90d51bba7a83cf5a92.png",
+                    "cardColorChar": "灰",
+                    "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/431bc2c1aefb1ce4f7f8d7b1e0ce6221.mp3",
+                    "assistTime": 10
+                }
+            ]
+        },
+        {
+            "id": 44,
+            "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/cbb374aba6949d90d51bba7a83cf5a92.png",
+            "cardColorChar": "灰",
+            "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/431bc2c1aefb1ce4f7f8d7b1e0ce6221.mp3",
+            "fristAssistTime": 10,
+            "cardWireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png",
+            "cardWireChar": "汽车",
+            "cardWireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/53a5f7ab65097961299bd564420c6d32.mp3",
+            "secondAssistTime": 5,
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/c8c28f1193584d4ca3d60e95adce8b53.png",
+            "groupChar": "灰汽车",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/76b4d423366e31ace471dd06054a6285.mp3",
+            "createTime": 1552400520000,
+            "updateTime": null,
+            "states": "1",
+            "list": [
+                {
+                    "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/cbb374aba6949d90d51bba7a83cf5a92.png",
+                    "cardColorChar": "灰",
+                    "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/431bc2c1aefb1ce4f7f8d7b1e0ce6221.mp3",
+                    "assistTime": 10
+                },
+                {
+                    "cardColorImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png",
+                    "cardColorChar": "汽车",
+                    "cardColorRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/53a5f7ab65097961299bd564420c6d32.mp3",
+                    "assistTime": 5
+                }
+            ]
+        }
+    ],
+    "nounSense": [
+        {
+            "startSlideshow": "http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png",
+            "cardTwoImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png,http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png",
+            "id": 41,
+            "wireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png",
+            "wireChar": "汽车",
+            "wireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/53a5f7ab65097961299bd564420c6d32.mp3",
+            "colorPenChar": "黑",
+            "colorPenRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/55d69cc18b4f27af501a4fbb50dbc755.mp3",
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/183f956e23f014fb5be01144bcb87f5f.png",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/6fcb52dba04a4d4e317ba7d87d0b9bfd.mp3",
+            "createTime": 1552443306000,
+            "updateTime": 1552443306000,
+            "states": "1",
+            "groupWord": "黑汽车"
+        },
+        {
+            "id": 48,
+            "wireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/e9221156c701b9e659fcc4b0b6321c9d.png",
+            "wireChar": "球",
+            "wireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/5ba7451c3b2649954d2218fe7f74c4cf.mp3",
+            "colorPenChar": "白",
+            "colorPenRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/fbac6d62ea71ff4255078ee0b3d02662.mp3",
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/9dd0e9d1cdc23559e5820506c1688c18.png",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/835a0f32a628d289a462ee850af798bd.mp3",
+            "createTime": 1552443306000,
+            "updateTime": 1552443306000,
+            "states": "1",
+            "groupWord": "白球"
+        },
+        {
+            "id": 58,
+            "wireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/9ce628e2e43f7831f0e83847be55f847.png",
+            "wireChar": "衣服",
+            "wireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/e068561380c84f299e050fe177d9cb88.mp3",
+            "colorPenChar": "红",
+            "colorPenRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/8bb69b1e857f4bc9ee10375f54d8f456.mp3",
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/7862fc359f3d44a817df07e4a599c224.png",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/f644a7e0d5fedb53c512b92495ed97ef.mp3",
+            "createTime": 1552443306000,
+            "updateTime": 1552443306000,
+            "states": "1",
+            "groupWord": "红衣服"
+        },
+        {
+            "id": 17,
+            "wireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/4a1993fe430335594392da472c5f0813.png",
+            "wireChar": "猴",
+            "wireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/d8a1b29cd11aac5e8e27d0756b0d411f.mp3",
+            "colorPenChar": "灰",
+            "colorPenRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/431bc2c1aefb1ce4f7f8d7b1e0ce6221.mp3",
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/9eb77cf58827f1a5fe6e6b472fc32d2b.png",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/45237cb0fcfe481ce548a0f1775f0af4.mp3",
+            "createTime": 1552443306000,
+            "updateTime": 1552443306000,
+            "states": "1",
+            "groupWord": "灰猴"
+        },
+        {
+            "id": 43,
+            "wireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/b6cbd99d7e80b846e5cb5095b01e6ec9.png",
+            "wireChar": "汽车",
+            "wireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/53a5f7ab65097961299bd564420c6d32.mp3",
+            "colorPenChar": "黄",
+            "colorPenRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/1c2434fe5ff0f32d3d3a9aac088a0b59.mp3",
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/8a8770d44474d2007fe22a23e481e7f2.png",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/9094b01d97e7b2e06bc0749087932aa5.mp3",
+            "createTime": 1552443306000,
+            "updateTime": 1552443306000,
+            "states": "1",
+            "groupWord": "黄汽车"
+        },
+        {
+            "id": 12,
+            "wireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/29eb65fbfd883a7a767e38302448fd68.png",
+            "wireChar": "鸟",
+            "wireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/96eac3c67022bb62132a18c5683b21bb.mp3",
+            "colorPenChar": "灰",
+            "colorPenRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/431bc2c1aefb1ce4f7f8d7b1e0ce6221.mp3",
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/eb6cf050087e7f9632998cac8b2cb62d.png",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/257135a30fa4df869de1985d712b08dc.mp3",
+            "createTime": 1553775984000,
+            "updateTime": 1553775984000,
+            "states": "1",
+            "groupWord": "灰鸟"
+        },
+        {
+            "id": 13,
+            "wireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/29eb65fbfd883a7a767e38302448fd68.png",
+            "wireChar": "鸟",
+            "wireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/96eac3c67022bb62132a18c5683b21bb.mp3",
+            "colorPenChar": "蓝",
+            "colorPenRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/a9ef9e501cd3f938a07adc3a898e081f.mp3",
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/b12959cba63219fde6b3a58adcbdd995.png",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/cb7d8b0770f6e124002d0f4536511a8d.mp3",
+            "createTime": 1553776000000,
+            "updateTime": 1553776000000,
+            "states": "1",
+            "groupWord": "蓝鸟"
+        },
+        {
+            "id": 1,
+            "wireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/fa3bdde9152b63fbc317298242a0ab5d.png",
+            "wireChar": "猫",
+            "wireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/4cf41ae09244e753963ca108955d041d.mp3",
+            "colorPenChar": "黑",
+            "colorPenRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/55d69cc18b4f27af501a4fbb50dbc755.mp3",
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/bcf56c9fa9e2021c3c1a447ce1a414aa.png",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/3445845df5f1095b1034090aaa2dfe32.mp3",
+            "createTime": 1552443765000,
+            "updateTime": 1552443765000,
+            "states": "1",
+            "groupWord": "黑猫"
+        },
+        {
+            "id": 33,
+            "wireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/90913ae3853cb8e06c599ffb479f89b7.png",
+            "wireChar": "蛋糕",
+            "wireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/6547a67caeae5087df4608edc636c79a.mp3",
+            "colorPenChar": "黄",
+            "colorPenRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/1c2434fe5ff0f32d3d3a9aac088a0b59.mp3",
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/8e718cc1d64c05bcebfe892328034da2.png",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/ee3b1decfbdf1503af2e92d15eb02efa.mp3",
+            "createTime": 1552443306000,
+            "updateTime": 1552443306000,
+            "states": "1",
+            "groupWord": "黄蛋糕"
+        },
+        {
+            "id": 10,
+            "wireImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/29eb65fbfd883a7a767e38302448fd68.png",
+            "wireChar": "鸟",
+            "wireRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/96eac3c67022bb62132a18c5683b21bb.mp3",
+            "colorPenChar": "白",
+            "colorPenRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/fbac6d62ea71ff4255078ee0b3d02662.mp3",
+            "groupImage": "http://yuudee.oss-cn-beijing.aliyuncs.com/dae357d49aa29668dc82129d4e175d29.png",
+            "groupRecord": "http://yuudee.oss-cn-beijing.aliyuncs.com/6f78c0d71ec5fe6911a9ba2ca4167dfd.mp3",
+            "createTime": 1553775955000,
+            "updateTime": 1553775955000,
+            "states": "1",
+            "groupWord": "白鸟"
+        }
+    ]
+    
+}
+
+
+

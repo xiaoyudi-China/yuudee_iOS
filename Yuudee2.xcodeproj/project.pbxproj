@@ -226,6 +226,18 @@
 		3AF4136622729B7500C18E1B /* ZJNBasicViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF4136522729B7500C18E1B /* ZJNBasicViewControllerTest.m */; };
 		3AF4136822729B9300C18E1B /* ZJNNavigationControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF4136722729B9300C18E1B /* ZJNNavigationControllerTest.m */; };
 		3AFCF671227691F40036C607 /* ZJNStudyProgressViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCF670227691F40036C607 /* ZJNStudyProgressViewTest.m */; };
+		B4474ED422769F020014BBED /* MainVC_mingci.json in Resources */ = {isa = PBXBuildFile; fileRef = B4474ED322769F020014BBED /* MainVC_mingci.json */; };
+		B4474EE122769F170014BBED /* JZCZCSVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B4474ED622769F170014BBED /* JZCZCSVCTest.m */; };
+		B4474EE222769F170014BBED /* MCYYCSVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B4474ED722769F170014BBED /* MCYYCSVCTest.m */; };
+		B4474EE322769F170014BBED /* MCXLVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B4474ED822769F170014BBED /* MCXLVCTest.m */; };
+		B4474EE422769F170014BBED /* JZFJXLVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B4474ED922769F170014BBED /* JZFJXLVCTest.m */; };
+		B4474EE522769F170014BBED /* MainVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B4474EDA22769F170014BBED /* MainVCTest.m */; };
+		B4474EE622769F170014BBED /* DCCSVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B4474EDB22769F170014BBED /* DCCSVCTest.m */; };
+		B4474EE722769F170014BBED /* JZCZXLVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B4474EDC22769F170014BBED /* JZCZXLVCTest.m */; };
+		B4474EE822769F170014BBED /* GuoDuVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B4474EDD22769F170014BBED /* GuoDuVCTest.m */; };
+		B4474EE922769F170014BBED /* DCXLVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B4474EDE22769F170014BBED /* DCXLVCTest.m */; };
+		B4474EEA22769F170014BBED /* MCCSVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B4474EDF22769F170014BBED /* MCCSVCTest.m */; };
+		B4474EEB22769F170014BBED /* JZFJCSVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B4474EE022769F170014BBED /* JZFJCSVCTest.m */; };
 		E30823542239164700C86A25 /* ZJNProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E30823532239164700C86A25 /* ZJNProtocolViewController.m */; };
 		E312A49E2151E23300741582 /* ZJNTotalProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E312A49D2151E23300741582 /* ZJNTotalProgressView.m */; };
 		E3136FA8212FB05C00770D02 /* UIView+ZJNCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E3136FA7212FB05C00770D02 /* UIView+ZJNCategory.m */; };
@@ -626,6 +638,18 @@
 		3AF4136522729B7500C18E1B /* ZJNBasicViewControllerTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNBasicViewControllerTest.m; sourceTree = "<group>"; };
 		3AF4136722729B9300C18E1B /* ZJNNavigationControllerTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNNavigationControllerTest.m; sourceTree = "<group>"; };
 		3AFCF670227691F40036C607 /* ZJNStudyProgressViewTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNStudyProgressViewTest.m; sourceTree = "<group>"; };
+		B4474ED322769F020014BBED /* MainVC_mingci.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVC_mingci.json; sourceTree = "<group>"; };
+		B4474ED622769F170014BBED /* JZCZCSVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZCZCSVCTest.m; sourceTree = "<group>"; };
+		B4474ED722769F170014BBED /* MCYYCSVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCYYCSVCTest.m; sourceTree = "<group>"; };
+		B4474ED822769F170014BBED /* MCXLVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCXLVCTest.m; sourceTree = "<group>"; };
+		B4474ED922769F170014BBED /* JZFJXLVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZFJXLVCTest.m; sourceTree = "<group>"; };
+		B4474EDA22769F170014BBED /* MainVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVCTest.m; sourceTree = "<group>"; };
+		B4474EDB22769F170014BBED /* DCCSVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCCSVCTest.m; sourceTree = "<group>"; };
+		B4474EDC22769F170014BBED /* JZCZXLVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZCZXLVCTest.m; sourceTree = "<group>"; };
+		B4474EDD22769F170014BBED /* GuoDuVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuoDuVCTest.m; sourceTree = "<group>"; };
+		B4474EDE22769F170014BBED /* DCXLVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCXLVCTest.m; sourceTree = "<group>"; };
+		B4474EDF22769F170014BBED /* MCCSVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCCSVCTest.m; sourceTree = "<group>"; };
+		B4474EE022769F170014BBED /* JZFJCSVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZFJCSVCTest.m; sourceTree = "<group>"; };
 		E30823522239164700C86A25 /* ZJNProtocolViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJNProtocolViewController.h; sourceTree = "<group>"; };
 		E30823532239164700C86A25 /* ZJNProtocolViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNProtocolViewController.m; sourceTree = "<group>"; };
 		E312A49C2151E23300741582 /* ZJNTotalProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJNTotalProgressView.h; sourceTree = "<group>"; };
@@ -1340,13 +1364,6 @@
 			path = BasicClassTests;
 			sourceTree = "<group>";
 		};
-		3AF413452272978E00C18E1B /* MainVCTests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MainVCTests;
-			sourceTree = "<group>";
-		};
 		3AF413462272978E00C18E1B /* LoginAndRegisterTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1376,6 +1393,32 @@
 				02FEB5CEF7A521B295D79B9A /* Pods_Yuudee2.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B4474ED222769F020014BBED /* mainVC_json */ = {
+			isa = PBXGroup;
+			children = (
+				B4474ED322769F020014BBED /* MainVC_mingci.json */,
+			);
+			path = mainVC_json;
+			sourceTree = "<group>";
+		};
+		B4474ED522769F170014BBED /* MainVCTests */ = {
+			isa = PBXGroup;
+			children = (
+				B4474ED622769F170014BBED /* JZCZCSVCTest.m */,
+				B4474ED722769F170014BBED /* MCYYCSVCTest.m */,
+				B4474ED822769F170014BBED /* MCXLVCTest.m */,
+				B4474ED922769F170014BBED /* JZFJXLVCTest.m */,
+				B4474EDA22769F170014BBED /* MainVCTest.m */,
+				B4474EDB22769F170014BBED /* DCCSVCTest.m */,
+				B4474EDC22769F170014BBED /* JZCZXLVCTest.m */,
+				B4474EDD22769F170014BBED /* GuoDuVCTest.m */,
+				B4474EDE22769F170014BBED /* DCXLVCTest.m */,
+				B4474EDF22769F170014BBED /* MCCSVCTest.m */,
+				B4474EE022769F170014BBED /* JZFJCSVCTest.m */,
+			);
+			path = MainVCTests;
 			sourceTree = "<group>";
 		};
 		E2D427D1019F15CC9B2EFAA1 /* Pods */ = {
@@ -1735,11 +1778,11 @@
 		E35F1E29212E8BCA004D4706 /* Yuudee2Tests */ = {
 			isa = PBXGroup;
 			children = (
+				B4474ED522769F170014BBED /* MainVCTests */,
 				3AF413432272978E00C18E1B /* ParentCenterTests */,
 				3AF413442272978E00C18E1B /* BasicClassTests */,
 				3AF413462272978E00C18E1B /* LoginAndRegisterTests */,
 				3A3554F622757E4E00758085 /* OtherTests */,
-				3AF413452272978E00C18E1B /* MainVCTests */,
 				E35F1E2A212E8BCA004D4706 /* Yuudee2Tests.m */,
 				E35F1E2C212E8BCA004D4706 /* Info.plist */,
 			);
@@ -1764,6 +1807,7 @@
 				E35F1E1F212E8BCA004D4706 /* Info.plist */,
 				E32FEDBD2148BAFE0008B2B8 /* CityList.plist */,
 				E35F1E20212E8BCA004D4706 /* main.m */,
+				B4474ED222769F020014BBED /* mainVC_json */,
 			);
 			name = "系统文件";
 			sourceTree = "<group>";
@@ -2138,6 +2182,7 @@
 				191A90432175ED350037CD32 /* 女-饼干..MP3 in Resources */,
 				198C68A921A2B778001735C9 /* 女-通关成功.MP3 in Resources */,
 				191A8FE72175ED350037CD32 /* 男-蓝鸟.MP3 in Resources */,
+				B4474ED422769F020014BBED /* MainVC_mingci.json in Resources */,
 				191A90382175ED350037CD32 /* 女-黑猫.MP3 in Resources */,
 				19F6C90C21E8755A00C7487A /* qhw5.gif in Resources */,
 				191A90442175ED350037CD32 /* 女-男孩吃菜.MP3 in Resources */,
@@ -2505,26 +2550,37 @@
 				3AF4135C22729AF700C18E1B /* ZJNRegisterViewControllerTest.m in Sources */,
 				3AF4134C2272988A00C18E1B /* ZJNCPGetAuthCodeViewControllerTest.m in Sources */,
 				E35F1E2B212E8BCA004D4706 /* Yuudee2Tests.m in Sources */,
+				B4474EE422769F170014BBED /* JZFJXLVCTest.m in Sources */,
 				3AF41341227296CE00C18E1B /* ZJNChangePasswordViewControllerTest.m in Sources */,
 				3AF4136422729B5700C18E1B /* ZJNLoginAndRegisterViewControllerTest.m in Sources */,
 				3AF41354227298FD00C18E1B /* ZJNPCDIWKViewControllerTest.m in Sources */,
 				3AAAFCE922759E7A00FA48B8 /* ZJNRegisterBgViewControllerTest.m in Sources */,
 				3AF4136622729B7500C18E1B /* ZJNBasicViewControllerTest.m in Sources */,
 				3AF413562272990A00C18E1B /* ZJNABCWKViewControllerTest.m in Sources */,
+				B4474EE222769F170014BBED /* MCYYCSVCTest.m in Sources */,
 				3AF41352227298EE00C18E1B /* ZJNMainAssessmentReviewControllerTest.m in Sources */,
+				B4474EE722769F170014BBED /* JZCZXLVCTest.m in Sources */,
+				B4474EE922769F170014BBED /* DCXLVCTest.m in Sources */,
 				3AF4134E2272989800C18E1B /* ZJNPCPhoneViewControllerTest.m in Sources */,
 				3AF41350227298BE00C18E1B /* ZJNCPChangeSuccessViewControllerTest.m in Sources */,
 				3AF4135E22729B2000C18E1B /* ZJNProtocolViewControllerTest.m in Sources */,
+				B4474EEA22769F170014BBED /* MCCSVCTest.m in Sources */,
+				B4474EEB22769F170014BBED /* JZFJCSVCTest.m in Sources */,
+				B4474EE822769F170014BBED /* GuoDuVCTest.m in Sources */,
 				3AF4136822729B9300C18E1B /* ZJNNavigationControllerTest.m in Sources */,
 				3A3554FD22759ACB00758085 /* ViewControllerTest.m in Sources */,
 				3AF4136022729B3800C18E1B /* ZJNRegisterVerifyCodeViewControllerTest.m in Sources */,
 				3A153BDF2271E00F00E3C33B /* ZJNChangeNickNameViewControllerTest.m in Sources */,
 				3AFCF671227691F40036C607 /* ZJNStudyProgressViewTest.m in Sources */,
 				3A153BD32271A73A00E3C33B /* ZJNCPPutAuthCodeViewControllerTest.m in Sources */,
+				B4474EE322769F170014BBED /* MCXLVCTest.m in Sources */,
 				3AF4135A22729AE400C18E1B /* ZJNForgetPasswordViewControllerTest.m in Sources */,
+				B4474EE122769F170014BBED /* JZCZCSVCTest.m in Sources */,
 				3AF4136222729B4400C18E1B /* ZJNRegisterSetPasswordViewControllerTest.m in Sources */,
 				3AF413482272982E00C18E1B /* ZJNParentCenterViewControllerTest.m in Sources */,
 				3A153BE12271E69600E3C33B /* ZJNPerfectInfoViewControllerTest.m in Sources */,
+				B4474EE522769F170014BBED /* MainVCTest.m in Sources */,
+				B4474EE622769F170014BBED /* DCCSVCTest.m in Sources */,
 				3AF413582272992300C18E1B /* ZJNTrainTotalProgressViewControllerTest.m in Sources */,
 				3AF4134A2272987400C18E1B /* ChangePhoneNumberViewControllerTest.m in Sources */,
 			);
