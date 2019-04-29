@@ -10,4 +10,6 @@
 #import "ZJNDayHistoryModel.h"
 @interface ZJNStudyMoreView : UIView
 @property (nonatomic ,strong)DayListModel *model;
+
+- (void)testFunctionWithModel:(ZJNStudyModel *)model;
 @end

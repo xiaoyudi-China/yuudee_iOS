@@ -9,7 +9,7 @@
 #import "ZJNTrainTotalProgressViewController.h"
 #import "ZJNTotalProgressView.h"
 #import "ZJNChartsView.h"
-#import "ZJNTotalModel.h"
+
 @interface ZJNTrainTotalProgressViewController ()
 @property (nonatomic ,strong)UIImageView *bgImageView;
 @property (nonatomic ,strong)UIButton *backBtn;

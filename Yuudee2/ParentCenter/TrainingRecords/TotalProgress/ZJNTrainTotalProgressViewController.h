@@ -7,6 +7,7 @@
 //
 
 #import "ZJNBasicViewController.h"
+#import "ZJNTotalModel.h"
 
 @interface ZJNTrainTotalProgressViewController : ZJNBasicViewController
 

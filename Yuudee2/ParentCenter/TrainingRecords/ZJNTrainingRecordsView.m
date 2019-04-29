@@ -201,6 +201,7 @@
     
     ZJNStudyProgressView *view = [[ZJNStudyProgressView alloc]init];
     view.hidden = YES;
+    [self.tableView reloadData];
 }
 
 @end

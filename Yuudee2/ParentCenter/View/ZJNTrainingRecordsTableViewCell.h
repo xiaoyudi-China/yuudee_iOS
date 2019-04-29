@@ -16,4 +16,5 @@
 @property (nonatomic ,strong)UILabel *progressLabel;
 @property (nonatomic ,strong)UIProgressView *progressView;
 
+- (void)testFunction;
 @end

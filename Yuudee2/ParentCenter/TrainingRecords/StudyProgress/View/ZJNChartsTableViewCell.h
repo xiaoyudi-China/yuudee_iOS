@@ -10,4 +10,5 @@
 #import "ZJNLineChartsView.h"
 @interface ZJNChartsTableViewCell : UITableViewCell
 @property (nonatomic ,strong)ZJNLineChartsView *lineChartsView;
+
 @end

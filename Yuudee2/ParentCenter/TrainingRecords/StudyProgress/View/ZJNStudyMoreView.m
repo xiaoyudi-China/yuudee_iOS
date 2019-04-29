@@ -106,33 +106,6 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.model.dayResultList.count;
 }
-//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-//    return ScreenAdapter(25);
-//}
-//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-//    UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth(), ScreenAdapter(30))];
-//    UILabel *titleLabel = [UILabel createLabelWithTitle:@"" textColor:HexColor(textColor()) font:FontSize(13) textAlignment:NSTextAlignmentCenter numberOfLines:1];
-//    [bgView addSubview:titleLabel];
-//    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(bgView).offset(ScreenAdapter(40));
-//        make.bottom.equalTo(bgView);
-//
-//    }];
-//    UIView *dotView = [[UIView alloc]init];
-//    dotView.backgroundColor = HexColor(textColor());
-//    dotView.layer.cornerRadius = 2.5;
-//    dotView.layer.masksToBounds = YES;
-//    [bgView addSubview:dotView];
-//    [dotView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.centerY.equalTo(titleLabel);
-//        make.right.equalTo(titleLabel.mas_left).offset(-ScreenAdapter(10));
-//        make.size.mas_equalTo(CGSizeMake(ScreenAdapter(5), ScreenAdapter(5)));
-//    }];
-//    CGFloat studyTime = [self.model.studyTime floatValue];
-//    NSString *mTime = [NSString stringWithFormat:@"%.2f",studyTime/60.0];
-//    titleLabel.text = [NSString stringWithFormat:@"%@（学习时间%@分钟）",[NSString changeDateWithDateStr:[self.model.time integerValue]],mTime];
-//    return bgView;
-//}
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return ScreenAdapter(30);
@@ -170,12 +143,16 @@
 -(void)closeBtnClick{
     [self removeFromSuperview];
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+- (void)testFunctionWithModel:(ZJNStudyModel *)model{
+    self.model.dayResultList = @[model,model];
+    self.model.studyTime = @"18878977700";
+    self.model.time = @"19878998000";
+    [self.tableView reloadData];
+    NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self tableView:self.tableView heightForRowAtIndexPath:path];
+    [self tableView:self.tableView cellForRowAtIndexPath:path];
+    [self closeBtnClick];
 }
-*/
 
 @end
