@@ -13,4 +13,7 @@
 @property(nonatomic,assign)NSInteger progressNum;
 @property(nonatomic,strong)NSMutableArray * yyTestArr;
 
+- (void)testRequestServerToken:(NSString *)token
+                       success:(void (^) (id json))success
+                       failure:(void (^)(NSError *error))failure;
 @end

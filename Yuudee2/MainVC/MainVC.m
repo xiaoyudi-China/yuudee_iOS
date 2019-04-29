@@ -239,6 +239,9 @@
     }
     [[YuudeeRequest shareManager] request:Post url:IsComplete paras:paras completion:^(id response, NSError *error) {
         if ([response[@"code"] isEqual:@200]) {
+            if (self.success) {
+                self.success(response);
+            }
             if ([response[@"data"][@"IsRemind"] isEqualToString:@"1"]) { //未完善儿童信息
                 GZPTipView * view = [[GZPTipView alloc] initWithFrame:self.view.bounds title:@"完善训练儿童信息" block:^(NSInteger type, GZPTipView *view) {
                     if (type == 1){
@@ -285,9 +288,7 @@
                     }
                 }
             }
-            if (self.success) {
-                self.success(response);
-            }
+
         }else {
             if (self.failure) {
                 self.failure(error);
@@ -1045,6 +1046,7 @@
     [self light2];
     [self light3];
     [self fillLatest:@[] andData:nil andList:nil];
+    
 }
 
 - (void)testData {
@@ -1072,27 +1074,87 @@
     self.DCTestArr = testArr;
 }
 
-//- (void)testRequestServerToken:(NSString *)token
-//                       success:(void (^) (id json))success
-//                       failure:(void (^)(NSError *error))failure{
-//    self.success = success;
-//    self.failure = failure;
-//    self.testToken = token;
-//
-//    [self HTTPMC];
-////    [self viewDidLoad];
-////    [self viewWillAppear:YES];
-//
-//    UIButton *btn1 = [self.view viewWithTag:10];
-//    [self imageClick:btn1];
-//    UIButton *btn2 = [self.view viewWithTag:11];
-//    [self imageClick:btn2];
-//    UIButton *btn3 = [self.view viewWithTag:12];
-//    [self imageClick:btn3];
-//    [self parentsClick];
-//
-//}
+- (void)testRequestServerToken:(NSString *)token
+                       success:(void (^) (id json))success
+                       failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+    self.testToken = token;
 
+    [self HTTPMC];
 
+//    [self HTTPDC];
+//    [self HTTPGold];
+//    [self HTTPJZCZ];
+//    [self HTTPJZFJ];
+//    [self HTTPProgress];
+//    [self HTTPIsComplete];
+
+}
+
+- (void)testRequestServer1Token:(NSString *)token
+                       success:(void (^) (id json))success
+                       failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+    self.testToken = token;
+    
+    [self HTTPDC];
+
+    
+}
+- (void)testRequestServer2Token:(NSString *)token
+                       success:(void (^) (id json))success
+                       failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+    self.testToken = token;
+    
+    [self HTTPGold];
+    
+}
+
+- (void)testRequestServer3Token:(NSString *)token
+                        success:(void (^) (id json))success
+                        failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+    self.testToken = token;
+    [self HTTPJZCZ];
+   
+    
+}
+
+- (void)testRequestServer4Token:(NSString *)token
+                        success:(void (^) (id json))success
+                        failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+    self.testToken = token;
+    [self HTTPJZFJ];
+    
+}
+
+- (void)testRequestServer5Token:(NSString *)token
+                        success:(void (^) (id json))success
+                        failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+    self.testToken = token;
+    
+    [self HTTPProgress];
+    
+}
+
+- (void)testRequestServer6Token:(NSString *)token
+                        success:(void (^) (id json))success
+                        failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+    self.testToken = token;
+    
+    [self HTTPIsComplete];
+    
+}
 
 @end

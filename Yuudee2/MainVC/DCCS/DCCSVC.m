@@ -56,6 +56,9 @@
 @property(nonatomic,assign)BOOL overCourse; //标识课件各种操作已完成,可以跳转了
 /** 单元测试*/
 @property (nonatomic) BOOL isTest;
+@property (nonatomic, copy) void (^success) (id json);
+@property (nonatomic, copy) void (^failure) (NSError *error);
+@property (nonatomic, copy) NSString *testToken;
 
 @end
 
@@ -602,11 +605,19 @@
 #pragma mark - 查询累计的金币数量
 -(void)HTTPGetCoin
 {
-    [[YuudeeRequest shareManager] request:Post url:GetCoin paras:@{@"token":[[ZJNTool shareManager] getToken]} completion:^(id response, NSError *error) {
+    NSMutableDictionary *paras = [NSMutableDictionary dictionary];
+    if (self.testToken.length > 0) {//单元测试
+        paras[@"token"] = self.testToken;
+    }else {
+        paras[@"token"] = [[ZJNTool shareManager] getToken];
+    }
+    [[YuudeeRequest shareManager] request:Post url:GetCoin paras:paras completion:^(id response, NSError *error) {
         NSInteger coinNum = 0;
         if ([response[@"code"] isEqual:@200]) {
             NSLog(@"金币数访问成功");
-
+            if (self.success) {
+                self.success(response);
+            }
             if ([response[@"data"] isKindOfClass:[NSArray class]]) {
                 NSArray * array = response[@"data"];
                 for (NSDictionary * item in array) {
@@ -616,6 +627,9 @@
                 }
             }
         }else{
+            if (self.failure) {
+                self.failure(error);
+            }
             NSLog(@"金币数访问失败");
         }
         if (coinNum > 9) {
@@ -634,6 +648,9 @@
 {
     [[YuudeeRequest shareManager] request:Post url:DCKJ paras:nil completion:^(id response, NSError *error) {
         if ([response[@"code"] isEqual:@200]) {
+            if (self.success) {
+                self.success(response);
+            }
             NSMutableArray * array1 = [NSMutableArray array];
             NSMutableArray * array2 = [NSMutableArray array];
             for (NSDictionary * item in response[@"verbTraining"]) {
@@ -649,6 +666,9 @@
             vc.testArr = array2;
             [self.navigationController pushViewController:vc animated:YES];
         }else{
+            if (self.failure) {
+                self.failure(error);
+            }
             [self showHint:response[@"msg"]];
         }
     }];
@@ -678,4 +698,21 @@
     [self PostResult];
 }
 
+- (void)testRequestServerToken:(NSString *)token
+                       success:(void (^) (id json))success
+                       failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+    self.testToken = token;
+    [self HTTPGetCoin];
+}
+
+- (void)testRequestServer1Token:(NSString *)token
+                       success:(void (^) (id json))success
+                       failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+    self.testToken = token;
+    [self HTTPDC];
+}
 @end

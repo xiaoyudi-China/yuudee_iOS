@@ -53,7 +53,11 @@
 @property(nonatomic,assign)BOOL dissVC;
 @property(nonatomic,assign)BOOL overCourse; //标识课件各种操作已完成,可以跳转了
 /** 单元测试*/
+@property (nonatomic, copy) void (^success) (id json);
+@property (nonatomic, copy) void (^failure) (NSError *error);
+@property (nonatomic, copy) NSString *testToken;
 @property (nonatomic) BOOL isTest;
+
 @end
 
 @implementation MCYYCSVC
@@ -536,17 +540,30 @@
 #pragma mark - HTTP名词
 -(void)HTTPYY
 {
-    [[YuudeeRequest shareManager] request:Post url:MCKJ paras:@{@"token":[[ZJNTool shareManager] getToken]} completion:^(id response, NSError *error) {
+    NSMutableDictionary *paras = [NSMutableDictionary dictionary];
+    if (self.testToken.length > 0) {//单元测试
+        paras[@"token"] = self.testToken;
+    }else {
+        paras[@"token"] = [[ZJNTool shareManager] getToken];
+    }
+    [[YuudeeRequest shareManager] request:Post url:MCKJ paras:paras completion:^(id response, NSError *error) {
         if ([response[@"code"] isEqual:@200]) {
+            if (self.success) {
+                self.success(response);
+            }
             NSMutableArray * array = [NSMutableArray array];
             for (NSDictionary * item in response[@"nounSense"]) {
                 [array addObject:[GZPModel setModelWithDic:item]];
             }
+            
             GuoDuVC * vc = [GuoDuVC new];
             vc.type = 5;
             vc.yyTestArr = array;
             [self.navigationController pushViewController:vc animated:YES];
         }else{
+            if (self.failure) {
+                self.failure(error);
+            }
             [self showHint:response[@"msg"]];
         }
     }];
@@ -556,8 +573,17 @@
 {
     if ([PlayerManager shared].itemsArr.count > 0 || !self.overCourse) return;
     
-    [[YuudeeRequest shareManager] request:Post url:GetProgress paras:@{@"token":[[ZJNTool shareManager]getToken]} completion:^(id response, NSError *error) {
+    NSMutableDictionary *paras = [NSMutableDictionary dictionary];
+    if (self.testToken.length > 0) {
+        paras[@"token"] = self.testToken;
+    }else {
+        paras[@"token"] = [[ZJNTool shareManager]getToken];
+    }
+    [[YuudeeRequest shareManager] request:Post url:GetProgress paras:paras completion:^(id response, NSError *error) {
         if ([response[@"code"] isEqual:@200]) {
+            if (self.success) {
+                self.success(response);
+            }
             NSDictionary * list = response[@"list"];
             if ([list[@"noun"] isEqualToString:@"3"]) {
                 [self HTTPYY];
@@ -565,6 +591,9 @@
                 [self.navigationController popToRootViewControllerAnimated:YES];
             }
         }else{
+            if (self.failure) {
+                self.failure(error);
+            }
             [self showHint:response[@"msg"]];
         }
     }];
@@ -592,6 +621,15 @@
     [self makeNav];
     [self homeClick];
     [self PostResult];
+}
+
+- (void)testRequestServerToken:(NSString *)token
+                       success:(void (^) (id json))success
+                       failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+    self.testToken = token;
+    [self HTTPProgress];
 }
 
 @end

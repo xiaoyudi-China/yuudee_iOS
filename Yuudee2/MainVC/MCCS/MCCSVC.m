@@ -91,7 +91,20 @@
 #pragma mark - HTTP上传体验产品
 -(void)HTTPPostTry
 {
-    [[YuudeeRequest shareManager] request:Post url:PostTry paras:@{@"token":[[ZJNTool shareManager]getToken],@"type":@"2"} completion:^(id response, NSError *error) {
+    NSMutableDictionary *paras = [NSMutableDictionary dictionary];
+    if (self.testToken.length > 0) {
+        paras[@"token"] = self.testToken;
+        paras[@"type"] = @"2";
+    }else {
+        paras[@"token"] = [[ZJNTool shareManager]getToken];
+        paras[@"type"] = @"2";
+    }
+    [[YuudeeRequest shareManager] request:Post url:PostTry paras:paras completion:^(id response, NSError *error) {
+
+        if (self.success) {
+            self.success(response);
+        }
+
         NSLog(@"产品体验记录上传: %@",response);
     }];
 }
@@ -737,17 +750,50 @@
     [self PostResult];
 }
 
-//- (void)testRequestServerToken:(NSString *)token
-//                       success:(void (^) (id json))success
-//                       failure:(void (^)(NSError *error))failure{
-//    self.success = success;
-//    self.failure = failure;
-//    self.testToken = token;
-//    [self HTTPMC];
+- (void)testRequestServerToken:(NSString *)token
+                       success:(void (^) (id json))success
+                       failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+    self.testToken = token;
+    [self HTTPMC];
 //    [self HTTPGetCoin];
 //    [self HTTPPostTry];
 //    [self HTTPProgress];
-//
-//}
+
+}
+
+- (void)testRequestServer1Token:(NSString *)token
+                       success:(void (^) (id json))success
+                       failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+    self.testToken = token;
+    [self HTTPGetCoin];
+    //    [self HTTPPostTry];
+    //    [self HTTPProgress];
+    
+}
+
+- (void)testRequestServer2Token:(NSString *)token
+                        success:(void (^) (id json))success
+                        failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+    self.testToken = token;
+    [self HTTPPostTry];
+    //    [self HTTPProgress];
+    
+}
+
+- (void)testRequestServer3Token:(NSString *)token
+                        success:(void (^) (id json))success
+                        failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+    self.testToken = token;
+    [self HTTPProgress];
+    
+}
 
 @end

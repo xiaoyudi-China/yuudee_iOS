@@ -513,6 +513,7 @@
         }
     }];
 }
+
 -(void)errorClick
 {
     if (!self.hasClick) {
@@ -535,6 +536,7 @@
     [self PostResult];
     [self swingPen1];
     [self swingPen2];
+    self.hasClick = NO;
     [self errorClick];
 }
 
