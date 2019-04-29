@@ -652,6 +652,24 @@
         }
     }];
 }
+- (void)testFunction {
+    [self viewDidLoad];
+    UIView *view = [self.view viewWithTag:10];
+    [self huaBanClick:[view gestureRecognizers][0]];
+    self.hasRight1 = YES;
+    self.isPass = @"1";
+    [self Gogo];
+    [self overPlay];
+    [self goNextVC];
+    [self action];
+    [self makeNav];
+    [self homeClick];
+    [self PostResult];
+    [self HTTPProgress];
+    [self HTTPGetCoin];
+    [self HTTPJZCZ];
+
+}
 
 @end
 

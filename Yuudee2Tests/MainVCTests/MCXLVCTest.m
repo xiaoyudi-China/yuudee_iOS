@@ -56,11 +56,12 @@
         [yyTestArr addObject:[GZPModel setModelWithDic:item]];
     }
     [helpTimes addObject:[NSString stringWithFormat:@"%@",dict[@"time"][@"helpTime"]]];
-
+    
+    vc.progressNum = 0;
     vc.helpTime = helpTimes;
     vc.trainArr = trainArr;
     vc.testArr = testArr;
-//    [vc testFunction];
+    [vc testFunction];
 }
 
 @end

@@ -51,6 +51,10 @@
 
 @property(nonatomic,assign)BOOL dissVC; //页面是否消失了,否则不提交答题进度了
 @property(nonatomic,assign)BOOL overCourse; //标识课件各种操作已完成,可以跳转了
+//单元测试
+@property (nonatomic, copy) void (^success) (id json);
+@property (nonatomic, copy) void (^failure) (NSError *error);
+@property (nonatomic, copy) NSString *testToken;
 
 @end
 
@@ -573,7 +577,13 @@
 #pragma mark - 获取当前答题进度
 -(void)HTTPProgress
 {
-    [[YuudeeRequest shareManager] request:Post url:GetProgress paras:@{@"token":[[ZJNTool shareManager]getToken]} completion:^(id response, NSError *error) {
+    NSMutableDictionary *paras = [NSMutableDictionary dictionary];
+    if (self.testToken.length > 0) {
+        paras[@"token"] = self.testToken;
+    }else {
+        paras[@"token"] = [[ZJNTool shareManager]getToken];
+    }
+    [[YuudeeRequest shareManager] request:Post url:GetProgress paras:paras completion:^(id response, NSError *error) {
         if ([response[@"code"] isEqual:@200]) {
             if (![response[@"data"] isKindOfClass:[NSNumber class]]) {
                 if ([response[@"againModule"][@"module1"] isEqualToString:@"1"]) {
@@ -594,8 +604,13 @@
                 NSLog(@"名词暂未通关,那么查询金币数量");
                 [self HTTPGetCoin];
             }
-           
+            if (self.success) {
+                self.success(response);
+            }
         }else{
+            if (self.failure) {
+                self.failure(error);
+            }
             NSLog(@"%@",response[@"msg"]);
         }
     }];
@@ -616,7 +631,13 @@
         }
     }else{ //已完善了个人信息
         NSLog(@"已完善儿童信息");
-        [[YuudeeRequest shareManager] request:Post url:GetCoin paras:@{@"token":[[ZJNTool shareManager] getToken]} completion:^(id response, NSError *error) {
+        NSMutableDictionary *paras = [NSMutableDictionary dictionary];
+        if (self.testToken.length > 0) {
+            paras[@"token"] = self.testToken;
+        }else {
+            paras[@"token"] = [[ZJNTool shareManager]getToken];
+        }
+        [[YuudeeRequest shareManager] request:Post url:GetCoin paras:paras completion:^(id response, NSError *error) {
             NSInteger coinNum = 0;
             if ([response[@"code"] isEqual:@200]) {
                 if ([response[@"data"] isKindOfClass:[NSArray class]]) {
@@ -626,6 +647,13 @@
                             coinNum = [[NSString stringWithFormat:@"%@",item[@"gold"]]integerValue];
                         }
                     }
+                }
+                if (self.success) {
+                    self.success(response);
+                }
+            }else {
+                if (self.failure) {
+                    self.failure(error);
                 }
             }
             if (coinNum > 9) {
@@ -644,7 +672,13 @@
 -(void)HTTPMC
 {
     NSLog(@"token:%@",[[ZJNTool shareManager] getToken]);
-    [[YuudeeRequest shareManager] request:Post url:MCKJ paras:@{@"token":[[ZJNTool shareManager] getToken]} completion:^(id response, NSError *error) {
+    NSMutableDictionary *paras = [NSMutableDictionary dictionary];
+    if (self.testToken.length > 0) {
+        paras[@"token"] = self.testToken;
+    }else {
+        paras[@"token"] = [[ZJNTool shareManager]getToken];
+    }
+    [[YuudeeRequest shareManager] request:Post url:MCKJ paras:paras completion:^(id response, NSError *error) {
         if ([response[@"code"] isEqual:@200]) {
             NSMutableArray * MCTrainArr = [NSMutableArray array];
             NSMutableArray * MCTestArr = [NSMutableArray array];
@@ -664,9 +698,46 @@
             vc.trainArr = MCTrainArr;
             vc.testArr = MCTestArr;
             [self.navigationController pushViewController:vc animated:YES];
+            if (self.success) {
+                self.success(response);
+            }
         }else{
+            if (self.failure) {
+                self.failure(error);
+            }
             [self showHint:response[@"msg"]];
         }
     }];
 }
+
+- (void)testFunction {
+    [self viewDidLoad];
+    
+    UIView *view = [self.view viewWithTag:10];
+    [self huaBanClick:[view gestureRecognizers][0]];
+    self.hasRight1 = YES;
+    self.isPass = @"1";
+    
+    [self Gogo];
+    [self overPlay];
+    [self goNextVC];
+    [self action];
+    [self makeNav];
+    [self homeClick];
+    [self PostResult];
+}
+
+//- (void)testRequestServerToken:(NSString *)token
+//                       success:(void (^) (id json))success
+//                       failure:(void (^)(NSError *error))failure{
+//    self.success = success;
+//    self.failure = failure;
+//    self.testToken = token;
+//    [self HTTPMC];
+//    [self HTTPGetCoin];
+//    [self HTTPPostTry];
+//    [self HTTPProgress];
+//
+//}
+
 @end

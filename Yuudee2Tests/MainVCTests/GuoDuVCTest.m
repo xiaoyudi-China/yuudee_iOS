@@ -50,7 +50,7 @@
     for (NSDictionary * item in dict[@"nounSense"]) {
         [yyTestArr addObject:[GZPModel setModelWithDic:item]];
     }
-    
+    vc.type = 0;
     vc.testArr = testArr;
     vc.yyTestArr = yyTestArr;
     [vc testFunction];

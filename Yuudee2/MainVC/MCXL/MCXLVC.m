@@ -524,6 +524,17 @@
     }
 }
 
+- (void)testFunction {
+    [self viewDidLoad];
+    [self penClick];
+    [self Gogo];
+    [self overPlay];
+    [self goNextVC];
+    [self action];
+    [self homeClick];
+    [self PostResult];
+}
+
 @end
 
 
