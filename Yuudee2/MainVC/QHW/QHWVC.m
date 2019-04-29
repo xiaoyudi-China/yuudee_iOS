@@ -479,4 +479,17 @@
     }];
 }
 
+- (void)testFunction {
+    [self viewDidLoad];
+ 
+    [self HTTPCoin];
+    [self HTTPRest];
+    [self HTTPPostNum:2];
+    [self HTTPMC];
+    [self HTTPDC];
+    [self HTTPJZCZ];
+    [self HTTPJZFJ];
+    [self GoToJZFJ];
+
+}
 @end
