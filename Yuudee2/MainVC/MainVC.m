@@ -1008,6 +1008,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+//单元测试
 - (void)testFunction {
     
     [self testData];
