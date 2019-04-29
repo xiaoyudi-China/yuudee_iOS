@@ -210,6 +210,7 @@
 - (void)testFunction{
     [self viewDidLoad];
     [self viewWillAppear:YES];
+    self.pushType = FromHomePage;
     [self.bottomView testFunction];
     [self homeBtnClick];
     [self goToPerfectInfo];

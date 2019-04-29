@@ -225,6 +225,7 @@
 		3AF4136422729B5700C18E1B /* ZJNLoginAndRegisterViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF4136322729B5700C18E1B /* ZJNLoginAndRegisterViewControllerTest.m */; };
 		3AF4136622729B7500C18E1B /* ZJNBasicViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF4136522729B7500C18E1B /* ZJNBasicViewControllerTest.m */; };
 		3AF4136822729B9300C18E1B /* ZJNNavigationControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF4136722729B9300C18E1B /* ZJNNavigationControllerTest.m */; };
+		3AFCF671227691F40036C607 /* ZJNStudyProgressViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCF670227691F40036C607 /* ZJNStudyProgressViewTest.m */; };
 		E30823542239164700C86A25 /* ZJNProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E30823532239164700C86A25 /* ZJNProtocolViewController.m */; };
 		E312A49E2151E23300741582 /* ZJNTotalProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E312A49D2151E23300741582 /* ZJNTotalProgressView.m */; };
 		E3136FA8212FB05C00770D02 /* UIView+ZJNCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E3136FA7212FB05C00770D02 /* UIView+ZJNCategory.m */; };
@@ -624,6 +625,7 @@
 		3AF4136322729B5700C18E1B /* ZJNLoginAndRegisterViewControllerTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNLoginAndRegisterViewControllerTest.m; sourceTree = "<group>"; };
 		3AF4136522729B7500C18E1B /* ZJNBasicViewControllerTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNBasicViewControllerTest.m; sourceTree = "<group>"; };
 		3AF4136722729B9300C18E1B /* ZJNNavigationControllerTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNNavigationControllerTest.m; sourceTree = "<group>"; };
+		3AFCF670227691F40036C607 /* ZJNStudyProgressViewTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNStudyProgressViewTest.m; sourceTree = "<group>"; };
 		E30823522239164700C86A25 /* ZJNProtocolViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJNProtocolViewController.h; sourceTree = "<group>"; };
 		E30823532239164700C86A25 /* ZJNProtocolViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNProtocolViewController.m; sourceTree = "<group>"; };
 		E312A49C2151E23300741582 /* ZJNTotalProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJNTotalProgressView.h; sourceTree = "<group>"; };
@@ -1324,6 +1326,7 @@
 				3AF413552272990A00C18E1B /* ZJNABCWKViewControllerTest.m */,
 				3AF413572272992300C18E1B /* ZJNTrainTotalProgressViewControllerTest.m */,
 				3AAAFCE822759E7A00FA48B8 /* ZJNRegisterBgViewControllerTest.m */,
+				3AFCF670227691F40036C607 /* ZJNStudyProgressViewTest.m */,
 			);
 			path = ParentCenterTests;
 			sourceTree = "<group>";
@@ -2516,6 +2519,7 @@
 				3A3554FD22759ACB00758085 /* ViewControllerTest.m in Sources */,
 				3AF4136022729B3800C18E1B /* ZJNRegisterVerifyCodeViewControllerTest.m in Sources */,
 				3A153BDF2271E00F00E3C33B /* ZJNChangeNickNameViewControllerTest.m in Sources */,
+				3AFCF671227691F40036C607 /* ZJNStudyProgressViewTest.m in Sources */,
 				3A153BD32271A73A00E3C33B /* ZJNCPPutAuthCodeViewControllerTest.m in Sources */,
 				3AF4135A22729AE400C18E1B /* ZJNForgetPasswordViewControllerTest.m in Sources */,
 				3AF4136222729B4400C18E1B /* ZJNRegisterSetPasswordViewControllerTest.m in Sources */,

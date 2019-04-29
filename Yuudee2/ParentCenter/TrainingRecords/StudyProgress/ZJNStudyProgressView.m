@@ -43,6 +43,9 @@
 @property (nonatomic ,strong)ZJNWeekHistoryModel *weekModel;
 //月学习记录
 @property (nonatomic ,strong)ZJNMonthHistoryModel *monthModel;
+
+@property (nonatomic, copy) void (^success) (id json);
+@property (nonatomic, copy) void (^failure) (NSError *error);
 @end
 @implementation ZJNStudyProgressView
 -(instancetype)init{
@@ -273,8 +276,13 @@
         }else{
             [self.viewController showHint:data[@"msg"]];
         }
+        if (self.success) {
+            self.success(data);
+        }
     } failure:^(NSError *error) {
-        
+        if (self.failure) {
+            self.failure(error);
+        }
     }];
 }
 
@@ -306,7 +314,13 @@
         }else{
             [self.viewController showHint:data[@"msg"]];
         }
+        if (self.success) {
+            self.success(data);
+        }
     } failure:^(NSError *error) {
+        if (self.failure) {
+            self.failure(error);
+        }
     }];
 }
 -(void)monthStudyHistory{
@@ -344,7 +358,13 @@
         }else{
             [self.viewController showHint:data[@"msg"]];
         }
+        if (self.success) {
+            self.success(data);
+        }
     } failure:^(NSError *error) {
+        if (self.failure) {
+            self.failure(error);
+        }
     }];
 }
 
@@ -379,7 +399,12 @@
     }
 }
 
-- (void)testFunction{
+- (void)testInfo:(NSString *)token
+                    success:(void (^) (id json))success
+                    failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+
     self.dayModel.countTime = @"3610";
     self.studyType = MCDYStruct;
     [self showDayTitle];

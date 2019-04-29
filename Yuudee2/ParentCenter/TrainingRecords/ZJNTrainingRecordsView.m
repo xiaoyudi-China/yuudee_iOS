@@ -200,7 +200,7 @@
     [self nextButtonClick:nil];
     
     ZJNStudyProgressView *view = [[ZJNStudyProgressView alloc]init];
-    [view testFunction];
+    view.hidden = YES;
 }
 
 @end
