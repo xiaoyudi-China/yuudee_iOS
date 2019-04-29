@@ -62,10 +62,7 @@
     }
     return self;
 }
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
+
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
         _titleLabel = [UILabel createLabelWithTextColor:RGBColor(19, 16, 29, 1) font:FontSize(14)];
@@ -113,8 +110,10 @@
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+}
 
-    // Configure the view for the selected state
+- (void)testFunction{
+    [self setSelected:YES animated:YES];
 }
 
 @end
