@@ -489,9 +489,13 @@
 
 - (void)testFunction {
     [self viewDidLoad];
+    [self viewWillAppear:YES];
     UIView *view = [self.view viewWithTag:10];
-    [self huaBanClick:[view gestureRecognizers][0]];
     self.isPass = @"1";
+    [self huaBanClick:[view gestureRecognizers][0]];
+    [self playVerbThingRecord];
+    [self timeRest];
+    
     [self Gogo];
     [self overPlay];
     [self goNextVC];

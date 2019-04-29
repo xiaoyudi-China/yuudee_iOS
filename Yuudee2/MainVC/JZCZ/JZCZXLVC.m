@@ -544,11 +544,14 @@
 }
 
 - (void)testFunction {
+    self.hasRight1 = YES;
+    self.isPass = @"1";
     [self viewDidLoad];
     UIView *view = [self.view viewWithTag:10];
     [self huaBanClick:[view gestureRecognizers][0]];
-    self.hasRight1 = YES;
-    self.isPass = @"1";
+
+    [self errorClick];
+
     [self Gogo];
     [self overPlay];
     [self goNextVC];
