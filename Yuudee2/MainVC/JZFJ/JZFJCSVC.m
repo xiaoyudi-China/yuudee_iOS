@@ -796,4 +796,18 @@
     }];
 }
 
+- (void)testFunction {
+    [self viewDidLoad];
+    UIView *view = [self.view viewWithTag:10];
+    [self huaBanClick:[view gestureRecognizers][0]];
+    self.isPass = @"1";
+    [self Gogo];
+    [self overPlay];
+    [self goNextVC];
+    [self action];
+    [self makeNav];
+    [self homeClick];
+    [self PostResult];
+}
+
 @end

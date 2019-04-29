@@ -35,15 +35,15 @@
     }];
 }
 
-//- (void)testMainVC {
-//    MainVC *mainVC = [[MainVC alloc] init];
-//    [mainVC testFunction];
-//}
+- (void)testMainVC {
+    MainVC *mainVC = [[MainVC alloc] init];
+    [mainVC testFunction];
+}
 
 - (void)testRequestServer {
 //    XCTestExpectation *expectation = [self expectationWithDescription:@"..."];
-//    MainVC *vc = [[MainVC alloc] init];    
-//    [vc testRequestServerToken:@"xNx8eSh9iFTRL3962j/bw==" success:^(id json) {
+//    MainVC *vc = [[MainVC alloc] init];
+//    [vc testRequestServerToken:@"QUU5WiL3zxi8KRIktLIX0A==" success:^(id json) {
 //        [expectation fulfill];
 //        XCTAssertNotNil(json, @"json 对象不为空");
 //        if ([[json[@"code"] stringValue] isEqualToString:@"200"]) {
@@ -55,7 +55,7 @@
 //        [expectation fulfill];
 //        XCTAssertNotNil(error, @"error 不为空");
 //    }];
-//    
+//
 //    [self waitForExpectationsWithTimeout:30.f handler:^(NSError * _Nullable error) {
 //        NSLog(@"...");
 //    }];

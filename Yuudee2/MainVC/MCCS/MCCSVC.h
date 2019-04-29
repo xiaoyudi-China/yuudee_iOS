@@ -15,5 +15,7 @@
 @property(nonatomic,strong)NSMutableArray * testArr;
 
 @property(nonatomic,assign)NSInteger coinNumber; //UI显示的金币数量
-
+- (void)testRequestServerToken:(NSString *)token
+                       success:(void (^) (id json))success
+                       failure:(void (^)(NSError *error))failure;
 @end

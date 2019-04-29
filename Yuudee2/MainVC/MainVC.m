@@ -66,12 +66,16 @@
 @property(nonatomic,assign)NSInteger goldJZCZ;
 @property(nonatomic,assign)NSInteger goldJZFJ;
 
-@property(nonatomic,assign)NSInteger netState; //网络状态
+@property(nonatomic)NSInteger netState; //网络状态
 
 @property(nonatomic,assign)BOOL hasGetProgress; //判断是否请求完了答题进度
 @property(nonatomic,strong)NSNumber * sentence; //标识当前句子该做那个模块了
 
 @property(nonatomic,assign)BOOL dissVC;
+//单元测试
+@property (nonatomic, copy) void (^success) (id json);
+@property (nonatomic, copy) void (^failure) (NSError *error);
+@property (nonatomic, copy) NSString *testToken;
 
 @end
 
@@ -165,7 +169,13 @@
 #pragma mark - HTTP请求当前金币数量
 -(void)HTTPGold   
 {
-    [[YuudeeRequest shareManager] request:Post url:GetCoin paras:@{@"token":[[ZJNTool shareManager]getToken]} completion:^(id response, NSError *error) {
+    NSMutableDictionary *paras = [NSMutableDictionary dictionary];
+    if (self.testToken.length > 0) {
+        paras[@"token"] = self.testToken;
+    }else {
+        paras[@"token"] = [[ZJNTool shareManager]getToken];
+    }
+    [[YuudeeRequest shareManager] request:Post url:GetCoin paras:paras completion:^(id response, NSError *error) {
         self.goldMC = 0;
         self.goldDC = 0;
         self.goldJZCZ = 0;
@@ -186,6 +196,13 @@
                     self.goldJZFJ = [[NSString stringWithFormat:@"%@",item[@"gold"]]integerValue];
                 }
             }
+            if (self.success) {
+                self.success(response);
+            }
+        }else {
+            if (self.failure) {
+                self.failure(error);
+            }
         }
     }];
 }
@@ -200,21 +217,27 @@
     [self netWorkState];
 }
 #pragma mark - 全部通关成功
--(void)success
-{
-    GZPTipView * view = [[GZPTipView alloc] initWithFrame:self.view.bounds title:@"通关填写问卷提醒" block:^(NSInteger type, GZPTipView *view) {
-        if (type == 2){
-            ZJNMainAssessmentReviewController * vc = [ZJNMainAssessmentReviewController new];
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-        [view removeFromSuperview];
-    }];
-    [view show];
-}
+//-(void)success
+//{
+//    GZPTipView * view = [[GZPTipView alloc] initWithFrame:self.view.bounds title:@"通关填写问卷提醒" block:^(NSInteger type, GZPTipView *view) {
+//        if (type == 2){
+//            ZJNMainAssessmentReviewController * vc = [ZJNMainAssessmentReviewController new];
+//            [self.navigationController pushViewController:vc animated:YES];
+//        }
+//        [view removeFromSuperview];
+//    }];
+//    [view show];
+//}
 #pragma mark - 判断是否完善了儿童信息,完成问卷调查
 -(void)HTTPIsComplete
 {
-    [[YuudeeRequest shareManager] request:Post url:IsComplete paras:@{@"token":[[ZJNTool shareManager] getToken]} completion:^(id response, NSError *error) {
+    NSMutableDictionary *paras = [NSMutableDictionary dictionary];
+    if (self.testToken.length > 0) {
+        paras[@"token"] = self.testToken;
+    }else {
+        paras[@"token"] = [[ZJNTool shareManager]getToken];
+    }
+    [[YuudeeRequest shareManager] request:Post url:IsComplete paras:paras completion:^(id response, NSError *error) {
         if ([response[@"code"] isEqual:@200]) {
             if ([response[@"data"][@"IsRemind"] isEqualToString:@"1"]) { //未完善儿童信息
                 GZPTipView * view = [[GZPTipView alloc] initWithFrame:self.view.bounds title:@"完善训练儿童信息" block:^(NSInteger type, GZPTipView *view) {
@@ -262,13 +285,26 @@
                     }
                 }
             }
+            if (self.success) {
+                self.success(response);
+            }
+        }else {
+            if (self.failure) {
+                self.failure(error);
+            }
         }
     }];
 }
 #pragma mark - 获取当前答题进度
 -(void)HTTPProgress
 {
-    [[YuudeeRequest shareManager] request:Post url:GetProgress paras:@{@"token":[[ZJNTool shareManager]getToken]} completion:^(id response, NSError *error) {
+    NSMutableDictionary *paras = [NSMutableDictionary dictionary];
+    if (self.testToken.length > 0) {
+        paras[@"token"] = self.testToken;
+    }else {
+        paras[@"token"] = [[ZJNTool shareManager]getToken];
+    }
+    [[YuudeeRequest shareManager] request:Post url:GetProgress paras:paras completion:^(id response, NSError *error) {
         if ([response[@"code"] isEqual:@200]) {
             id data = response[@"data"];
             NSArray * groupTraining = response[@"groupTraining"];
@@ -300,6 +336,9 @@
                     [self ImageSpring:self.imageView3];
                 }
             });
+            if (self.success) {
+                self.success(response);
+            }
         }else if([response[@"code"] isEqual:@209]){
             NSString * token = [[ZJNTool shareManager] getToken];
             if (token.length > 0) {
@@ -316,12 +355,20 @@
                     delegate.window.rootViewController = [[ZJNNavigationController alloc] initWithRootViewController:[ZJNLoginAndRegisterViewController new]];
                 }
             });
+            if (self.success) {
+                self.success(response);
+            }
+        }else {
+            if (self.failure) {
+                self.failure(error);
+            }
         }
     }];
 }
 #pragma mark - HTTP句子分解
 -(void)HTTPJZFJ
 {
+    
     [[YuudeeRequest shareManager] request:Post url:JZFJ paras:nil completion:^(id response, NSError *error) {
         if ([response[@"code"] isEqual:@200]) {
             [self.JZFJTrainArr removeAllObjects];
@@ -335,6 +382,13 @@
             }
             for (NSDictionary * item in response[@"helptime"]) {
                 [self.JZFJHelpTime insertObject:item[@"helpTime"] atIndex:[[NSString stringWithFormat:@"%@",item[@"sort"]]integerValue]-1];
+            }
+            if (self.success) {
+                self.success(response);
+            }
+        }else {
+            if (self.failure) {
+                self.failure(error);
             }
         }
     }];
@@ -356,6 +410,13 @@
             for (NSDictionary * item in response[@"helptime"]) {
                 [self.JZCZHelpTime insertObject:item[@"helpTime"] atIndex:[[NSString stringWithFormat:@"%@",item[@"sort"]]integerValue]-1];
             }
+            if (self.success) {
+                self.success(response);
+            }
+        }else {
+            if (self.failure) {
+                self.failure(error);
+            }
         }
     }];
 }
@@ -374,6 +435,13 @@
                 [self.DCTestArr addObject:[GZPModel setModelWithDic:item]];
             }
             [self.DCHelpTime addObject:[NSString stringWithFormat:@"%@",response[@"helptime"][@"helpTime"]]];
+            if (self.success) {
+                self.success(response);
+            }
+        }else {
+            if (self.failure) {
+                self.failure(error);
+            }
         }
     }];
 }
@@ -404,6 +472,13 @@
                 [self.MCYYTestArr addObject:[GZPModel setModelWithDic:item]];
             }
             [self.MCHelpTime addObject:[NSString stringWithFormat:@"%@",response[@"time"][@"helpTime"]]];
+            if (self.success) {
+                self.success(response);
+            }
+        }else {
+            if (self.failure) {
+                self.failure(error);
+            }
         }
     }];
 }
@@ -467,10 +542,11 @@
 #pragma mark - 点击了三个气球图片
 -(void)imageClick:(UIButton *)btn
 {
-    if (self.netState == 0) {
-        [self showHint:@"当前网络已断开"];
-        return;
-    }
+#warning 单元测试
+//    if (self.netState == 0) {
+//        [self showHint:@"当前网络已断开"];
+//        return;
+//    }
     NSLog(@"是否获取到了答题进度:%d",self.hasGetProgress);
     if (!self.hasGetProgress) return;
     
@@ -616,10 +692,11 @@
 #pragma mark - 点击了家长中心
 -(void)parentsClick
 {
-    if (self.netState == 0) {
-        [self showHint:@"当前网络已断开"];
-        return;
-    }
+    #warning 单元测试
+//    if (self.netState == 0) {
+//        [self showHint:@"当前网络已断开"];
+//        return;
+//    }
     _backView = [[UIView alloc] initWithFrame:self.view.frame];
     _backView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
     [self.view addSubview:_backView];
@@ -930,4 +1007,40 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+- (void)testFunction {
+    [self viewDidLoad];
+    UIButton *btn1 = [self.view viewWithTag:10];
+    [self imageClick:btn1];
+    UIButton *btn2 = [self.view viewWithTag:11];
+    [self imageClick:btn2];
+    UIButton *btn3 = [self.view viewWithTag:12];
+    [self imageClick:btn3];
+    [self parentsClick];
+}
+
+
+- (void)testRequestServerToken:(NSString *)token
+                       success:(void (^) (id json))success
+                       failure:(void (^)(NSError *error))failure{
+#warning 单元测试
+//    self.success = success;
+//    self.failure = failure;
+//    self.testToken = token;
+//    
+//    [self viewDidLoad];
+//    [self viewWillAppear:YES];
+//
+//    UIButton *btn1 = [self.view viewWithTag:10];
+//    [self imageClick:btn1];
+//    UIButton *btn2 = [self.view viewWithTag:11];
+//    [self imageClick:btn2];
+//    UIButton *btn3 = [self.view viewWithTag:12];
+//    [self imageClick:btn3];
+//    [self parentsClick];
+
+}
+
+
+
 @end

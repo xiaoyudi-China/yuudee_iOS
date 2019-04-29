@@ -239,6 +239,7 @@
 		B4474EE922769F170014BBED /* DCXLVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B4474EDE22769F170014BBED /* DCXLVCTest.m */; };
 		B4474EEA22769F170014BBED /* MCCSVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B4474EDF22769F170014BBED /* MCCSVCTest.m */; };
 		B4474EEB22769F170014BBED /* JZFJCSVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B4474EE022769F170014BBED /* JZFJCSVCTest.m */; };
+		B4474EED2276DA430014BBED /* XLAgainVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B4474EEC2276DA430014BBED /* XLAgainVCTest.m */; };
 		E30823542239164700C86A25 /* ZJNProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E30823532239164700C86A25 /* ZJNProtocolViewController.m */; };
 		E312A49E2151E23300741582 /* ZJNTotalProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E312A49D2151E23300741582 /* ZJNTotalProgressView.m */; };
 		E3136FA8212FB05C00770D02 /* UIView+ZJNCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E3136FA7212FB05C00770D02 /* UIView+ZJNCategory.m */; };
@@ -652,6 +653,7 @@
 		B4474EDE22769F170014BBED /* DCXLVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCXLVCTest.m; sourceTree = "<group>"; };
 		B4474EDF22769F170014BBED /* MCCSVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCCSVCTest.m; sourceTree = "<group>"; };
 		B4474EE022769F170014BBED /* JZFJCSVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZFJCSVCTest.m; sourceTree = "<group>"; };
+		B4474EEC2276DA430014BBED /* XLAgainVCTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLAgainVCTest.m; sourceTree = "<group>"; };
 		E30823522239164700C86A25 /* ZJNProtocolViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJNProtocolViewController.h; sourceTree = "<group>"; };
 		E30823532239164700C86A25 /* ZJNProtocolViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNProtocolViewController.m; sourceTree = "<group>"; };
 		E312A49C2151E23300741582 /* ZJNTotalProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJNTotalProgressView.h; sourceTree = "<group>"; };
@@ -1409,17 +1411,18 @@
 		B4474ED522769F170014BBED /* MainVCTests */ = {
 			isa = PBXGroup;
 			children = (
-				B4474ED622769F170014BBED /* JZCZCSVCTest.m */,
-				B4474ED722769F170014BBED /* MCYYCSVCTest.m */,
-				B4474ED822769F170014BBED /* MCXLVCTest.m */,
-				B4474ED922769F170014BBED /* JZFJXLVCTest.m */,
 				B4474EDA22769F170014BBED /* MainVCTest.m */,
+				B4474ED822769F170014BBED /* MCXLVCTest.m */,
+				B4474EDF22769F170014BBED /* MCCSVCTest.m */,
+				B4474ED722769F170014BBED /* MCYYCSVCTest.m */,
+				B4474EDE22769F170014BBED /* DCXLVCTest.m */,
 				B4474EDB22769F170014BBED /* DCCSVCTest.m */,
 				B4474EDC22769F170014BBED /* JZCZXLVCTest.m */,
+				B4474ED622769F170014BBED /* JZCZCSVCTest.m */,
 				B4474EDD22769F170014BBED /* GuoDuVCTest.m */,
-				B4474EDE22769F170014BBED /* DCXLVCTest.m */,
-				B4474EDF22769F170014BBED /* MCCSVCTest.m */,
+				B4474EEC2276DA430014BBED /* XLAgainVCTest.m */,
 				B4474EE022769F170014BBED /* JZFJCSVCTest.m */,
+				B4474ED922769F170014BBED /* JZFJXLVCTest.m */,
 			);
 			path = MainVCTests;
 			sourceTree = "<group>";
@@ -2109,7 +2112,7 @@
 					E35F1E0D212E8BC8004D4706 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 0940;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -2581,6 +2584,7 @@
 				3AF4135A22729AE400C18E1B /* ZJNForgetPasswordViewControllerTest.m in Sources */,
 				B4474EE122769F170014BBED /* JZCZCSVCTest.m in Sources */,
 				3AF4136222729B4400C18E1B /* ZJNRegisterSetPasswordViewControllerTest.m in Sources */,
+				B4474EED2276DA430014BBED /* XLAgainVCTest.m in Sources */,
 				3AF413482272982E00C18E1B /* ZJNParentCenterViewControllerTest.m in Sources */,
 				3A153BE12271E69600E3C33B /* ZJNPerfectInfoViewControllerTest.m in Sources */,
 				B4474EE522769F170014BBED /* MainVCTest.m in Sources */,
@@ -2753,7 +2757,7 @@
 				CODE_SIGN_ENTITLEMENTS = Yuudee2/Yuudee2.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2Q4LJ2ECCS;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2766,10 +2770,10 @@
 				INFOPLIST_FILE = Yuudee2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoyudi.uat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.uat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ac59876d-3276-46e0-ac33-958a0fa45e71";
-				PROVISIONING_PROFILE_SPECIFIER = xiaoyudi_uat;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -2787,7 +2791,7 @@
 				CODE_SIGN_ENTITLEMENTS = Yuudee2/Yuudee2.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2Q4LJ2ECCS;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2800,10 +2804,10 @@
 				INFOPLIST_FILE = Yuudee2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoyudi.uat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.uat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ac59876d-3276-46e0-ac33-958a0fa45e71";
-				PROVISIONING_PROFILE_SPECIFIER = xiaoyudi_uat;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2815,6 +2819,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2Q4LJ2ECCS;
 				INFOPLIST_FILE = Yuudee2Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = www.xfkeji.cn.Yuudee2Tests;
@@ -2829,6 +2834,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2Q4LJ2ECCS;
 				INFOPLIST_FILE = Yuudee2Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = www.xfkeji.cn.Yuudee2Tests;
@@ -2842,6 +2848,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2Q4LJ2ECCS;
 				INFOPLIST_FILE = Yuudee2UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = www.xfkeji.cn.Yuudee2UITests;
@@ -2855,6 +2862,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2Q4LJ2ECCS;
 				INFOPLIST_FILE = Yuudee2UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = www.xfkeji.cn.Yuudee2UITests;

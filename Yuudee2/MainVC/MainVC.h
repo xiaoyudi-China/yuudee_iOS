@@ -10,4 +10,7 @@
 
 @interface MainVC : ZJNBasicViewController
 
+- (void)testRequestServerToken:(NSString *)token
+                       success:(void (^) (id json))success
+                       failure:(void (^)(NSError *error))failure;
 @end

@@ -46,7 +46,7 @@
     for (NSDictionary * item in dict[@"nounSense"]) {
         [yyTestArr addObject:[GZPModel setModelWithDic:item]];
     }
-    
+    vc.progressNum = 0;
     vc.yyTestArr = yyTestArr;
     [vc testFunction];
     
