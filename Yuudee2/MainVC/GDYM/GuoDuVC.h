@@ -4,7 +4,7 @@
 //
 //  Created by GZP on 2018/9/29.
 //  Copyright © 2018年 北京道口贷科技有限公司. All rights reserved.
-//
+//  过渡页面
 
 #import "ZJNBasicViewController.h"
 

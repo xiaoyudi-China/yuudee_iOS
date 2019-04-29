@@ -1085,25 +1085,25 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		19652C9721605DFB004C8FBC /* 名词意义测试 */ = {
+		19652C9721605DFB004C8FBC /* MCYYCS */ = {
 			isa = PBXGroup;
 			children = (
 				19C02074215F8FA5001B9874 /* MCYYCSVC.h */,
 				19C02075215F8FA5001B9874 /* MCYYCSVC.m */,
 			);
-			path = "名词意义测试";
+			path = MCYYCS;
 			sourceTree = "<group>";
 		};
-		19652C9821605DFB004C8FBC /* 名词训练 */ = {
+		19652C9821605DFB004C8FBC /* MCXL */ = {
 			isa = PBXGroup;
 			children = (
 				195A352C2149FD3C00F792FB /* MCXLVC.h */,
 				195A352D2149FD3C00F792FB /* MCXLVC.m */,
 			);
-			path = "名词训练";
+			path = MCXL;
 			sourceTree = "<group>";
 		};
-		19652C9921605DFC004C8FBC /* 过渡页面 */ = {
+		19652C9921605DFC004C8FBC /* GDYM */ = {
 			isa = PBXGroup;
 			children = (
 				19C02071215F8931001B9874 /* GuoDuVC.h */,
@@ -1111,7 +1111,7 @@
 				198C68A521A263B2001735C9 /* XLAgainVC.h */,
 				198C68A621A263B2001735C9 /* XLAgainVC.m */,
 			);
-			path = "过渡页面";
+			path = GDYM;
 			sourceTree = "<group>";
 		};
 		1966F09A21709833009ED508 /* XPQGifView */ = {
@@ -1154,22 +1154,22 @@
 			path = XHLaunchAd;
 			sourceTree = "<group>";
 		};
-		199F2D89216B4CF9008064A7 /* 名词测试 */ = {
+		199F2D89216B4CF9008064A7 /* MCCS */ = {
 			isa = PBXGroup;
 			children = (
 				199F2D8A216B4DD8008064A7 /* MCCSVC.h */,
 				199F2D8B216B4DD8008064A7 /* MCCSVC.m */,
 			);
-			path = "名词测试";
+			path = MCCS;
 			sourceTree = "<group>";
 		};
-		19BE2877216EDF4100E6B494 /* 强化物页面 */ = {
+		19BE2877216EDF4100E6B494 /* QHW */ = {
 			isa = PBXGroup;
 			children = (
 				19BE2878216EDF7300E6B494 /* QHWVC.h */,
 				19BE2879216EDF7300E6B494 /* QHWVC.m */,
 			);
-			path = "强化物页面";
+			path = QHW;
 			sourceTree = "<group>";
 		};
 		19BE287B216EEA0000E6B494 /* Player */ = {
@@ -1196,13 +1196,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		19E260302194185400513FFE /* 通关页面 */ = {
+		19E260302194185400513FFE /* PassVC */ = {
 			isa = PBXGroup;
 			children = (
 				19E260372194190200513FFE /* PassVC.h */,
 				19E260382194190200513FFE /* PassVC.m */,
 			);
-			path = "通关页面";
+			path = PassVC;
 			sourceTree = "<group>";
 		};
 		19F2EC6D214605A70080342B /* MainVC */ = {
@@ -1210,16 +1210,16 @@
 			children = (
 				19F2EC6E214606120080342B /* MainVC.h */,
 				19F2EC6F214606120080342B /* MainVC.m */,
-				19652C9821605DFB004C8FBC /* 名词训练 */,
-				199F2D89216B4CF9008064A7 /* 名词测试 */,
-				19652C9721605DFB004C8FBC /* 名词意义测试 */,
-				19FF1746216C8CBC0047F52B /* 动词训练 */,
-				19FF1747216C8CBC0047F52B /* 动词测试 */,
-				19FF174F216DB37E0047F52B /* 句子成组 */,
-				19FF174E216DB37E0047F52B /* 句子分解 */,
-				19652C9921605DFC004C8FBC /* 过渡页面 */,
-				19E260302194185400513FFE /* 通关页面 */,
-				19BE2877216EDF4100E6B494 /* 强化物页面 */,
+				19652C9821605DFB004C8FBC /* MCXL */,
+				199F2D89216B4CF9008064A7 /* MCCS */,
+				19652C9721605DFB004C8FBC /* MCYYCS */,
+				19FF1746216C8CBC0047F52B /* DCXL */,
+				19FF1747216C8CBC0047F52B /* DCCS */,
+				19FF174F216DB37E0047F52B /* JZCZ */,
+				19FF174E216DB37E0047F52B /* JZFJ */,
+				19652C9921605DFC004C8FBC /* GDYM */,
+				19E260302194185400513FFE /* PassVC */,
+				19BE2877216EDF4100E6B494 /* QHW */,
 				19BE287B216EEA0000E6B494 /* Player */,
 				19C01FEE215E01EE001B9874 /* View */,
 			);
@@ -1285,25 +1285,25 @@
 			path = QHW;
 			sourceTree = "<group>";
 		};
-		19FF1746216C8CBC0047F52B /* 动词训练 */ = {
+		19FF1746216C8CBC0047F52B /* DCXL */ = {
 			isa = PBXGroup;
 			children = (
 				19FF1748216C8CDA0047F52B /* DCXLVC.h */,
 				19FF1749216C8CDA0047F52B /* DCXLVC.m */,
 			);
-			path = "动词训练";
+			path = DCXL;
 			sourceTree = "<group>";
 		};
-		19FF1747216C8CBC0047F52B /* 动词测试 */ = {
+		19FF1747216C8CBC0047F52B /* DCCS */ = {
 			isa = PBXGroup;
 			children = (
 				19FF174B216C8CE60047F52B /* DCCSVC.h */,
 				19FF174C216C8CE60047F52B /* DCCSVC.m */,
 			);
-			path = "动词测试";
+			path = DCCS;
 			sourceTree = "<group>";
 		};
-		19FF174E216DB37E0047F52B /* 句子分解 */ = {
+		19FF174E216DB37E0047F52B /* JZFJ */ = {
 			isa = PBXGroup;
 			children = (
 				19FF1759216DD0EC0047F52B /* JZFJXLVC.h */,
@@ -1311,10 +1311,10 @@
 				19FF175F216DD49A0047F52B /* JZFJCSVC.h */,
 				19FF1760216DD49A0047F52B /* JZFJCSVC.m */,
 			);
-			path = "句子分解";
+			path = JZFJ;
 			sourceTree = "<group>";
 		};
-		19FF174F216DB37E0047F52B /* 句子成组 */ = {
+		19FF174F216DB37E0047F52B /* JZCZ */ = {
 			isa = PBXGroup;
 			children = (
 				19FF1756216DD0DA0047F52B /* JZCZXLVC.h */,
@@ -1322,7 +1322,7 @@
 				19FF175C216DD4810047F52B /* JZCZCSVC.h */,
 				19FF175D216DD4810047F52B /* JZCZCSVC.m */,
 			);
-			path = "句子成组";
+			path = JZCZ;
 			sourceTree = "<group>";
 		};
 		3A3554F622757E4E00758085 /* OtherTests */ = {
