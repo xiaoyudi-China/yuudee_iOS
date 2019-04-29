@@ -123,8 +123,9 @@
 
 - (void)testFunction {
     [self viewDidLoad];
-    for (int a =0; a<4; a++) {
+    for (int a =0; a<5; a++) {
         self.type = a+1;
+        self.count = 1;
         [self timeGo];
     }
 }

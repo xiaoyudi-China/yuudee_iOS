@@ -798,9 +798,16 @@
 
 - (void)testFunction {
     [self viewDidLoad];
-    UIView *view = [self.view viewWithTag:10];
-    [self huaBanClick:[view gestureRecognizers][0]];
     self.isPass = @"1";
+    for (int a =0 ; a<4; a++) {
+        UIView *view = [self.view viewWithTag:10+a];
+        UILabel *lab = [[UILabel alloc] init];
+        lab.text = [NSString stringWithFormat:@"汽车%d",a+1];
+        lab.tag = view.tag+20;
+        [view addSubview:lab];
+        [self huaBanClick:[view gestureRecognizers][0]];
+    }
+
     [self Gogo];
     [self overPlay];
     [self goNextVC];
