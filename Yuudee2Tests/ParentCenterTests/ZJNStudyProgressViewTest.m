@@ -35,7 +35,7 @@
     }];
 }
 
-- (void)testInfo{
+//- (void)testInfo{
 //    XCTestExpectation *expectation = [self expectationWithDescription:@"..."];
 //    ZJNStudyProgressView *view = [[ZJNStudyProgressView alloc]init];
 //    [view testInfo:@"3EU2icCHNo4zD3NYNXzkzw==" success:^(id json) {
@@ -53,7 +53,11 @@
 //    [self waitForExpectationsWithTimeout:30.f handler:^(NSError * _Nullable error) {
 //        NSLog(@"...");
 //    }];
-}
+//}
 
+- (void)testFunction{
+    ZJNStudyProgressView *view = [[ZJNStudyProgressView alloc]init];
+    [view testFunction];
+}
 
 @end

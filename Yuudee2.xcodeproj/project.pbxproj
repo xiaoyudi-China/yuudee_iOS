@@ -226,6 +226,7 @@
 		3AF4136622729B7500C18E1B /* ZJNBasicViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF4136522729B7500C18E1B /* ZJNBasicViewControllerTest.m */; };
 		3AF4136822729B9300C18E1B /* ZJNNavigationControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF4136722729B9300C18E1B /* ZJNNavigationControllerTest.m */; };
 		3AFCF671227691F40036C607 /* ZJNStudyProgressViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCF670227691F40036C607 /* ZJNStudyProgressViewTest.m */; };
+		3AFCF6732276D9890036C607 /* ZJNStudyMonthProgressViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCF6722276D9890036C607 /* ZJNStudyMonthProgressViewTest.m */; };
 		B4474ED422769F020014BBED /* MainVC_mingci.json in Resources */ = {isa = PBXBuildFile; fileRef = B4474ED322769F020014BBED /* MainVC_mingci.json */; };
 		B4474EE122769F170014BBED /* JZCZCSVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B4474ED622769F170014BBED /* JZCZCSVCTest.m */; };
 		B4474EE222769F170014BBED /* MCYYCSVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B4474ED722769F170014BBED /* MCYYCSVCTest.m */; };
@@ -638,6 +639,7 @@
 		3AF4136522729B7500C18E1B /* ZJNBasicViewControllerTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNBasicViewControllerTest.m; sourceTree = "<group>"; };
 		3AF4136722729B9300C18E1B /* ZJNNavigationControllerTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNNavigationControllerTest.m; sourceTree = "<group>"; };
 		3AFCF670227691F40036C607 /* ZJNStudyProgressViewTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNStudyProgressViewTest.m; sourceTree = "<group>"; };
+		3AFCF6722276D9890036C607 /* ZJNStudyMonthProgressViewTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNStudyMonthProgressViewTest.m; sourceTree = "<group>"; };
 		B4474ED322769F020014BBED /* MainVC_mingci.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVC_mingci.json; sourceTree = "<group>"; };
 		B4474ED622769F170014BBED /* JZCZCSVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZCZCSVCTest.m; sourceTree = "<group>"; };
 		B4474ED722769F170014BBED /* MCYYCSVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCYYCSVCTest.m; sourceTree = "<group>"; };
@@ -1351,6 +1353,7 @@
 				3AF413572272992300C18E1B /* ZJNTrainTotalProgressViewControllerTest.m */,
 				3AAAFCE822759E7A00FA48B8 /* ZJNRegisterBgViewControllerTest.m */,
 				3AFCF670227691F40036C607 /* ZJNStudyProgressViewTest.m */,
+				3AFCF6722276D9890036C607 /* ZJNStudyMonthProgressViewTest.m */,
 			);
 			path = ParentCenterTests;
 			sourceTree = "<group>";
@@ -2563,6 +2566,7 @@
 				B4474EE922769F170014BBED /* DCXLVCTest.m in Sources */,
 				3AF4134E2272989800C18E1B /* ZJNPCPhoneViewControllerTest.m in Sources */,
 				3AF41350227298BE00C18E1B /* ZJNCPChangeSuccessViewControllerTest.m in Sources */,
+				3AFCF6732276D9890036C607 /* ZJNStudyMonthProgressViewTest.m in Sources */,
 				3AF4135E22729B2000C18E1B /* ZJNProtocolViewControllerTest.m in Sources */,
 				B4474EEA22769F170014BBED /* MCCSVCTest.m in Sources */,
 				B4474EEB22769F170014BBED /* JZFJCSVCTest.m in Sources */,
