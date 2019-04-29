@@ -44,7 +44,7 @@
     listModel.studyTime = @"12";
     listModel.time = @"1556261005000";
     listModel.dayResultList = @[];
-    dayModel.resultList = @[listModel];
+    dayModel.resultList = @[listModel,listModel,listModel,listModel];
     [view testFunctionWithDayModel:dayModel];
 }
 
@@ -58,21 +58,20 @@
     timeModel.accuracy = @"0";
     timeModel.countTime = @"12";
     timeModel.time = @"019-04-26";
-    listModel.timeList = @[timeModel];
+    listModel.timeList = @[timeModel,timeModel,timeModel,timeModel];
     listModel.weekFirstDay = @"1555862400000";
     listModel.weekLastDay = @"1556380800000";
-    weekModel.resultList = @[listModel];
+    weekModel.resultList = @[listModel,listModel,listModel,listModel];
     [view testFunctionWithWeekModel:weekModel];
 }
 
 - (void)testMonthFunction{
-    ZJNStudyMonthProgressView *view = [[ZJNStudyMonthProgressView alloc]initWithStudyType:StudyDayProgressView];
+    ZJNStudyMonthProgressView *view = [[ZJNStudyMonthProgressView alloc]initWithStudyType:StudyMonthProgressView];
     ZJNMonthHistoryModel *model = [[ZJNMonthHistoryModel alloc]init];
     model.countTime = @"7489";
     model.schedule = @"1";
     model.resultList = @[];
     [view testFunctionWithMonthModel:model];
 }
-
 
 @end
