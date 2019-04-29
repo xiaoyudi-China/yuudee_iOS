@@ -385,8 +385,16 @@
     [self.tableView reloadData];
 }
 
-- (void)testFunction{
-    
+- (void)testFunctionWithDayModel:(ZJNDayHistoryModel *)model{
+    self.dayModel = model;
+}
+
+- (void)testFunctionWithWeekModel:(ZJNWeekHistoryModel *)model{
+    self.weekModel = model;
+}
+
+- (void)testFunctionWithMonthModel:(ZJNMonthHistoryModel *)model{
+    self.monthModel = model;
 }
 
 @end

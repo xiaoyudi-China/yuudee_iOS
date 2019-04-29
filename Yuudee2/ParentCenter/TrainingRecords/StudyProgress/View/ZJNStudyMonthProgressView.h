@@ -21,5 +21,8 @@ typedef enum :NSInteger{
 @property (nonatomic ,strong)ZJNMonthHistoryModel *monthModel;
 -(instancetype)initWithStudyType:(StudyProgressViewType)viewType;
 
-- (void)testFunction;
+- (void)testFunctionWithDayModel:(ZJNDayHistoryModel *)model;
+- (void)testFunctionWithWeekModel:(ZJNWeekHistoryModel *)model;
+- (void)testFunctionWithMonthModel:(ZJNMonthHistoryModel *)model;
+
 @end

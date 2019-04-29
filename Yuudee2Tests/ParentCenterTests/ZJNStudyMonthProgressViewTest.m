@@ -35,9 +35,44 @@
     }];
 }
 
-- (void)testFunction{
+- (void)testDayFunction{
     ZJNStudyMonthProgressView *view = [[ZJNStudyMonthProgressView alloc]initWithStudyType:StudyDayProgressView];
-    [view testFunction];
+    ZJNDayHistoryModel *dayModel = [[ZJNDayHistoryModel alloc]init];
+    dayModel.countTime = @"7489";
+    dayModel.schedule = @"1";
+    DayListModel *listModel = [[DayListModel alloc]init];
+    listModel.studyTime = @"12";
+    listModel.time = @"1556261005000";
+    listModel.dayResultList = @[];
+    dayModel.resultList = @[listModel];
+    [view testFunctionWithDayModel:dayModel];
 }
+
+- (void)testWeekFunction{
+    ZJNStudyMonthProgressView *view = [[ZJNStudyMonthProgressView alloc]initWithStudyType:StudyWeekProgressView];
+    ZJNWeekHistoryModel *weekModel = [[ZJNWeekHistoryModel alloc]init];
+    weekModel.countTime = @"7489";
+    weekModel.schedule = @"1";
+    ResultListModel *listModel = [[ResultListModel alloc]init];
+    TimeListModel *timeModel = [[TimeListModel alloc]init];
+    timeModel.accuracy = @"0";
+    timeModel.countTime = @"12";
+    timeModel.time = @"019-04-26";
+    listModel.timeList = @[timeModel];
+    listModel.weekFirstDay = @"1555862400000";
+    listModel.weekLastDay = @"1556380800000";
+    weekModel.resultList = @[listModel];
+    [view testFunctionWithWeekModel:weekModel];
+}
+
+- (void)testMonthFunction{
+    ZJNStudyMonthProgressView *view = [[ZJNStudyMonthProgressView alloc]initWithStudyType:StudyDayProgressView];
+    ZJNMonthHistoryModel *model = [[ZJNMonthHistoryModel alloc]init];
+    model.countTime = @"7489";
+    model.schedule = @"1";
+    model.resultList = @[];
+    [view testFunctionWithMonthModel:model];
+}
+
 
 @end
