@@ -29,6 +29,8 @@
 //电话号归属地
 @property (nonatomic ,assign)NSInteger phoneCode;
 
+@property (nonatomic, copy) void (^success) (id json);
+@property (nonatomic, copy) void (^failure) (NSError *error);
 @end
 @implementation ZJNGeneralLoginView
 -(id)init{
@@ -192,10 +194,16 @@
             [self.viewController showHint:data[@"msg"]];
         }
         [self.viewController hideHud];
+        if (self.success) {
+            self.success(data);
+        }
     } failure:^(NSError *error) {
         [self.phoneTextField resignFirstResponder];
         [self.viewController showHint:ErrorInfo];
         [self.viewController hideHud];
+        if (self.failure) {
+            self.failure(error);
+        }
     }];
     
 }
@@ -229,9 +237,15 @@
         }else{
             [self.viewController showHint:data[@"msg"]];
         }
+        if (self.success) {
+            self.success(data);
+        }
     } failure:^(NSError *error) {
         [self.viewController showHint:ErrorInfo];
         NSLog(@"%@",error);
+        if (self.failure) {
+            self.failure(error);
+        }
     }];
 }
 #pragma mark-注册按钮
@@ -257,5 +271,30 @@
     };
     [self.viewController.navigationController pushViewController:viewC animated:YES];
 }
+
+- (void)testFunction{
+    self.phoneTextField.text = @"13661316344";
+    [self textField:self.phoneTextField shouldChangeCharactersInRange:NSMakeRange(0, 1) replacementString:@"1"];
+    [self bottomPhoneTFValueChanged:self.phoneTextField];
+    self.phoneTextField.text = @"";
+    [self loginBtnClick];
+    [self registerButton];
+    [self fpButtonClick];
+    [self leftButtonClick];
+}
+
+- (void)testGeneralLogin:(NSInteger )code phone:(NSString *)phone psw:(NSString *)psw
+                    success:(void (^) (id json))success
+                    failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+    self.phoneCode = code;
+    self.phoneTextField.plainPhoneNum = @"13661316354";
+    self.passwordTextField.text = @"123456";
+    [self loginBtnClick];
+    
+    [self isRegistedPhone:self.phoneTextField.plainPhoneNum];
+}
+
 
 @end

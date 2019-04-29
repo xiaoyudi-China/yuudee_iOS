@@ -403,8 +403,16 @@
 
 - (void)testFunctionWithMonthModel:(ZJNMonthHistoryModel *)model{
     self.monthModel = model;
+//    [self tableView:self.tableView viewForHeaderInSection:0];
+//    NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
+//    [self tableView:self.tableView cellForRowAtIndexPath:path];
+//    [self tableView:self.tableView heightForRowAtIndexPath:path];
+    
     ZJNChartsTableViewCell *cell = [[ZJNChartsTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     cell.selected = YES;
+    
+    ZJNStudyHistoryTableViewCell *cell01 = [[ZJNStudyHistoryTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell01"];
+    [cell01 testFunction];
 }
 
 @end

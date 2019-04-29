@@ -115,8 +115,14 @@
 - (void)testFunction{
     self.textField.text = @"";
     [self textFieldDidChange:self.textField];
+    self.textField.text = @"12345";
+    [self textFieldDidChange:self.textField];
+//    self.textField.text = @"123456";
+//    [self textFieldDidChange:self.textField];
     [self cleanVerifyCode];
-    [self textField:self.textField shouldChangeCharactersInRange:NSMakeRange(0, 1) replacementString:@"1"];
+    [self textField:self.textField shouldChangeCharactersInRange:NSMakeRange(0, 1) replacementString:@"\n"];
+    [self textField:self.textField shouldChangeCharactersInRange:NSMakeRange(0, 1) replacementString:@""];
+    [self textField:self.textField shouldChangeCharactersInRange:NSMakeRange(0, 1) replacementString:@"1234567"];
 }
 
 @end

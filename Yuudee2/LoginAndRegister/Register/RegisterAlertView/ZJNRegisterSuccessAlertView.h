@@ -10,4 +10,6 @@
 
 @interface ZJNRegisterSuccessAlertView : UIView
 @property (nonatomic ,copy)void (^perfectChildInfoBlock)(void);
+
+- (void)testFunction;
 @end

@@ -10,4 +10,8 @@
 
 @interface ZJNGeneralLoginView : UIView
 
+- (void)testFunction;
+- (void)testGeneralLogin:(NSInteger )code phone:(NSString *)phone psw:(NSString *)psw
+                 success:(void (^) (id json))success
+                 failure:(void (^)(NSError *error))failure;
 @end
