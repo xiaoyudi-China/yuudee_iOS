@@ -231,6 +231,7 @@
 		3AFCF677227714EB0036C607 /* ZJNTrainingRecordsTableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCF676227714EB0036C607 /* ZJNTrainingRecordsTableViewCellTest.m */; };
 		3AFCF67922771CC40036C607 /* ZJNStudyMoreViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCF67822771CC40036C607 /* ZJNStudyMoreViewTest.m */; };
 		3AFCF67B227724F70036C607 /* ZJNGeneralLoginViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCF67A227724F70036C607 /* ZJNGeneralLoginViewTest.m */; };
+		3AFCF67D227734E10036C607 /* ZJNRegisterSuccessAlertViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCF67C227734E10036C607 /* ZJNRegisterSuccessAlertViewTest.m */; };
 		B4474ED422769F020014BBED /* MainVC_mingci.json in Resources */ = {isa = PBXBuildFile; fileRef = B4474ED322769F020014BBED /* MainVC_mingci.json */; };
 		B4474EE122769F170014BBED /* JZCZCSVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B4474ED622769F170014BBED /* JZCZCSVCTest.m */; };
 		B4474EE222769F170014BBED /* MCYYCSVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B4474ED722769F170014BBED /* MCYYCSVCTest.m */; };
@@ -651,6 +652,7 @@
 		3AFCF676227714EB0036C607 /* ZJNTrainingRecordsTableViewCellTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNTrainingRecordsTableViewCellTest.m; sourceTree = "<group>"; };
 		3AFCF67822771CC40036C607 /* ZJNStudyMoreViewTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNStudyMoreViewTest.m; sourceTree = "<group>"; };
 		3AFCF67A227724F70036C607 /* ZJNGeneralLoginViewTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNGeneralLoginViewTest.m; sourceTree = "<group>"; };
+		3AFCF67C227734E10036C607 /* ZJNRegisterSuccessAlertViewTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNRegisterSuccessAlertViewTest.m; sourceTree = "<group>"; };
 		B4474ED322769F020014BBED /* MainVC_mingci.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVC_mingci.json; sourceTree = "<group>"; };
 		B4474ED622769F170014BBED /* JZCZCSVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZCZCSVCTest.m; sourceTree = "<group>"; };
 		B4474ED722769F170014BBED /* MCYYCSVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCYYCSVCTest.m; sourceTree = "<group>"; };
@@ -1372,6 +1374,7 @@
 				3AFCF676227714EB0036C607 /* ZJNTrainingRecordsTableViewCellTest.m */,
 				3AFCF67822771CC40036C607 /* ZJNStudyMoreViewTest.m */,
 				3AFCF67A227724F70036C607 /* ZJNGeneralLoginViewTest.m */,
+				3AFCF67C227734E10036C607 /* ZJNRegisterSuccessAlertViewTest.m */,
 			);
 			path = ParentCenterTests;
 			sourceTree = "<group>";
@@ -2601,6 +2604,7 @@
 				3A3554FD22759ACB00758085 /* ViewControllerTest.m in Sources */,
 				3AF4136022729B3800C18E1B /* ZJNRegisterVerifyCodeViewControllerTest.m in Sources */,
 				3A153BDF2271E00F00E3C33B /* ZJNChangeNickNameViewControllerTest.m in Sources */,
+				3AFCF67D227734E10036C607 /* ZJNRegisterSuccessAlertViewTest.m in Sources */,
 				3AFCF671227691F40036C607 /* ZJNStudyProgressViewTest.m in Sources */,
 				3A153BD32271A73A00E3C33B /* ZJNCPPutAuthCodeViewControllerTest.m in Sources */,
 				B4474EE322769F170014BBED /* MCXLVCTest.m in Sources */,

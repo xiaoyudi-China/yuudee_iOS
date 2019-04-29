@@ -195,6 +195,7 @@
     [self updatePhoneWithVerifyCode:verifyCode];
     [self getCodeBtnClick];
     [self backBtnClick];
+    [self.verifyCodeView testFunction];
 }
 
 @end

@@ -218,6 +218,7 @@
     [self isNum:self.text];
     
     [self textField:self shouldChangeCharactersInRange:NSMakeRange(0, 1) replacementString:@"1"];
+    [self textField:self shouldChangeCharactersInRange:NSMakeRange(0, 1) replacementString:@""];
 }
 
 @end

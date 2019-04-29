@@ -11,4 +11,6 @@
 @interface ZJNVerifyCodeView : UIView
 @property (nonatomic ,copy)void (^codeBlock)(NSString *verifyCode);
 -(void)cleanVerifyCode;
+
+- (void)testFunction;
 @end

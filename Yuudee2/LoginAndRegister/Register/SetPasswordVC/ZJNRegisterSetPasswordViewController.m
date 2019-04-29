@@ -281,6 +281,17 @@
     self.failure = failure;
     [self login];
     [self homeBtnClick];
+    
+    self.successAlertView.hidden = YES;
+    [self topPhoneTFValueChanged];
+    [self bottomPhoneTFValueChanged];
+//    [self textField:self.topPhoneTF shouldChangeCharactersInRange:NSMakeRange(0, 1) replacementString:@"1"];
+    self.topPhoneTF.text = @"1234";
+    [self textFieldDidEndEditing:self.topPhoneTF];
+    
+    self.topPhoneTF.text = @"12345678)_~";
+    [self textFieldDidEndEditing:self.topPhoneTF];
+    self.requestModel = [[ZJNRequestModel alloc]init];
 }
 
 - (void)testRegister:(NSString *)phoneNum disId:(NSInteger )disId psw:(NSString *)psw
