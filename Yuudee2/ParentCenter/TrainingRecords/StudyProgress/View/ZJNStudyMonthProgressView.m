@@ -403,6 +403,8 @@
 
 - (void)testFunctionWithMonthModel:(ZJNMonthHistoryModel *)model{
     self.monthModel = model;
+    ZJNChartsTableViewCell *cell = [[ZJNChartsTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    cell.selected = YES;
 }
 
 @end

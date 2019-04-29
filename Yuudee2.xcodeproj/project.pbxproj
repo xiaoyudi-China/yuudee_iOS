@@ -229,6 +229,7 @@
 		3AFCF6732276D9890036C607 /* ZJNStudyMonthProgressViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCF6722276D9890036C607 /* ZJNStudyMonthProgressViewTest.m */; };
 		3AFCF6752276F6710036C607 /* ZJNLineChartsViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCF6742276F6710036C607 /* ZJNLineChartsViewTest.m */; };
 		3AFCF677227714EB0036C607 /* ZJNTrainingRecordsTableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCF676227714EB0036C607 /* ZJNTrainingRecordsTableViewCellTest.m */; };
+		3AFCF67922771CC40036C607 /* ZJNStudyMoreViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFCF67822771CC40036C607 /* ZJNStudyMoreViewTest.m */; };
 		B4474ED422769F020014BBED /* MainVC_mingci.json in Resources */ = {isa = PBXBuildFile; fileRef = B4474ED322769F020014BBED /* MainVC_mingci.json */; };
 		B4474EE122769F170014BBED /* JZCZCSVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B4474ED622769F170014BBED /* JZCZCSVCTest.m */; };
 		B4474EE222769F170014BBED /* MCYYCSVCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B4474ED722769F170014BBED /* MCYYCSVCTest.m */; };
@@ -647,6 +648,7 @@
 		3AFCF6722276D9890036C607 /* ZJNStudyMonthProgressViewTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNStudyMonthProgressViewTest.m; sourceTree = "<group>"; };
 		3AFCF6742276F6710036C607 /* ZJNLineChartsViewTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNLineChartsViewTest.m; sourceTree = "<group>"; };
 		3AFCF676227714EB0036C607 /* ZJNTrainingRecordsTableViewCellTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNTrainingRecordsTableViewCellTest.m; sourceTree = "<group>"; };
+		3AFCF67822771CC40036C607 /* ZJNStudyMoreViewTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJNStudyMoreViewTest.m; sourceTree = "<group>"; };
 		B4474ED322769F020014BBED /* MainVC_mingci.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVC_mingci.json; sourceTree = "<group>"; };
 		B4474ED622769F170014BBED /* JZCZCSVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZCZCSVCTest.m; sourceTree = "<group>"; };
 		B4474ED722769F170014BBED /* MCYYCSVCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCYYCSVCTest.m; sourceTree = "<group>"; };
@@ -1366,6 +1368,7 @@
 				3AFCF6722276D9890036C607 /* ZJNStudyMonthProgressViewTest.m */,
 				3AFCF6742276F6710036C607 /* ZJNLineChartsViewTest.m */,
 				3AFCF676227714EB0036C607 /* ZJNTrainingRecordsTableViewCellTest.m */,
+				3AFCF67822771CC40036C607 /* ZJNStudyMoreViewTest.m */,
 			);
 			path = ParentCenterTests;
 			sourceTree = "<group>";
@@ -2582,6 +2585,7 @@
 				B4474EF12276F1100014BBED /* QHWVCTest.m in Sources */,
 				B4474EE722769F170014BBED /* JZCZXLVCTest.m in Sources */,
 				B4474EE922769F170014BBED /* DCXLVCTest.m in Sources */,
+				3AFCF67922771CC40036C607 /* ZJNStudyMoreViewTest.m in Sources */,
 				3AF4134E2272989800C18E1B /* ZJNPCPhoneViewControllerTest.m in Sources */,
 				3AF41350227298BE00C18E1B /* ZJNCPChangeSuccessViewControllerTest.m in Sources */,
 				3AFCF6732276D9890036C607 /* ZJNStudyMonthProgressViewTest.m in Sources */,

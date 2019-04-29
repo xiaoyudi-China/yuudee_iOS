@@ -24,21 +24,12 @@
     }
     return self;
 }
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
+
 -(ZJNLineChartsView *)lineChartsView{
     if (!_lineChartsView) {
         _lineChartsView = [[ZJNLineChartsView alloc]init];
     }
     return _lineChartsView;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end
