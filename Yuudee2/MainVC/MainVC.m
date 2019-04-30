@@ -78,6 +78,7 @@
 @property (nonatomic, copy) void (^success) (id json);
 @property (nonatomic, copy) void (^failure) (NSError *error);
 @property (nonatomic, copy) NSString *testToken;
+@property (nonatomic) BOOL isTest;
 
 @end
 
@@ -210,51 +211,8 @@
     }];
 }
 
-- (BOOL)stringContainsEmoji:(NSString *)string{
-    __block BOOL returnValue = NO;
-    [string enumerateSubstringsInRange:NSMakeRange(0, [string length]) options:NSStringEnumerationByComposedCharacterSequences usingBlock:
-     ^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop){
-         const unichar hs = [substring characterAtIndex:0];
-         // surrogate pair
-         if (0xd800 <= hs && hs <= 0xdbff){
-             if (substring.length > 1){
-                 const unichar ls = [substring characterAtIndex:1];
-                 const int uc = ((hs - 0xd800) * 0x400) + (ls - 0xdc00) + 0x10000;
-                 if (0x1d000 <= uc && uc <= 0x1f77f){
-                     returnValue = YES;
-                 }
-             }
-         }else if (substring.length > 1){
-             const unichar ls = [substring characterAtIndex:1];
-             if (ls == 0x20e3){
-                 returnValue = YES;
-             }
-         }else{
-             // non surrogate
-             if (0x2100 <= hs && hs <= 0x27ff){
-                 returnValue = YES;
-             }else if (0x2B05 <= hs && hs <= 0x2b07){
-                 returnValue = YES;
-                 
-             }else if (0x2934 <= hs && hs <= 0x2935){
-                 returnValue = YES;
-                 
-             }else if (0x3297 <= hs && hs <= 0x3299){
-                 
-                 returnValue = YES;
-                 
-             }else if (hs == 0xa9 || hs == 0xae || hs == 0x303d || hs == 0x3030 || hs == 0x2b55 || hs == 0x2b1c || hs == 0x2b1b || hs == 0x2b50){
-                 
-                 returnValue = YES;
-             }
-         }
-     }];
-    return returnValue;
-    
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self stringContainsEmoji:@"测试测试"];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(active) name:@"BecomeActive" object:nil];
     [self makeUI];
     [self HTTPDC];
@@ -284,6 +242,76 @@
     [view show];
 }
 #pragma mark - 判断是否完善了儿童信息,完成问卷调查
+- (void)HTTPIsCompleteCodeBlock1:(id)response {
+    NSString *IsRemindStr = @"";
+    NSString *isRecord = @"";
+    NSString *pcdiIsRemind = @"";
+    NSString *abcIsRemind = @"";
+    NSString *remindType = @"";
+
+    if (self.isTest) {
+        IsRemindStr = @"2";
+        isRecord = @"1";
+        pcdiIsRemind = @"1";
+        abcIsRemind = @"1";
+        remindType = @"1";
+
+    }else {
+        IsRemindStr = response[@"data"][@"IsRemind"];
+        isRecord = response[@"data"][@"isRecord"];
+        pcdiIsRemind = response[@"data"][@"pcdiIsRemind"];
+        abcIsRemind = response[@"data"][@"abcIsRemind"];
+        remindType = response[@"data"][@"remindType"];
+    }
+    
+    if ([IsRemindStr isEqualToString:@"1"]) { //未完善儿童信息
+        GZPTipView * view = [[GZPTipView alloc] initWithFrame:self.view.bounds title:@"完善训练儿童信息" block:^(NSInteger type, GZPTipView *view) {
+            if (type == 1){
+                ZJNPerfectInfoViewController * vc = [ZJNPerfectInfoViewController new];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            [view removeFromSuperview];
+        }];
+        [view show];
+        
+    }else{ //已完善儿童信息
+        if([isRecord isEqualToString:@"0"]){ //没有填写过问卷
+            GZPTipView * view = [[GZPTipView alloc] initWithFrame:self.view.bounds title:@"问卷评估提醒" block:^(NSInteger type, GZPTipView *view) {
+                if (type == 2){
+                    ZJNMainAssessmentReviewController * vc = [ZJNMainAssessmentReviewController new];
+                    [self.navigationController pushViewController:vc animated:YES];
+                }
+                [view removeFromSuperview];
+            }];
+            [view show];
+        }else{ //填写过问卷
+            if ([pcdiIsRemind isEqualToString:@"1"] || [pcdiIsRemind isEqualToString:@"3"] || [abcIsRemind isEqualToString:@"1"] || [abcIsRemind isEqualToString:@"3"]){ //需要弹框的情况
+                if ([remindType isEqualToString:@"2"]) { //通关填写问卷提醒
+                    GZPTipView * view = [[GZPTipView alloc] initWithFrame:self.view.bounds title:@"通关填写问卷提醒" block:^(NSInteger type, GZPTipView *view) {
+                        if (type == 2){
+                            ZJNMainAssessmentReviewController * vc = [ZJNMainAssessmentReviewController new];
+                            [self.navigationController pushViewController:vc animated:YES];
+                        }
+                        [view removeFromSuperview];
+                    }];
+                    [view show];
+                    return ;
+                }
+                if ([remindType isEqualToString:@"1"]) { //定期问卷提醒
+                    GZPTipView * view = [[GZPTipView alloc] initWithFrame:self.view.bounds title:@"定期问卷评估提醒" block:^(NSInteger type, GZPTipView *view) {
+                        if (type == 2){
+                            ZJNMainAssessmentReviewController * vc = [ZJNMainAssessmentReviewController new];
+                            [self.navigationController pushViewController:vc animated:YES];
+                        }
+                        [view removeFromSuperview];
+                    }];
+                    [view show];
+                }
+            }
+        }
+    }
+}
+
 -(void)HTTPIsComplete
 {
     NSMutableDictionary *paras = [NSMutableDictionary dictionary];
@@ -298,61 +326,7 @@
                 self.success(response);
             }
             
-            NSString *IsRemindStr = response[@"data"][@"IsRemind"];
-            NSString *isRecord = response[@"data"][@"isRecord"];
-            NSString *pcdiIsRemind = response[@"data"][@"pcdiIsRemind"];
-            if (self.testToken.length > 0) {
-                IsRemindStr = @"2";
-                isRecord = @"1";
-                pcdiIsRemind = @"1";
-            }
-            
-            if ([IsRemindStr isEqualToString:@"1"]) { //未完善儿童信息
-                GZPTipView * view = [[GZPTipView alloc] initWithFrame:self.view.bounds title:@"完善训练儿童信息" block:^(NSInteger type, GZPTipView *view) {
-                    if (type == 1){
-                        ZJNPerfectInfoViewController * vc = [ZJNPerfectInfoViewController new];
-                        [self.navigationController pushViewController:vc animated:YES];
-                    }
-                    [view removeFromSuperview];
-                }];
-                [view show];
-                
-            }else{ //已完善儿童信息
-                if([isRecord isEqualToString:@"0"]){ //没有填写过问卷
-                    GZPTipView * view = [[GZPTipView alloc] initWithFrame:self.view.bounds title:@"问卷评估提醒" block:^(NSInteger type, GZPTipView *view) {
-                        if (type == 2){
-                            ZJNMainAssessmentReviewController * vc = [ZJNMainAssessmentReviewController new];
-                            [self.navigationController pushViewController:vc animated:YES];
-                        }
-                        [view removeFromSuperview];
-                    }];
-                    [view show];
-                }else{ //填写过问卷
-                    if ([pcdiIsRemind isEqualToString:@"1"] || [response[@"data"][@"pcdiIsRemind"] isEqualToString:@"3"] || [response[@"data"][@"abcIsRemind"] isEqualToString:@"1"] || [response[@"data"][@"abcIsRemind"] isEqualToString:@"3"]){ //需要弹框的情况
-                        if ([response[@"data"][@"remindType"] isEqualToString:@"2"]) { //通关填写问卷提醒
-                            GZPTipView * view = [[GZPTipView alloc] initWithFrame:self.view.bounds title:@"通关填写问卷提醒" block:^(NSInteger type, GZPTipView *view) {
-                                if (type == 2){
-                                    ZJNMainAssessmentReviewController * vc = [ZJNMainAssessmentReviewController new];
-                                    [self.navigationController pushViewController:vc animated:YES];
-                                }
-                                [view removeFromSuperview];
-                            }];
-                            [view show];
-                            return ;
-                        }
-                        if ([response[@"data"][@"remindType"] isEqualToString:@"1"]) { //定期问卷提醒
-                            GZPTipView * view = [[GZPTipView alloc] initWithFrame:self.view.bounds title:@"定期问卷评估提醒" block:^(NSInteger type, GZPTipView *view) {
-                                if (type == 2){
-                                    ZJNMainAssessmentReviewController * vc = [ZJNMainAssessmentReviewController new];
-                                    [self.navigationController pushViewController:vc animated:YES];
-                                }
-                                [view removeFromSuperview];
-                            }];
-                            [view show];
-                        }
-                    }
-                }
-            }
+            [self HTTPIsCompleteCodeBlock1:response];
 
         }else {
             if (self.failure) {
@@ -1079,8 +1053,12 @@
     
     [self testData];
     [self viewDidLoad];
-    
+    self.isTest = YES;
+    [self HTTPIsCompleteCodeBlock1:@{}];
     self.hasGetProgress = YES;
+    self.latest = 1;
+    self.jzfjNum = 10;
+    self.jzczNum = 10;
     UIButton *btn1 = [self.view viewWithTag:10];
     for (int a=0; a<3; a++) {
         self.mcNum = 10*(a+1);
@@ -1090,13 +1068,11 @@
     UIButton *btn2 = [self.view viewWithTag:11];
     self.latest = 300;
     for (int a=0; a<2; a++) {
-        self.mcNum = 10*(a+1);
+        self.dcNum = 10*(a+1);
         [self imageClick:btn2];
     }
     
     UIButton *btn3 = [self.view viewWithTag:12];
-    self.mcNum = 30;
-    
     for (int a =0; a<4; a++) {
         self.latest = 100*(a+3);
         [self imageClick:btn3];
@@ -1214,17 +1190,6 @@
     self.testToken = token;
     
     [self HTTPProgress];
-    
-}
-
-- (void)testRequestServer6Token:(NSString *)token
-                        success:(void (^) (id json))success
-                        failure:(void (^)(NSError *error))failure{
-    self.success = success;
-    self.failure = failure;
-    self.testToken = token;
-    
-    [self HTTPIsComplete];
     
 }
 

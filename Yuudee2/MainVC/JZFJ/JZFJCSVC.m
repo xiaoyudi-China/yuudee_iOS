@@ -185,14 +185,16 @@
     [self.view addSubview:self.kejianImage];
     
     [[PlayerManager shared] playLocalUrl:@"男-谁在干什么.MP3"];
+    
+    
     NSInteger after1 = [[NSString stringWithFormat:@"%@",self.model.cardOneTime]integerValue];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        if (self.select == 0) {
+        if (self.select == 0 || self.isTest) {
             self.circleView.animationTime = after1;
             [self.circleView start];
         }
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(after1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            if (self.select == 0) {
+            if (self.select == 0 || self.isTest) {
                 for (int i = 0; i < 4; i ++) {
                     UIImageView * H = (id)[self.view viewWithTag:10+i];
                     GZPLabel * L = (id)[H viewWithTag:30 + i];
@@ -306,51 +308,7 @@
     _handView.alpha = 0;
     [_handView show];
     [self.view addSubview:_handView];
-    [self stringContainsEmoji:@"cardChar"];
 
-}
-
-- (BOOL)stringContainsEmoji:(NSString *)string{
-    __block BOOL returnValue = NO;
-    [string enumerateSubstringsInRange:NSMakeRange(0, [string length]) options:NSStringEnumerationByComposedCharacterSequences usingBlock:
-     ^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop){
-         const unichar hs = [substring characterAtIndex:0];
-         // surrogate pair
-         if (0xd800 <= hs && hs <= 0xdbff){
-             if (substring.length > 1){
-                 const unichar ls = [substring characterAtIndex:1];
-                 const int uc = ((hs - 0xd800) * 0x400) + (ls - 0xdc00) + 0x10000;
-                 if (0x1d000 <= uc && uc <= 0x1f77f){
-                     returnValue = YES;
-                 }
-             }
-         }else if (substring.length > 1){
-             const unichar ls = [substring characterAtIndex:1];
-             if (ls == 0x20e3){
-                 returnValue = YES;
-             }
-         }else{
-             // non surrogate
-             if (0x2100 <= hs && hs <= 0x27ff){
-                 returnValue = YES;
-             }else if (0x2B05 <= hs && hs <= 0x2b07){
-                 returnValue = YES;
-                 
-             }else if (0x2934 <= hs && hs <= 0x2935){
-                 returnValue = YES;
-                 
-             }else if (0x3297 <= hs && hs <= 0x3299){
-                 
-                 returnValue = YES;
-                 
-             }else if (hs == 0xa9 || hs == 0xae || hs == 0x303d || hs == 0x3030 || hs == 0x2b55 || hs == 0x2b1c || hs == 0x2b1b || hs == 0x2b50){
-                 
-                 returnValue = YES;
-             }
-         }
-     }];
-    return returnValue;
-    
 }
 
 #pragma mark - 点击了四个画板
@@ -908,9 +866,10 @@
 
 - (void)testFunction {
     self.select = 0;
-    [self viewDidLoad];
-    self.isPass = @"1";
     self.isTest = YES;
+    self.isPass = @"1";
+
+    [self viewDidLoad];
     self.select = 1;
     for (int a =0 ; a<4; a++) {
         UIView *view = [self.view viewWithTag:10+a];
