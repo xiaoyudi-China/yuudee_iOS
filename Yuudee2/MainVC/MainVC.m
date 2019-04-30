@@ -168,42 +168,6 @@
         }
     }];
 }
-- (NSString *)deviceModelName{
-    struct utsname systemInfo;
-    uname(&systemInfo);
-    NSString * deviceString = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
-    //iPhone
-        if ([deviceString isEqualToString:@"iPhone1,1"]) return @"iPhone 1G";
-        if ([deviceString isEqualToString:@"iPhone1,2"]) return @"iPhone 3G";
-        if ([deviceString isEqualToString:@"iPhone2,1"]) return @"iPhone 3GS";
-        if ([deviceString isEqualToString:@"iPhone3,1"]) return @"iPhone 4";
-        if ([deviceString isEqualToString:@"iPhone3,2"]) return @"Verizon iPhone 4";
-        if ([deviceString isEqualToString:@"iPhone4,1"]) return @"iPhone 4S";
-        if ([deviceString isEqualToString:@"iPhone5,1"]) return @"iPhone 5";
-        if ([deviceString isEqualToString:@"iPhone5,2"]) return @"iPhone 5";
-        if ([deviceString isEqualToString:@"iPhone5,3"]) return @"iPhone 5C";
-        if ([deviceString isEqualToString:@"iPhone5,4"]) return @"iPhone 5C";
-        if ([deviceString isEqualToString:@"iPhone6,1"]) return @"iPhone 5S";
-        if ([deviceString isEqualToString:@"iPhone6,2"]) return @"iPhone 5S";
-        if ([deviceString isEqualToString:@"iPhone7,1"]) return @"iPhone 6 Plus";
-        if ([deviceString isEqualToString:@"iPhone7,2"]) return @"iPhone 6";
-        if ([deviceString isEqualToString:@"iPhone8,1"]) return @"iPhone 6s";
-        if ([deviceString isEqualToString:@"iPhone8,2"]) return @"iPhone 6s Plus";
-        if ([deviceString isEqualToString:@"iPhone8,4"]) return @"iPhone SE";
-        if ([deviceString isEqualToString:@"iPhone9,1"]) return @"iPhone 7";
-        if ([deviceString isEqualToString:@"iPhone9,3"]) return @"iPhone 7";
-        if ([deviceString isEqualToString:@"iPhone9,2"])  return @"iPhone 7 Plus";
-        if ([deviceString isEqualToString:@"iPhone9,4"])  return @"iPhone 7 Plus";
-        if ([deviceString isEqualToString:@"iPhone10,1"]) return @"iPhone 8";
-        if ([deviceString isEqualToString:@"iPhone10,4"]) return @"iPhone 8";
-        if ([deviceString isEqualToString:@"iPhone10,2"]) return @"iPhone 8 Plus";
-        if ([deviceString isEqualToString:@"iPhone10,5"]) return @"iPhone 8 Plus";
-        if ([deviceString isEqualToString:@"iPhone10,3"]) return @"iPhone X";
-        if ([deviceString isEqualToString:@"iPhone10,6"]) return @"iPhone X";
-    
-    return deviceString;
-    
-}
 
 #pragma mark - HTTP请求当前金币数量
 -(void)HTTPGold   
@@ -245,11 +209,51 @@
         }
     }];
 }
+
+- (BOOL)stringContainsEmoji:(NSString *)string{
+    __block BOOL returnValue = NO;
+    [string enumerateSubstringsInRange:NSMakeRange(0, [string length]) options:NSStringEnumerationByComposedCharacterSequences usingBlock:
+     ^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop){
+         const unichar hs = [substring characterAtIndex:0];
+         // surrogate pair
+         if (0xd800 <= hs && hs <= 0xdbff){
+             if (substring.length > 1){
+                 const unichar ls = [substring characterAtIndex:1];
+                 const int uc = ((hs - 0xd800) * 0x400) + (ls - 0xdc00) + 0x10000;
+                 if (0x1d000 <= uc && uc <= 0x1f77f){
+                     returnValue = YES;
+                 }
+             }
+         }else if (substring.length > 1){
+             const unichar ls = [substring characterAtIndex:1];
+             if (ls == 0x20e3){
+                 returnValue = YES;
+             }
+         }else{
+             // non surrogate
+             if (0x2100 <= hs && hs <= 0x27ff){
+                 returnValue = YES;
+             }else if (0x2B05 <= hs && hs <= 0x2b07){
+                 returnValue = YES;
+                 
+             }else if (0x2934 <= hs && hs <= 0x2935){
+                 returnValue = YES;
+                 
+             }else if (0x3297 <= hs && hs <= 0x3299){
+                 
+                 returnValue = YES;
+                 
+             }else if (hs == 0xa9 || hs == 0xae || hs == 0x303d || hs == 0x3030 || hs == 0x2b55 || hs == 0x2b1c || hs == 0x2b1b || hs == 0x2b50){
+                 
+                 returnValue = YES;
+             }
+         }
+     }];
+    return returnValue;
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *deviceModelName = [self deviceModelName];
-    
-    
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(active) name:@"BecomeActive" object:nil];
     
@@ -1109,6 +1113,8 @@
         [self imageClick:btn3];
     }
     
+    [self stringContainsEmoji:@"测试测试"];
+
     [self parentsClick];
     [self move];
     [self sureClick];
