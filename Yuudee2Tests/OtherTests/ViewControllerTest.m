@@ -1,19 +1,19 @@
 //
-//  QHWVCTest.m
+//  ViewControllerTest.m
 //  Yuudee2Tests
 //
-//  Created by zcy on 2019/4/29.
+//  Created by Anton on 2019/4/28.
 //  Copyright © 2019 险峰科技. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
-#import "QHWVC.h"
+#import "ViewController.h"
 
-@interface QHWVCTest : XCTestCase
+@interface ViewControllerTest : XCTestCase
 
 @end
 
-@implementation QHWVCTest
+@implementation ViewControllerTest
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -35,11 +35,8 @@
     }];
 }
 
-- (void)testMainVC {
-    QHWVC *vc = [[QHWVC alloc] init];
-    vc.isPass = 1;
-    vc.isAgainPass = NO;
-    vc.type = 1;
+- (void)testFunction{
+    ViewController *vc = [[ViewController alloc]init];
     [vc testFunction];
 }
 
