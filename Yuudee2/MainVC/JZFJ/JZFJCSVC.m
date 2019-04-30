@@ -99,6 +99,23 @@
     self.with3 = [self.rectWithArr[2] floatValue];
     self.with4 = [self.rectWithArr[3] floatValue];
     
+    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeSystem];
+    btn1.frame = CGRectMake(0, 0, 100, 100);
+    [btn1 setTitle:@"btn1" forState:UIControlStateNormal];
+    
+    UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeSystem];
+    btn2.frame = CGRectMake(0, 0, 100, 100);
+    [btn2 setTitle:@"btn1" forState:UIControlStateNormal];
+    UIButton *btn3 = [UIButton buttonWithType:UIButtonTypeSystem];
+    btn3.frame = CGRectMake(0, 0, 100, 100);
+    [btn3 setTitle:@"btn1" forState:UIControlStateNormal];
+    UIButton *btn4 = [UIButton buttonWithType:UIButtonTypeSystem];
+    btn4.frame = CGRectMake(0, 0, 100, 100);
+    [btn4 setTitle:@"btn1" forState:UIControlStateNormal];
+    UIButton *btn5 = [UIButton buttonWithType:UIButtonTypeSystem];
+    btn5.frame = CGRectMake(0, 0, 100, 100);
+    [btn5 setTitle:@"btn1" forState:UIControlStateNormal];
+    
     for (int i = 0; i < 3; i ++) {
         [self.dcArr addObject:[UIImage imageNamed:[NSString stringWithFormat:@"%@%d",self.model.cardThreeChar,i+1]]];
     }

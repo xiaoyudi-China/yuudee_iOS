@@ -697,12 +697,13 @@
 }
 
 - (void)testFunction {
-    self.model.verbChar = @"汽车1";
     self.hasRight1 = YES;
     self.hasRight2 = YES;
-    self.isPass = @"1";
     self.isTest = YES;
     [self viewDidLoad];
+    self.model.verbChar = @"汽车1";
+    self.isPass = @"1";
+
     UIView *view = [self.view viewWithTag:10];
     [self huaBanClick:[view gestureRecognizers][0]];
     self.isPass = @"0";
