@@ -254,7 +254,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self stringContainsEmoji:@"测试测试"];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(active) name:@"BecomeActive" object:nil];
     
     
@@ -1113,7 +1113,6 @@
         [self imageClick:btn3];
     }
     
-    [self stringContainsEmoji:@"测试测试"];
 
     [self parentsClick];
     [self move];
