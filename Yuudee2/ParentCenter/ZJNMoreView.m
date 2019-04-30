@@ -400,49 +400,48 @@
         }
         if (count == 4) {
             str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
-            
-            if (count == 5) {
-                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
-            }
-            if (count == 6) {
-                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
-            }
-            if (count == 7) {
-                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
-            }
-            if (count == 8) {
-                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
-            }
-            if (count == 9) {
-                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
-            }
-            if (count == 10) {
-                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
-            }
-            if (count == 11) {
-                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
-            }
-            if (count == 12) {
-                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
-            }
-            if (count == 13) {
-                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
-            }
-            if (count == 14) {
-                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
-            }
-            if (count == 15) {
-                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
-            }
-            if (count == 16) {
-                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
-            }
-            if (count == 17) {
-                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
-            }
-            if (count == 18) {
-                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
-            }
+        }
+        if (count == 5) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 6) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 7) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 8) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 9) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 10) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 11) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 12) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 13) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 14) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 15) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 16) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 17) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 18) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
         }
     }
     return str;
