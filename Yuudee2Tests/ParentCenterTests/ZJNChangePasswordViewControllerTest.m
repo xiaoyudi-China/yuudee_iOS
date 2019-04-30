@@ -44,7 +44,7 @@
     XCTestExpectation *expectation = [self expectationWithDescription:@"..."];
     ZJNChangePasswordViewController *vc = [[ZJNChangePasswordViewController alloc]init];
 
-    [vc testOldPassword:@"JOXHMz8v75TKp9D3uXQyAQ==" oldPsw:@"123456" newPsw:@"123456" success:^(id json) {
+    [vc testOldPassword:@"IFHmXHR3VHpOsdb5bZBQ==" oldPsw:@"123456" newPsw:@"123456" success:^(id json) {
         [expectation fulfill];
         XCTAssertNotNil(json, @"json 对象不为空");
         if ([[json[@"code"] stringValue] isEqualToString:@"200"]) {
