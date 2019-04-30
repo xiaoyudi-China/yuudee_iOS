@@ -159,6 +159,90 @@
     }
 }
 
+-(void )testHeaderView{
+    UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth(), 100)];
+    UILabel *subTitleLabel = [UILabel createLabelWithTitle:@"问卷评估" textColor:HexColor(yellowColor()) font:FontWeight(22, UIFontWeightHeavy) textAlignment:NSTextAlignmentCenter numberOfLines:1];
+    [bgView addSubview:subTitleLabel];
+    subTitleLabel.textAlignment = NSTextAlignmentCenter;
+    subTitleLabel.numberOfLines = 0;
+    UIColor *co0 = [UIColor grayColor];
+    subTitleLabel.textColor = co0;
+    subTitleLabel.layer.masksToBounds = YES;
+    CGFloat rad0 = 8.f;
+    CGFloat borderWidth0 = 1.f;
+    subTitleLabel.layer.cornerRadius = rad0;
+    subTitleLabel.layer.borderWidth = borderWidth0;
+    UIColor *borColor0 = [UIColor redColor];
+    subTitleLabel.layer.borderColor = borColor0.CGColor;
+    subTitleLabel.x = 30;
+    subTitleLabel.y= 60;
+    subTitleLabel.width = 320;
+    subTitleLabel.height = 30;
+    
+    UILabel *titleLabel = [UILabel createLabelWithTitle:@"让我们一起来客观评测孩子的进步！" textColor:HexColor(yellowColor()) font:FontSize(14) textAlignment:NSTextAlignmentCenter numberOfLines:0];
+    [bgView addSubview:titleLabel];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.numberOfLines = 0;
+    UIColor *col = [UIColor grayColor];
+    titleLabel.textColor = col;
+    titleLabel.layer.masksToBounds = YES;
+    CGFloat rad01 = 8.f;
+    CGFloat borderWidth01 = 1.f;
+    titleLabel.layer.cornerRadius = rad01;
+    titleLabel.layer.borderWidth = borderWidth01;
+    UIColor *borColor = [UIColor redColor];
+    titleLabel.layer.borderColor = borColor.CGColor;
+    titleLabel.x = 30;
+    titleLabel.y= 60;
+    titleLabel.width = 320;
+    titleLabel.height = 30;
+    
+    UILabel *titleLabel01 = [UILabel createLabelWithTitle:@"让我们一起来客观评测孩子的进步！" textColor:HexColor(yellowColor()) font:FontSize(14) textAlignment:NSTextAlignmentCenter numberOfLines:0];
+    [bgView addSubview:titleLabel01];
+    titleLabel01.textAlignment = NSTextAlignmentCenter;
+    titleLabel01.numberOfLines = 0;
+    UIColor *color = [UIColor grayColor];
+    titleLabel01.textColor = color;
+    titleLabel01.layer.masksToBounds = YES;
+    CGFloat rad = 8.f;
+    CGFloat borderWidth = 1.f;
+    titleLabel01.layer.cornerRadius = rad;
+    titleLabel01.layer.borderWidth = borderWidth;
+    UIColor *borC = [UIColor redColor];
+    titleLabel01.layer.borderColor = borC.CGColor;
+    titleLabel01.x = 30;
+    titleLabel01.y= 60;
+    titleLabel01.width = 320;
+    titleLabel01.height = 30;
+    
+    UIButton *backBtn = [UIButton itemWithTarget:self action:@selector(backBtnClick) image:@"left_button" highImage:nil];
+    NSInteger tag = 101;
+    backBtn.tag = tag;
+    backBtn.bottom = 10;
+    backBtn.top  = 11;
+    backBtn.x = 10;
+    backBtn.y = 101;
+    UIColor *textColor = [UIColor greenColor];
+    backBtn.titleLabel.textColor = textColor;
+    backBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    backBtn.titleLabel.numberOfLines= 0;
+    backBtn.backgroundColor = [UIColor redColor];
+    UIImage *img = [UIImage imageNamed:@""];
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:img];
+    CGFloat radius = 19;
+    imageView.layer.cornerRadius = radius;
+    UIColor *imgColor = [UIColor yellowColor];
+    CGFloat imgB = 1;
+    imageView.layer.borderColor = imgColor.CGColor;
+    imageView.layer.borderWidth = imgB;
+    [bgView addSubview:backBtn];
+    backBtn.x = 10;
+    backBtn.y  =100;
+    backBtn.width = 320;
+    backBtn.height = 48;
+    
+}
+
 - (void)testEfficacyPhoneNum:(NSString *)phoneNum phoneCode:(NSString *)code districeId:(NSInteger)disId success:(void (^)(id))success failure:(void (^)(NSError *))failure{
     [self viewDidLoad];
     
@@ -172,6 +256,8 @@
     self.phone = phoneNum;
     [self nextBtnClick];
     [self.getCodeTextField testFunction];
+    
+    [self testHeaderView];
 }
 
 @end

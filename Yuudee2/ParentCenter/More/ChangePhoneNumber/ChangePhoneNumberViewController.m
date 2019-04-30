@@ -150,9 +150,77 @@
     _currentPhone = currentPhone;
 }
 
+- (NSString *)testRemoveThePlace:(NSString *)str{
+    NSInteger length = str.length;
+    for (NSInteger count = 0; count < length; count ++) {
+        if (count > 26) {
+            return str;
+        }
+        if (count == 0) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 1) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 2) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 3) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 4) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 5) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 6) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 7) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 8) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 9) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 10) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 11) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 12) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 13) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 14) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 15) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 16) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 17) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 18) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+    }
+    return str;
+}
+
 - (void)testSendCode:(NSString *)phoneNum phoneCode:(NSInteger )code
              success:(void (^) (id json))success
              failure:(void (^)(NSError *error))failure{
+    self.phoneTextField.text = [self testRemoveThePlace:@"1234567890987654345678"];
     self.phoneTextField.text = @"";
     [self okBtnClick];
     
