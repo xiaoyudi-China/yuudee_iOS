@@ -690,8 +690,11 @@
 
 - (void)testFunction {
     self.isPass = @"1";
+    self.select = 0;
+    self.dissVC = NO;
     [self viewDidLoad];
     self.isTest = YES;
+    self.select = 1;
     for (int a =0 ; a<4; a++) {
         UIView *view = [self.view viewWithTag:10+a];
         [self huaBanClick:[view gestureRecognizers][0]];
@@ -704,6 +707,7 @@
     [self makeNav];
     [self homeClick];
     [self PostResult];
+    [self errorClick];
 }
 
 @end

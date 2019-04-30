@@ -54,6 +54,9 @@
 @property(nonatomic,assign)BOOL overCourse; //标识课件各种操作已完成,可以跳转了
 /** 单元测试*/
 @property (nonatomic) BOOL isTest;
+@property (nonatomic, copy) void (^success) (id json);
+@property (nonatomic, copy) void (^failure) (NSError *error);
+@property (nonatomic, copy) NSString *testToken;
 
 @end
 
@@ -726,9 +729,22 @@
 #pragma mark - 获取当前答题进度
 -(void)HTTPProgress
 {
-    [[YuudeeRequest shareManager] request:Post url:GetProgress paras:@{@"token":[[ZJNTool shareManager]getToken]} completion:^(id response, NSError *error) {
+    NSMutableDictionary *paras = [NSMutableDictionary dictionary];
+    if (self.testToken.length > 0) {//单元测试
+        paras[@"token"] = self.testToken;
+    }else {
+        paras[@"token"] = [[ZJNTool shareManager]getToken];
+    }
+    [[YuudeeRequest shareManager] request:Post url:GetProgress paras:paras completion:^(id response, NSError *error) {
         if ([response[@"code"] isEqual:@200]) {
-            if ([response[@"againModule"][@"module4"] isEqualToString:@"1"]) {
+            if (self.success) {
+                self.success(response);
+            }
+            NSString *module4Str = response[@"againModule"][@"module4"];
+            if (self.testToken.length > 0) {//测试
+                module4Str = @"1";
+            }
+            if ([module4Str isEqualToString:@"1"]) {
                 NSLog(@"句子分解已通关");
                 BOOL isPassAgain = NO;
                 if ([response[@"playerModule"][@"player4"] isEqualToString:@"1"]) {
@@ -743,15 +759,28 @@
                 NSLog(@"句子分解暂未通关,那么查询金币数量");
                 [self HTTPGetCoin];
             }
+        }else {
+            if (self.failure) {
+                self.failure(error);
+            }
         }
     }];
 }
 #pragma mark - 查询累计的金币数量
 -(void)HTTPGetCoin
 {
-    [[YuudeeRequest shareManager] request:Post url:GetCoin paras:@{@"token":[[ZJNTool shareManager] getToken]} completion:^(id response, NSError *error) {
+    NSMutableDictionary *paras = [NSMutableDictionary dictionary];
+    if (self.testToken.length > 0) {//单元测试
+        paras[@"token"] = self.testToken;
+    }else {
+        paras[@"token"] = [[ZJNTool shareManager]getToken];
+    }
+    [[YuudeeRequest shareManager] request:Post url:GetCoin paras:paras completion:^(id response, NSError *error) {
         NSInteger coinNum = 0;
         if ([response[@"code"] isEqual:@200]) {
+            if (self.success) {
+                self.success(response);
+            }
             if ([response[@"data"] isKindOfClass:[NSArray class]]) {
                 NSArray * array = response[@"data"];
                 for (NSDictionary * item in array) {
@@ -760,6 +789,13 @@
                     }
                 }
             }
+        }else {
+            if (self.failure) {
+                self.failure(error);
+            }
+        }
+        if (self.testToken.length > 0) {//单元测试
+            coinNum = 10;
         }
         if (coinNum > 9) {
             NSLog(@"金币数量大于10,那么跳转强化物 %ld",coinNum);
@@ -777,6 +813,9 @@
 {
     [[YuudeeRequest shareManager] request:Post url:JZFJ paras:nil completion:^(id response, NSError *error) {
         if ([response[@"code"] isEqual:@200]) {
+            if (self.success) {
+                self.success(response);
+            }
             NSMutableArray * array1 = [NSMutableArray array];
             NSMutableArray * array2 = [NSMutableArray array];
             NSMutableArray * array3 = [NSMutableArray array];
@@ -796,15 +835,20 @@
             vc.testArr = array2;
             [self.navigationController pushViewController:vc animated:YES];
         }else{
+            if (self.failure) {
+                self.failure(error);
+            }
             [self showHint:response[@"msg"]];
         }
     }];
 }
 
 - (void)testFunction {
+    self.select = 0;
     [self viewDidLoad];
     self.isPass = @"1";
     self.isTest = YES;
+    self.select = 1;
     for (int a =0 ; a<4; a++) {
         UIView *view = [self.view viewWithTag:10+a];
         [self huaBanClick:[view gestureRecognizers][0]];
@@ -818,5 +862,34 @@
     [self homeClick];
     [self PostResult];
 }
+
+- (void)testRequestServerToken:(NSString *)token
+                       success:(void (^) (id json))success
+                       failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+    self.testToken = token;
+    [self HTTPGetCoin];
+}
+
+- (void)testRequestServer1Token:(NSString *)token
+                       success:(void (^) (id json))success
+                       failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+    self.testToken = token;
+    [self HTTPProgress];
+
+}
+- (void)testRequestServer2Token:(NSString *)token
+                        success:(void (^) (id json))success
+                        failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+    self.testToken = token;
+    [self HTTPJZFJ];
+    
+}
+
 
 @end

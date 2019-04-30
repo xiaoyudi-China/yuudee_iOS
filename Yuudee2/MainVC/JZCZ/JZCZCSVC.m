@@ -58,7 +58,9 @@
 @property(nonatomic,assign)BOOL overCourse; //标识课件各种操作已完成,可以跳转了
 /** 单元测试*/
 @property (nonatomic) BOOL isTest;
-
+@property (nonatomic, copy) void (^success) (id json);
+@property (nonatomic, copy) void (^failure) (NSError *error);
+@property (nonatomic, copy) NSString *testToken;
 @end
 
 @implementation JZCZCSVC
@@ -168,6 +170,9 @@
                 for (int i = 0; i < 2; i ++) {
                     UIImageView * H = (id)[self.view viewWithTag:10 + i];
                     GZPLabel * L = (id)[H viewWithTag:30 + i];
+                    if (self.isTest) {//单元测试
+                        L.text = @"汽车1";
+                    }
                     if ([L.text isEqualToString:self.model.cardOneChar]) {
                         self.handView.center = H.center;
                         self.handView.alpha = 1;
@@ -271,6 +276,9 @@
             UIImageView * H = (id)[self.view viewWithTag:10 + i];
             UIImageView * image = (id)[H viewWithTag:20 + i];
             GZPLabel * L = (id)[H viewWithTag:30 + i];
+            if (self.isTest) {//单元测试
+                L.text = @"汽车1";
+            }
             if ([L.text isEqualToString:self.model.cardTwoChar]) {
                 image.animationImages = self.dcArr;
                 image.animationDuration = 1.5;
@@ -578,10 +586,23 @@
 #pragma mark - 获取当前答题进度
 -(void)HTTPProgress
 {
-    [[YuudeeRequest shareManager] request:Post url:GetProgress paras:@{@"token":[[ZJNTool shareManager]getToken]} completion:^(id response, NSError *error) {
+    NSMutableDictionary *paras = [NSMutableDictionary dictionary];
+    if (self.testToken.length > 0) {//单元测试
+        paras[@"token"] = self.testToken;
+    }else {
+        paras[@"token"] = [[ZJNTool shareManager]getToken];
+    }
+    [[YuudeeRequest shareManager] request:Post url:GetProgress paras:paras completion:^(id response, NSError *error) {
         if ([response[@"code"] isEqual:@200]) {
+            if (self.success) {
+                self.success(response);
+            }
             NSLog(@"获取答题进度成功");
-            if ([response[@"againModule"][@"module3"] isEqualToString:@"1"]) {
+            NSString *module3Str = response[@"againModule"][@"module3"];
+            if (self.testToken.length > 0) {//单元测试
+                module3Str = @"1";
+            }
+            if ([module3Str isEqualToString:@"1"]) {
                 NSLog(@"句子成组已通关");
                 BOOL isPassAgain = NO;
                 if ([response[@"playerModule"][@"player3"] isEqualToString:@"1"]) {
@@ -597,6 +618,9 @@
                 [self HTTPGetCoin];
             }
         }else{
+            if (self.failure) {
+                self.failure(error);
+            }
             NSLog(@"获取答题进度失败");
         }
     }];
@@ -604,7 +628,16 @@
 #pragma mark - 查询累计的金币数量
 -(void)HTTPGetCoin
 {
-    [[YuudeeRequest shareManager] request:Post url:GetCoin paras:@{@"token":[[ZJNTool shareManager] getToken]} completion:^(id response, NSError *error) {
+    NSMutableDictionary *paras = [NSMutableDictionary dictionary];
+    if (self.testToken.length > 0) {//单元测试
+        paras[@"token"] = self.testToken;
+    }else {
+        paras[@"token"] = [[ZJNTool shareManager]getToken];
+    }
+    [[YuudeeRequest shareManager] request:Post url:GetCoin paras:paras completion:^(id response, NSError *error) {
+        if (self.success) {
+            self.success(response);
+        }
         NSInteger coinNum = 0;
         if ([response[@"code"] isEqual:@200]) {
             NSLog(@"金币数请求成功");
@@ -617,7 +650,13 @@
                 }
             }
         }else{
+            if (self.failure) {
+                self.failure(error);
+            }
             NSLog(@"金币数请求失败");
+        }
+        if (self.testToken.length > 0) {//单元测试
+            coinNum = 10;
         }
         if (coinNum > 9) {
             NSLog(@"金币数量大于10,那么跳转强化物 %ld",coinNum);
@@ -657,18 +696,22 @@
     }];
 }
 - (void)testFunction {
-
-    [self viewDidLoad];
     self.hasRight1 = YES;
     self.isPass = @"1";
     self.isTest = YES;
+    self.model.cardTwoChar = @"汽车1";
+    self.model.cardOneChar = @"汽车1";
+    
+    [self viewDidLoad];
 
     UIView *view = [self.view viewWithTag:10];
-    _model.cardOneChar = @"汽车1";
+    self.hasRight2 = NO;
     [self huaBanClick:[view gestureRecognizers][0]];
     _model.cardOneChar = @"汽车";
     [self huaBanClick:[view gestureRecognizers][0]];
-    
+    self.hasRight1 = NO;
+    [self huaBanClick:[view gestureRecognizers][0]];
+
     [self Gogo];
     [self overPlay];
     [self goNextVC];
@@ -676,10 +719,29 @@
     [self makeNav];
     [self homeClick];
     [self PostResult];
-    [self HTTPProgress];
-    [self HTTPGetCoin];
     [self HTTPJZCZ];
 
+}
+
+- (void)testRequestServerToken:(NSString *)token
+                       success:(void (^) (id json))success
+                       failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+    self.testToken = token;
+    [self HTTPProgress];
+//    [self HTTPGetCoin];
+
+}
+
+- (void)testRequestServer1Token:(NSString *)token
+                       success:(void (^) (id json))success
+                       failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+    self.testToken = token;
+    [self HTTPGetCoin];
+    
 }
 
 @end

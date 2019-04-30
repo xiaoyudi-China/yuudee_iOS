@@ -366,6 +366,9 @@
             for (int i = 0; i < 4; i ++) {
                 UIImageView * huaBan = (id)[self.view viewWithTag:10+i];
                 GZPLabel * label = (id)[huaBan viewWithTag:30+i];
+                if (self.isTest) {//单元测试
+                    label.text = @"汽车2";
+                }
                 if ([label.text isEqualToString:self.model.cardAdjectiveChar]) {
                     self.handView.center = huaBan.center;
                     self.handView.alpha = 1;
@@ -571,12 +574,12 @@
 #pragma mark - 获取当前答题进度
 -(void)HTTPProgress
 {
-    if ([PlayerManager shared].itemsArr.count > 0 || !self.overCourse) return;
     
     NSMutableDictionary *paras = [NSMutableDictionary dictionary];
-    if (self.testToken.length > 0) {
+    if (self.testToken.length > 0) {//单元测试
         paras[@"token"] = self.testToken;
     }else {
+        if ([PlayerManager shared].itemsArr.count > 0 || !self.overCourse) return;
         paras[@"token"] = [[ZJNTool shareManager]getToken];
     }
     [[YuudeeRequest shareManager] request:Post url:GetProgress paras:paras completion:^(id response, NSError *error) {
@@ -585,7 +588,11 @@
                 self.success(response);
             }
             NSDictionary * list = response[@"list"];
-            if ([list[@"noun"] isEqualToString:@"3"]) {
+            NSString *noumStr = list[@"noun"];
+            if (self.testToken.length > 0) {//单元测试
+                noumStr = @"1";
+            }
+            if ([noumStr isEqualToString:@"3"]) {
                 [self HTTPYY];
             }else{
                 [self.navigationController popToRootViewControllerAnimated:YES];
@@ -599,20 +606,27 @@
     }];
 }
 - (void)testFunction {
-    [self viewDidLoad];
-    self.hasRight1 = YES;
+    self.hasRight1 = NO;
     self.isPass = @"1";
     self.isTest = YES;
+    [self viewDidLoad];
+    self.hasRight1 = YES;
     for (int a =0 ; a<3; a++) {
         UIView *view = [self.view viewWithTag:10+a];
         if (a == 0) {
             self.model.cardAdjectiveChar = @"汽车1";
         }else if(a == 1) {
-            self.model.cardAdjectiveChar = @"汽车2";
             self.model.cardNounChar = @"汽车2";
+        }else {
+            self.hasRight1 = NO;
         }
         [self huaBanClick:[view gestureRecognizers][0]];
     }
+    
+    self.hasRight1 = NO;
+    self.model.cardAdjectiveChar = @"汽车2";
+    UIView *view = [self.view viewWithTag:11];
+    [self huaBanClick:[view gestureRecognizers][0]];
     
     [self Gogo];
     [self overPlay];
@@ -630,6 +644,15 @@
     self.failure = failure;
     self.testToken = token;
     [self HTTPProgress];
+}
+
+- (void)testRequestServer1Token:(NSString *)token
+                       success:(void (^) (id json))success
+                       failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+    self.testToken = token;
+    [self HTTPYY];
 }
 
 @end

@@ -42,7 +42,7 @@
 }
 
 - (void)testRequestServer {
-    
+
     XCTestExpectation *expectation = [self expectationWithDescription:@"..."];
     MainVC *vc = [[MainVC alloc] init];
     [vc testRequestServerToken:@"eGK5ZCXQgxeQ8n3OZxJHA==" success:^(id json) {
@@ -64,8 +64,8 @@
 }
 
 - (void)testRequestServer1 {
-    
-    
+
+
     XCTestExpectation *expectation = [self expectationWithDescription:@"..."];
     MainVC *vc = [[MainVC alloc] init];
     [vc testRequestServer1Token:@"eGK5ZCXQgxeQ8n3OZxJHA==" success:^(id json) {
@@ -80,7 +80,7 @@
         [expectation fulfill];
         XCTAssertNotNil(error, @"error 不为空");
     }];
-    
+
     [self waitForExpectationsWithTimeout:30.f handler:^(NSError * _Nullable error) {
         NSLog(@"...");
     }];
@@ -101,7 +101,7 @@
         [expectation fulfill];
         XCTAssertNotNil(error, @"error 不为空");
     }];
-    
+
     [self waitForExpectationsWithTimeout:30.f handler:^(NSError * _Nullable error) {
         NSLog(@"...");
     }];

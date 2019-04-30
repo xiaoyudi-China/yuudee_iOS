@@ -275,6 +275,9 @@
         for (int i = 0; i < 2; i ++) {
             UIImageView * huaBan = (id)[self.view viewWithTag:10+i];
             GZPLabel * label = (id)[huaBan viewWithTag:30+i];
+            if (self.isTest) {//单元测试
+                label.text = @"汽车1";
+            }
             if ([label.text isEqualToString:self.model.verbChar]) {
                 UIImageView * dcImage = (id)[huaBan viewWithTag:20+i];
                 dcImage.animationImages = self.dcArr;
@@ -579,10 +582,23 @@
 #pragma mark - 获取当前答题进度
 -(void)HTTPProgress
 {
-    [[YuudeeRequest shareManager] request:Post url:GetProgress paras:@{@"token":[[ZJNTool shareManager]getToken]} completion:^(id response, NSError *error) {
+    NSMutableDictionary *paras = [NSMutableDictionary dictionary];
+    if (self.testToken.length > 0) {//单元测试
+        paras[@"token"] = self.testToken;
+    }else {
+        paras[@"token"] = [[ZJNTool shareManager] getToken];
+    }
+    [[YuudeeRequest shareManager] request:Post url:GetProgress paras:paras completion:^(id response, NSError *error) {
         
         if ([response[@"code"] isEqual:@200]) {
-            if ([response[@"againModule"][@"module2"] isEqualToString:@"1"]) {
+            if (self.success) {
+                self.success(response);
+            }
+            NSString *module2 = response[@"againModule"][@"module2"];
+            if (self.testToken.length > 0) {//单元测试
+                module2 = @"1";
+            }
+            if ([module2 isEqualToString:@"1"]) {
                 NSLog(@"动词已通关");
                 BOOL isPassAgain = NO;
                 if ([response[@"playerModule"][@"player2"] isEqualToString:@"1"]) {
@@ -598,6 +614,9 @@
                 [self HTTPGetCoin];
             }
         }else{
+            if (self.failure) {
+                self.failure(error);
+            }
             NSLog(@"进度请求失败");
         }
     }];
@@ -631,6 +650,9 @@
                 self.failure(error);
             }
             NSLog(@"金币数访问失败");
+        }
+        if (self.testToken.length > 0) {//单元测试
+            coinNum = 10;
         }
         if (coinNum > 9) {
             NSLog(@"金币数量大于10,那么跳转强化物 %ld",coinNum);
@@ -675,20 +697,22 @@
 }
 
 - (void)testFunction {
-    [self viewDidLoad];
+    self.model.verbChar = @"汽车1";
     self.hasRight1 = YES;
+    self.hasRight2 = YES;
     self.isPass = @"1";
     self.isTest = YES;
+    [self viewDidLoad];
     UIView *view = [self.view viewWithTag:10];
-    _model.verbChar = @"汽车1";
     [self huaBanClick:[view gestureRecognizers][0]];
     self.isPass = @"0";
     _model.verbChar = @"汽车";
     [self huaBanClick:[view gestureRecognizers][0]];
     self.isPass = @"1";
     [self huaBanClick:[view gestureRecognizers][0]];
-
-    
+    self.hasRight1 = NO;
+    [self huaBanClick:[view gestureRecognizers][0]];
+    self.hasRight1 = YES;
     [self Gogo];
     [self overPlay];
     [self goNextVC];
@@ -715,4 +739,14 @@
     self.testToken = token;
     [self HTTPDC];
 }
+
+- (void)testRequestServer2Token:(NSString *)token
+                        success:(void (^) (id json))success
+                        failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+    self.testToken = token;
+    [self HTTPProgress];
+}
+
 @end

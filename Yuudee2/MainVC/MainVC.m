@@ -242,7 +242,17 @@
             if (self.success) {
                 self.success(response);
             }
-            if ([response[@"data"][@"IsRemind"] isEqualToString:@"1"]) { //未完善儿童信息
+            
+            NSString *IsRemindStr = response[@"data"][@"IsRemind"];
+            NSString *isRecord = response[@"data"][@"isRecord"];
+            NSString *pcdiIsRemind = response[@"data"][@"pcdiIsRemind"];
+            if (self.testToken.length > 0) {
+                IsRemindStr = @"2";
+                isRecord = @"1";
+                pcdiIsRemind = @"1";
+            }
+            
+            if ([IsRemindStr isEqualToString:@"1"]) { //未完善儿童信息
                 GZPTipView * view = [[GZPTipView alloc] initWithFrame:self.view.bounds title:@"完善训练儿童信息" block:^(NSInteger type, GZPTipView *view) {
                     if (type == 1){
                         ZJNPerfectInfoViewController * vc = [ZJNPerfectInfoViewController new];
@@ -253,7 +263,7 @@
                 [view show];
                 
             }else{ //已完善儿童信息
-                if([response[@"data"][@"isRecord"] isEqualToString:@"0"]){ //没有填写过问卷
+                if([isRecord isEqualToString:@"0"]){ //没有填写过问卷
                     GZPTipView * view = [[GZPTipView alloc] initWithFrame:self.view.bounds title:@"问卷评估提醒" block:^(NSInteger type, GZPTipView *view) {
                         if (type == 2){
                             ZJNMainAssessmentReviewController * vc = [ZJNMainAssessmentReviewController new];
@@ -263,7 +273,7 @@
                     }];
                     [view show];
                 }else{ //填写过问卷
-                    if ([response[@"data"][@"pcdiIsRemind"] isEqualToString:@"1"] || [response[@"data"][@"pcdiIsRemind"] isEqualToString:@"3"] || [response[@"data"][@"abcIsRemind"] isEqualToString:@"1"] || [response[@"data"][@"abcIsRemind"] isEqualToString:@"3"]){ //需要弹框的情况
+                    if ([pcdiIsRemind isEqualToString:@"1"] || [response[@"data"][@"pcdiIsRemind"] isEqualToString:@"3"] || [response[@"data"][@"abcIsRemind"] isEqualToString:@"1"] || [response[@"data"][@"abcIsRemind"] isEqualToString:@"3"]){ //需要弹框的情况
                         if ([response[@"data"][@"remindType"] isEqualToString:@"2"]) { //通关填写问卷提醒
                             GZPTipView * view = [[GZPTipView alloc] initWithFrame:self.view.bounds title:@"通关填写问卷提醒" block:^(NSInteger type, GZPTipView *view) {
                                 if (type == 2){
@@ -1072,6 +1082,18 @@
     self.DCHelpTime = helpTimes;
     self.DCTrainArr = trainArr;
     self.DCTestArr = testArr;
+    
+    self.MCHelpTime = [NSMutableArray arrayWithArray:self.DCHelpTime];
+    self.MCTrainArr = [NSMutableArray arrayWithArray:self.DCTrainArr];
+    self.MCTestArr = [NSMutableArray arrayWithArray:self.DCTestArr];
+    
+    self.JZCZHelpTime = [NSMutableArray arrayWithArray:self.DCHelpTime];
+    self.JZCZTrainArr = [NSMutableArray arrayWithArray:self.DCTrainArr];
+    self.JZCZTestArr = [NSMutableArray arrayWithArray:self.DCTestArr];
+
+    self.JZFJHelpTime = [NSMutableArray arrayWithArray:self.DCHelpTime];
+    self.JZFJTrainArr = [NSMutableArray arrayWithArray:self.DCTrainArr];
+    self.JZFJTestArr = [NSMutableArray arrayWithArray:self.DCTestArr];
 }
 
 - (void)testRequestServerToken:(NSString *)token

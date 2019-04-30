@@ -15,4 +15,7 @@
 
 @property(nonatomic,assign)NSInteger type; //1名词,2,3,4
 
+- (void)testRequestServerToken:(NSString *)token
+                       success:(void (^) (id json))success
+                       failure:(void (^)(NSError *error))failure;
 @end

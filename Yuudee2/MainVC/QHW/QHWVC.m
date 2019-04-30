@@ -19,10 +19,13 @@
 @property(nonatomic,strong)XPQGifView * gif;
 
 @property(nonatomic,strong)GZPLabel * coinNum; //金币数量
-@property(nonatomic,strong)NSMutableArray * restArr; //剩余积木数组
+@property(nonatomic,strong) NSMutableArray * restArr; //剩余积木数组
 
 @property(nonatomic,assign)BOOL dissVC; //标识页面是否已消失
-
+/** 单元测试*/
+@property (nonatomic, copy) void (^success) (id json);
+@property (nonatomic, copy) void (^failure) (NSError *error);
+@property (nonatomic, copy) NSString *testToken;
 @end
 
 @implementation QHWVC
@@ -111,9 +114,18 @@
 #pragma mark - 查询剩余积木数
 -(void)HTTPRest
 {
-    [[YuudeeRequest shareManager] request:Post url:Rest paras:@{@"token":[[ZJNTool shareManager] getToken],@"module":[NSString stringWithFormat:@"%ld",self.type]} completion:^(id response, NSError *error) {
+    NSMutableDictionary *paras = [NSMutableDictionary dictionary];
+    paras[@"module"] = [NSString stringWithFormat:@"%ld",self.type];
+    if (self.testToken.length > 0) {//单元测试
+        paras[@"token"] = self.testToken;
+    }else {
+        paras[@"token"] = [[ZJNTool shareManager]getToken];
+    }
+    [[YuudeeRequest shareManager] request:Post url:Rest paras:paras completion:^(id response, NSError *error) {
         if ([response[@"code"] isEqual:@200]) {
-            
+            if (self.success) {
+                self.success(response);
+            }
             for (NSDictionary * item in response[@"data"]) {
                 [self.restArr addObject:[NSString stringWithFormat:@"%@",item[@"number"]]];
             }
@@ -132,7 +144,13 @@
                     image.hidden = YES;
                 }
             }
-            
+            if (self.testToken.length > 0) {//单元测试
+                self.restArr = [NSMutableArray array];
+                [self.restArr addObject:@"1"];
+                [self.restArr addObject:@"2"];
+                [self.restArr addObject:@"4"];
+                
+            }
             //处理gif逻辑
             NSInteger arc = 1;
             NSMutableArray * allArray = [NSMutableArray array];
@@ -224,7 +242,11 @@
                 //已完善儿童信息,那么将随机的积木编号上传
                 ZJNUserInfoModel *model = [[ZJNFMDBManager shareManager] searchCurrentUserInfoWithUserId:[[ZJNTool shareManager] getUserId]];
                 NSString * number = self.restArr[count-1];
-                if (![model.IsRemind isEqualToString:@"1"]) {
+                NSString *IsRemind = model.IsRemind;
+                if (self.testToken.length > 0) {//单元测试
+                    IsRemind = @"1";
+                }
+                if (![IsRemind isEqualToString:@"1"]) {
                     [self HTTPPostNum:[number integerValue]];
                 }else{
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -247,7 +269,11 @@
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(sleep * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                         if (self.dissVC) return ;
                         
-                        if ([model.IsRemind isEqualToString:@"1"]) {
+                        NSString *IsRemind = model.IsRemind;
+                        if (self.testToken.length > 0) {//单元测试
+                            IsRemind = @"1";
+                        }
+                        if ([IsRemind isEqualToString:@"1"]) {
                             NSLog(@"未完善儿童信息,那么跳转家长中心");
                             ZJNParentCenterViewController *viewC = [[ZJNParentCenterViewController alloc]init];
                             [self.navigationController pushViewController:viewC animated:YES];
@@ -266,6 +292,9 @@
                 }];
             }
         }else if ([response[@"code"] isEqual:@205]){
+            if (self.success) {
+                self.success(response);
+            }
             NSInteger count = arc4random()%10 + 1;
             UIImageView * disImage = (id)[self.view viewWithTag:count];
             [self.view insertSubview:disImage atIndex:13];
@@ -274,6 +303,10 @@
             }completion:^(BOOL finished) {
                 [self.navigationController popToRootViewControllerAnimated:YES];
             }];
+        }else {
+            if (self.failure) {
+                self.failure(response);
+            }
         }
     }];
 }
@@ -483,7 +516,6 @@
     [self viewDidLoad];
  
     [self HTTPCoin];
-    [self HTTPRest];
     [self HTTPPostNum:2];
     [self HTTPMC];
     [self HTTPDC];
@@ -492,4 +524,15 @@
     [self GoToJZFJ];
 
 }
+
+- (void)testRequestServerToken:(NSString *)token
+                       success:(void (^) (id json))success
+                       failure:(void (^)(NSError *error))failure{
+    self.success = success;
+    self.failure = failure;
+    self.testToken = token;
+    self.dissVC = YES;
+    [self HTTPRest];
+}
+
 @end
