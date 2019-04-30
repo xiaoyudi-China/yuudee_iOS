@@ -21,8 +21,13 @@
 -(instancetype)init{
     self = [super init];
     if (self) {
-
-        infoArr = @[@[@"语言评估量表是由父母填写的，测量16个月以上说普通话的儿童早期语言发展的评估量表。目前已在世界各地广泛使用。",@"通过使用本量表，可以对语言发育迟缓的儿童进行定期监控，以发现其在同龄儿童中的差异和进步。",@"本量表必做部分将花费您10-15分钟时间。"],@[@"行为评估量表又称自闭症行为量表，是一份由他人报告的形式，用于检测儿童是否患有自闭症的一个简单的方法，只能作为一个参考诊断依据，并不能单一的做为判定诊断结果的依据。",@"本量表有57个描述自闭症儿童的感觉、行为、情绪、语言等方面异常表现的项目，通过使用本量表，可以对自闭症儿童进行整体症状评估打分。",@"本量表将花费您10～15分钟时间。"]];
+        NSString *str0 = @"语言评估量表是由父母填写的，测量16个月以上说普通话的儿童早期语言发展的评估量表。目前已在世界各地广泛使用。";
+        NSString *str1 = @"通过使用本量表，可以对语言发育迟缓的儿童进行定期监控，以发现其在同龄儿童中的差异和进步。";
+        NSString *str2 = @"本量表必做部分将花费您10-15分钟时间。";
+        NSString *str3 = @"行为评估量表又称自闭症行为量表，是一份由他人报告的形式，用于检测儿童是否患有自闭症的一个简单的方法，只能作为一个参考诊断依据，并不能单一的做为判定诊断结果的依据。";
+        NSString *str4 = @"本量表有57个描述自闭症儿童的感觉、行为、情绪、语言等方面异常表现的项目，通过使用本量表，可以对自闭症儿童进行整体症状评估打分。";
+        NSString *str5 = @"本量表将花费您10～15分钟时间。";
+        infoArr = @[@[str0,str1,str2],@[str3,str4,str5]];
         UILabel *subTitleLabel = [UILabel createLabelWithTitle:@"让我们一起来客观评价孩子的进步！" textColor:[UIColor whiteColor] font:FontSize(12) textAlignment:NSTextAlignmentLeft numberOfLines:1];
         [self addSubview:subTitleLabel];
         [subTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -150,12 +155,22 @@
         [self.viewController.navigationController pushViewController:viewC animated:YES];
     }
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+- (void)testFunction{
+    UIButton *btn = [[UIButton alloc]init];
+    [self btnClick:btn];
+    NSString *str0 = @"语言评估量表是由父母填写的，测量16个月以上说普通话的儿童早期语言发展的评估量表。目前已在世界各地广泛使用。";
+    NSString *str1 = @"通过使用本量表，可以对语言发育迟缓的儿童进行定期监控，以发现其在同龄儿童中的差异和进步。";
+    NSString *str2 = @"本量表必做部分将花费您10-15分钟时间。";
+    NSString *str3 = @"行为评估量表又称自闭症行为量表，是一份由他人报告的形式，用于检测儿童是否患有自闭症的一个简单的方法，只能作为一个参考诊断依据，并不能单一的做为判定诊断结果的依据。";
+    NSString *str4 = @"本量表有57个描述自闭症儿童的感觉、行为、情绪、语言等方面异常表现的项目，通过使用本量表，可以对自闭症儿童进行整体症状评估打分。";
+    NSString *str5 = @"本量表将花费您10～15分钟时间。";
+     infoArr = @[@[str0,str1,str2],@[str3,str4,str5]];
+    [self.tableView reloadData];
+    NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self tableView:self.tableView cellForRowAtIndexPath:path];
+//    [self tableView:self.tableView heightForHeaderInSection:10];
+//    [self tableView:self.tableView viewForHeaderInSection:0];
 }
-*/
 
 @end

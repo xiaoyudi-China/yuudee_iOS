@@ -218,6 +218,7 @@
     [self.moreView testFunction];
     [self.recordsView testFunction];
     [self viewWillDisappear:YES];
+    [self.reviewView testFunction];
 }
 
 @end

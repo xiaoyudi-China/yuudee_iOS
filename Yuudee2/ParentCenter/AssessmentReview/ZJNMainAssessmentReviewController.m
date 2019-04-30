@@ -213,11 +213,13 @@
 - (void)testToAssess:(NSString *)token
              success:(void (^) (id json))success
              failure:(void (^)(NSError *error))failure{
+    [[ZJNTool shareManager] saveToken:@"IFHmXHR3VHpOsdb5bZBQ=="];
     [self viewDidLoad];
-    [self btnClick:nil];
-    [self backBtnClick];
     self.success = success;
     self.failure = failure;
+    [self btnClick:nil];
+    [self backBtnClick];
+    [self getDataFromService];
 }
 
 - (void)testFunction{

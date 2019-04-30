@@ -38,7 +38,6 @@
 - (void)testToAssess{
     ZJNMainAssessmentReviewController *vc = [[ZJNMainAssessmentReviewController alloc]init];
     [vc testFunction];
-    
 //    XCTestExpectation *expectation = [self expectationWithDescription:@"..."];
 //    ZJNMainAssessmentReviewController *vc = [[ZJNMainAssessmentReviewController alloc]init];
 //    [vc testToAssess:@"123" success:^(id json) {

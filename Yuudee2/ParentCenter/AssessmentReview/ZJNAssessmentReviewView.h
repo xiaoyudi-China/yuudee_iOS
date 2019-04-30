@@ -10,4 +10,5 @@
 
 @interface ZJNAssessmentReviewView : ZJNParentCenterBasicView
 
+- (void)testFunction;
 @end

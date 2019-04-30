@@ -10,4 +10,5 @@
 
 @interface ZJNTextTableViewCell : UITableViewCell
 @property (nonatomic ,copy)NSString *infoStr;
+
 @end
