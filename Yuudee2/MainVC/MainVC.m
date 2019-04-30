@@ -256,23 +256,12 @@
     [super viewDidLoad];
     [self stringContainsEmoji:@"测试测试"];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(active) name:@"BecomeActive" object:nil];
-    
-    
     [self makeUI];
     [self HTTPDC];
     [self HTTPJZCZ];
     [self HTTPJZFJ];
-    
-    
-    
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(success) name:@"Success" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(xydSuccess) name:@"Success" object:nil];
     [self netWorkState];
-    
-    
-    
-
-    
-
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     rightBtn.frame = CGRectMake(0, 0, 40, 40);
     [rightBtn setImage:[UIImage imageNamed:@"right12345"] forState:UIControlStateNormal];
@@ -283,17 +272,17 @@
     
 }
 #pragma mark - 全部通关成功
-//-(void)success
-//{
-//    GZPTipView * view = [[GZPTipView alloc] initWithFrame:self.view.bounds title:@"通关填写问卷提醒" block:^(NSInteger type, GZPTipView *view) {
-//        if (type == 2){
-//            ZJNMainAssessmentReviewController * vc = [ZJNMainAssessmentReviewController new];
-//            [self.navigationController pushViewController:vc animated:YES];
-//        }
-//        [view removeFromSuperview];
-//    }];
-//    [view show];
-//}
+-(void)xydSuccess
+{
+    GZPTipView * view = [[GZPTipView alloc] initWithFrame:self.view.bounds title:@"通关填写问卷提醒" block:^(NSInteger type, GZPTipView *view) {
+        if (type == 2){
+            ZJNMainAssessmentReviewController * vc = [ZJNMainAssessmentReviewController new];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        [view removeFromSuperview];
+    }];
+    [view show];
+}
 #pragma mark - 判断是否完善了儿童信息,完成问卷调查
 -(void)HTTPIsComplete
 {
@@ -1113,7 +1102,8 @@
         [self imageClick:btn3];
     }
     
-
+    [self xydSuccess];
+    
     [self parentsClick];
     [self move];
     [self sureClick];
@@ -1171,14 +1161,6 @@
     self.testToken = token;
 
     [self HTTPMC];
-
-//    [self HTTPDC];
-//    [self HTTPGold];
-//    [self HTTPJZCZ];
-//    [self HTTPJZFJ];
-//    [self HTTPProgress];
-//    [self HTTPIsComplete];
-
 }
 
 - (void)testRequestServer1Token:(NSString *)token
