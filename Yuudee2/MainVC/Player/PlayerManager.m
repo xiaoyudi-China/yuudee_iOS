@@ -31,13 +31,21 @@
 {
     NSString * can = [[NSUserDefaults standardUserDefaults] objectForKey:@"can"];
     if (![can isEqualToString:@"1"]) return;
-    
+
     if (url.length == 0) return;
     
     if (![url hasPrefix:@"http://"] && ![url hasPrefix:@"https://"] && ![url hasPrefix:@"HTTP://"] && ![url hasPrefix:@"HTTPS://"]) return;
     
     if (![url hasSuffix:@".mp3"] && ![url hasSuffix:@".MP3"]) return;
+    
+    #warning 测试，后续记得删掉
+    ///////////////////测试//////////////////////
+    return;
+    //////////////////////测试////////////////////
+    
     [self validateUrl:url];
+    
+
 }
 -(void)finishedPlaying
 {
