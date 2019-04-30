@@ -37,31 +37,31 @@
 }
 
 - (void)testMainVC {
-    XLAgainVC *vc = [[XLAgainVC alloc] init];
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"MainVC_mingci" ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:path options:NSDataReadingMappedIfSafe error:nil];
-    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-    NSMutableArray *helpTimes = [NSMutableArray array];
-    NSMutableArray *trainArr = [NSMutableArray array];
-    NSMutableArray *testArr = [NSMutableArray array];
-    NSMutableArray *yyTestArr = [NSMutableArray array];
-    
-    for (NSDictionary * item in dict[@"nounTraining"]) {
-        [trainArr addObject:[GZPModel setModelWithDic:item]];
-    }
-    for (NSDictionary * item in dict[@"nounTest"]) {
-        [testArr addObject:[GZPModel setModelWithDic:item]];
-    }
-    for (NSDictionary * item in dict[@"nounSense"]) {
-        [yyTestArr addObject:[GZPModel setModelWithDic:item]];
-    }
-    [helpTimes addObject:[NSString stringWithFormat:@"%@",dict[@"time"][@"helpTime"]]];
-    
-    vc.type = 0;
-    vc.helpTime = helpTimes;
-    vc.trainArr = trainArr;
-    vc.testArr = testArr;
-    [vc testFunction];
+//    XLAgainVC *vc = [[XLAgainVC alloc] init];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"MainVC_mingci" ofType:@"json"];
+//    NSData *data = [NSData dataWithContentsOfFile:path options:NSDataReadingMappedIfSafe error:nil];
+//    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+//    NSMutableArray *helpTimes = [NSMutableArray array];
+//    NSMutableArray *trainArr = [NSMutableArray array];
+//    NSMutableArray *testArr = [NSMutableArray array];
+//    NSMutableArray *yyTestArr = [NSMutableArray array];
+//
+//    for (NSDictionary * item in dict[@"nounTraining"]) {
+//        [trainArr addObject:[GZPModel setModelWithDic:item]];
+//    }
+//    for (NSDictionary * item in dict[@"nounTest"]) {
+//        [testArr addObject:[GZPModel setModelWithDic:item]];
+//    }
+//    for (NSDictionary * item in dict[@"nounSense"]) {
+//        [yyTestArr addObject:[GZPModel setModelWithDic:item]];
+//    }
+//    [helpTimes addObject:[NSString stringWithFormat:@"%@",dict[@"time"][@"helpTime"]]];
+//
+//    vc.type = 0;
+//    vc.helpTime = helpTimes;
+//    vc.trainArr = trainArr;
+//    vc.testArr = testArr;
+//    [vc testFunction];
 }
 
 @end

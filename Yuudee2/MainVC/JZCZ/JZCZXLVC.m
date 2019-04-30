@@ -146,6 +146,9 @@
             for (int i = 0; i < 2; i ++) {
                 UIImageView * H = (id)[self.view viewWithTag:10 + i];
                 GZPLabel * L = (id)[H viewWithTag:30 + i];
+                if (self.isTest) {//单元测试
+                    L.text = @"汽车1";
+                }
                 if ([L.text isEqualToString:self.model.cardOneChar]) {
                     self.handView.center = H.center;
                     self.handView.alpha = 1;
@@ -247,6 +250,9 @@
             UIImageView * H = (id)[self.view viewWithTag:10 + i];
             UIImageView * image = (id)[H viewWithTag:20 + i];
             GZPLabel * L = (id)[H viewWithTag:30 + i];
+            if (self.isTest) {//单元测试
+                L.text = @"汽车1";
+            }
             if ([L.text isEqualToString:self.model.cardTwoChar]) {
                 image.animationImages = self.dcArr;
                 image.animationDuration = 1.5;
@@ -385,6 +391,9 @@
             for (int i = 0; i < 2; i ++) {
                 UIImageView * H = (id)[self.view viewWithTag:10 + i];
                 GZPLabel * L = (id)[H viewWithTag:30 + i];
+                if (self.isTest) {//单元测试
+                    L.text = @"汽车";
+                }
                 if ([L.text isEqualToString:self.model.cardOneChar]) {
                     self.handView.center = H.center;
                     self.handView.alpha = 1;
@@ -523,6 +532,9 @@
         for (int i = 0; i < 2; i ++) {
             UIImageView * H = (id)[self.view viewWithTag:10 + i];
             GZPLabel * L = (id)[H viewWithTag:30 + i];
+            if (self.isTest) {//单元测试
+                L.text = @"汽车";
+            }
             if ([L.text isEqualToString:self.model.cardOneChar]) {
                 self.handView.center = H.center;
                 self.handView.alpha = 1;
@@ -535,6 +547,9 @@
             for (int i = 0; i < 2; i ++) {
                 UIImageView * H = (id)[self.view viewWithTag:10 + i];
                 GZPLabel * L = (id)[H viewWithTag:30 + i];
+                if (self.isTest) {//单元测试
+                    L.text = @"汽车1";
+                }
                 if ([L.text isEqualToString:self.model.cardTwoChar]) {
                     self.handView.center = H.center;
                     self.handView.alpha = 1;
@@ -547,22 +562,32 @@
 }
 
 - (void)testFunction {
-
-    [self viewDidLoad];
     self.hasRight1 = YES;
     self.isPass = @"1";
     self.isTest = YES;
+    self.model.cardTwoChar = @"汽车1";
+    self.model.cardOneChar = @"汽车1";
+
+    [self viewDidLoad];
+    self.dissVC = NO;
     UIView *view = [self.view viewWithTag:10];
     _model.cardOneChar = @"汽车1";
+    self.hasRight2 = NO;
     [self huaBanClick:[view gestureRecognizers][0]];
     self.isPass = @"0";
     _model.cardOneChar = @"汽车";
     [self huaBanClick:[view gestureRecognizers][0]];
     self.isPass = @"1";
+    self.hasRight1 = NO;
     [self huaBanClick:[view gestureRecognizers][0]];
+    self.hasRight1 = YES;
 
+    self.dissVC = YES;
+    
+    self.hasRight1 = NO;
     [self errorClick];
-
+    self.hasRight2 = NO;
+    [self errorClick];
     [self Gogo];
     [self overPlay];
     [self goNextVC];

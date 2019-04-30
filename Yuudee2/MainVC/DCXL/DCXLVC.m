@@ -488,6 +488,10 @@
 }
 
 - (void)testFunction {
+    
+    self.hasSelect = NO;
+    self.dissVC = NO;
+    
     [self viewDidLoad];
     [self viewWillAppear:YES];
     UIView *view = [self.view viewWithTag:10];
@@ -503,6 +507,8 @@
     [self makeNav];
     [self homeClick];
     [self PostResult];
+    [self goOnAct];
+    [self errorClick];
 }
 
 @end

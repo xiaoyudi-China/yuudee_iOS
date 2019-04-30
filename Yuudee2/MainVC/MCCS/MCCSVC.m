@@ -450,7 +450,11 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     ZJNUserInfoModel *model = [[ZJNFMDBManager shareManager] searchCurrentUserInfoWithUserId:[[ZJNTool shareManager] getUserId]];
-    if (![model.IsRemind isEqualToString:@"1"]) { //1.已完善儿童信息,那么提交答题结果
+    NSString *str = model.IsRemind;
+    if (self.isTest) {//单元测试
+        str = @"1";
+    }
+    if (![str isEqualToString:@"1"]) { //1.已完善儿童信息,那么提交答题结果
         
         [self PostResult];
         
@@ -603,10 +607,21 @@
     }
     [[YuudeeRequest shareManager] request:Post url:GetProgress paras:paras completion:^(id response, NSError *error) {
         if ([response[@"code"] isEqual:@200]) {
+            if (self.success) {
+                self.success(response);
+            }
+            NSString *module1 = response[@"againModule"][@"module1"];
+            NSString *player1 = response[@"againModule"][@"player1"];
+
+            if (self.testToken.length > 0 || self.isTest) {//单元测试
+                module1 = @"1";
+                player1 = @"1";
+            }
+#warning 有问题，判断没有适配数据异常
             if (![response[@"data"] isKindOfClass:[NSNumber class]]) {
-                if ([response[@"againModule"][@"module1"] isEqualToString:@"1"]) {
+                if ([module1 isEqualToString:@"1"]) {
                     BOOL isPassAgain = NO;
-                    if ([response[@"playerModule"][@"player1"] isEqualToString:@"1"]) {
+                    if ([player1 isEqualToString:@"1"]) {
                         isPassAgain = YES;
                     }
                     QHWVC * vc = [QHWVC new];
@@ -622,9 +637,7 @@
                 NSLog(@"名词暂未通关,那么查询金币数量");
                 [self HTTPGetCoin];
             }
-            if (self.success) {
-                self.success(response);
-            }
+
         }else{
             if (self.failure) {
                 self.failure(error);
@@ -729,16 +742,20 @@
 }
 
 - (void)testFunction {
-    [self viewDidLoad];
     
     UIView *view = [self.view viewWithTag:10];
-    self.hasRight1 = YES;
+    self.hasRight1 = NO;
+    self.hasRight2 = NO;
     self.isPass = @"1";
     self.isTest = YES;
-    
+    [self viewDidLoad];
+    self.hasRight1 = YES;
+
     _model.cardColorChar = @"汽车1";
     [self huaBanClick:[view gestureRecognizers][0]];
     _model.cardColorChar = @"汽车";
+    [self huaBanClick:[view gestureRecognizers][0]];
+    self.hasRight1 = NO;
     [self huaBanClick:[view gestureRecognizers][0]];
 
     [self Gogo];
