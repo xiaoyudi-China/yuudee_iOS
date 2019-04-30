@@ -22,4 +22,6 @@
 
 -(void)pause;
 
+- (void)testFunction;
+
 @end

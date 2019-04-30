@@ -1057,7 +1057,6 @@
     [self HTTPIsCompleteCodeBlock1:@{}];
     self.hasGetProgress = YES;
     self.latest = 1;
-    self.jzfjNum = 10;
     self.jzczNum = 10;
     UIButton *btn1 = [self.view viewWithTag:10];
     for (int a=0; a<3; a++) {
@@ -1074,9 +1073,14 @@
     
     UIButton *btn3 = [self.view viewWithTag:12];
     for (int a =0; a<4; a++) {
-        self.latest = 100*(a+3);
+        self.latest = 100*(a+2);
         [self imageClick:btn3];
     }
+    self.latest = 500;
+    self.jzfjNum = 20;
+    [self imageClick:btn3];
+    self.jzfjNum = 10;
+    [self imageClick:btn3];
     
     [self xydSuccess];
     
