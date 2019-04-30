@@ -37,7 +37,7 @@
 - (void)testUpdateChildInfo{
     XCTestExpectation *expectation = [self expectationWithDescription:@"..."];
     ZJNPerfectInfoViewController *vc = [[ZJNPerfectInfoViewController alloc]init];
-    [vc testAddChild:@"" userName:@"" success:^(id json) {
+    [vc testAddChild:@"IFHmXHR3VHpOsdb5bZBQ==" userName:@"" success:^(id json) {
         [expectation fulfill];
         XCTAssertNotNil(json, @"json 对象不为空");
         if ([[json[@"code"] stringValue] isEqualToString:@"200"]) {

@@ -198,14 +198,7 @@
             return NO;
         }
     }
-    
-//    if (range.length == 1 && string.length == 0) {
-//        return YES;
-//    }else if (textField.text.length>=13) {
-//        textField.text = [textField.text substringToIndex:13];
-//        return NO;
-//    }else{
-        BOOL isV = [NSString validateNickName:string];
+    BOOL isV = [NSString validateNickName:string];
         if (isV) {
             if (indexPath.row == 0) {
                 [self showHint:@"请输入字母，数字或文字形式的儿童昵称"];
@@ -214,7 +207,6 @@
             }
             return NO;
         }
-//    }
     return YES;
 
 }
@@ -598,14 +590,52 @@
         [self tableView:self.tableView cellForRowAtIndexPath:indexPath];
         [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
     }
+
 }
 
 - (void)testAddChild:(NSString *)token userName:(NSString *)name success:(void (^)(id))success failure:(void (^)(NSError *))failure{
+    [[ZJNTool shareManager] saveToken:token];
+    [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"SAVETYPE"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     [self viewDidLoad];
     self.success = success;
     self.failure = failure;
-    [self homeBtnClick];
+    
     [self loginBtnClick];
+    self.infoModel.name = @"1";
+    [self loginBtnClick];
+    self.infoModel.sex = @"1";
+    [self loginBtnClick];
+    self.infoModel.birthdate = @"1";
+    [self loginBtnClick];
+    self.infoModel.countiyId = @"1";
+    [self loginBtnClick];
+    self.infoModel.medical = @"1";
+    [self loginBtnClick];
+    self.infoModel.medicalState = @"1";
+    [self loginBtnClick];
+    self.infoModel.firstLanguage = @"10";
+    [self loginBtnClick];
+    self.infoModel.secondLanguage = @"10";
+    [self loginBtnClick];
+    self.infoModel.fatherCulture = @"1";
+    [self loginBtnClick];
+    self.infoModel.motherCulture = @"1";
+    [self loginBtnClick];
+    self.infoModel.trainingMethod = @"2";
+    [self loginBtnClick];
+    self.infoModel.trainingRests = @"1";
+    [self loginBtnClick];
+    
+    [self homeBtnClick];
+    
+    UITextField *tf = [[UITextField alloc]init];
+    tf.text = @"123";
+    [self textField:tf shouldChangeCharactersInRange:NSMakeRange(0, 1) replacementString:@"1"];
+    
+    
+    [[ZJNMedicalPickerView alloc] testFunction];
+    [[ZJNAddressPickerView alloc] testFunction];
 }
 
 @end

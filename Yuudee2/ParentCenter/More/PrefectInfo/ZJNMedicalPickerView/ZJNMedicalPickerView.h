@@ -8,12 +8,13 @@
 
 #import <BRPickerView/BRPickerView.h>
 
-NS_ASSUME_NONNULL_BEGIN
 typedef void (^ZJNMedicalResultBlock)(NSString *medical);
 typedef void (^ZJNMedicalCancelBlock)(void);
 @interface ZJNMedicalPickerView : BRBaseView
 +(void)showZJNMedicalPickerViewWithResultBlock:(ZJNMedicalResultBlock)resultBlock;
 -(instancetype)initWithResultBlock:(ZJNMedicalResultBlock)resultBlock;
+
+- (void)testFunction;
 @end
 
-NS_ASSUME_NONNULL_END
+
