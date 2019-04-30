@@ -380,6 +380,74 @@
     }];
 }
 
+- (NSString *)testRemoveThePlace:(NSString *)str{
+    NSInteger length = str.length;
+    for (NSInteger count = 0; count < length; count ++) {
+        if (count > 26) {
+            return str;
+        }
+        if (count == 0) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 1) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 2) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 3) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 4) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+            
+            if (count == 5) {
+                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+            }
+            if (count == 6) {
+                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+            }
+            if (count == 7) {
+                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+            }
+            if (count == 8) {
+                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+            }
+            if (count == 9) {
+                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+            }
+            if (count == 10) {
+                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+            }
+            if (count == 11) {
+                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+            }
+            if (count == 12) {
+                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+            }
+            if (count == 13) {
+                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+            }
+            if (count == 14) {
+                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+            }
+            if (count == 15) {
+                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+            }
+            if (count == 16) {
+                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+            }
+            if (count == 17) {
+                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+            }
+            if (count == 18) {
+                str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+            }
+        }
+    }
+    return str;
+}
+
 - (void)testFunction{
     [[ZJNTool shareManager] saveToken:@"IFHmXHR3VHpOsdb5bZBQ=="];
     [self showQRCodeButtonClick];
@@ -392,7 +460,22 @@
     [self personSecondInfoViewChangeInfoWithType:2];
     [self changeHeaderImage];
     [self imguploadwithimg:[UIImage imageNamed:@"白狗"]];
-    [self uploadChildPhoto:@"http://www.baidu.com"];
+    
+    [self uploadChildPhoto:[self testRemoveThePlace:@"http://www.baidu.com"]];
+    [self testSubString:@"138"];
 }
+
+- (void)testSubString:(NSString *)str{
+    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+    attrs[NSFontAttributeName] = [UIFont systemFontOfSize:14];
+    CGSize maxSize = CGSizeMake(168, 100);
+    NSInteger maxW = 100;
+    CGSize size = [str boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
+    if (size.width > 0) {
+        size.width = maxW;
+    }
+}
+
+
 
 @end
