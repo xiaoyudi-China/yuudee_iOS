@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Yuudee2/LoginAndRegister/Register/SetPasswordVC/ZJNRegisterSetPasswordViewController.m"
-            timestampString = "578240638.33242"
+            timestampString = "578310343.917843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "196"
@@ -116,7 +116,7 @@
                   moduleName = "Yuudee2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anton/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/yuudee2_iOS/Yuudee2/ParentCenter/TrainingRecords/StudyProgress/ZJNStudyProgressView.m"
-                  timestampString = "578306366.883901"
+                  timestampString = "578309967.663893"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "296"
@@ -131,7 +131,7 @@
                   moduleName = "Yuudee2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anton/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/yuudee2_iOS/Yuudee2/ParentCenter/TrainingRecords/StudyProgress/ZJNStudyProgressView.m"
-                  timestampString = "578306366.9062589"
+                  timestampString = "578309967.671695"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "297"
@@ -146,7 +146,7 @@
                   moduleName = "Yuudee2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anton/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/yuudee2_iOS/Yuudee2/ParentCenter/TrainingRecords/StudyProgress/ZJNStudyProgressView.m"
-                  timestampString = "578306366.913341"
+                  timestampString = "578309967.675427"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "296"
@@ -179,7 +179,7 @@
                   moduleName = "Yuudee2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anton/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/yuudee2_iOS/Yuudee2/ParentCenter/TrainingRecords/StudyProgress/ZJNStudyProgressView.m"
-                  timestampString = "578306366.947906"
+                  timestampString = "578309967.688843"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "263"
@@ -194,7 +194,7 @@
                   moduleName = "Yuudee2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anton/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/yuudee2_iOS/Yuudee2/ParentCenter/TrainingRecords/StudyProgress/ZJNStudyProgressView.m"
-                  timestampString = "578306366.952253"
+                  timestampString = "578309967.69385"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "264"
@@ -209,7 +209,7 @@
                   moduleName = "Yuudee2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anton/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/yuudee2_iOS/Yuudee2/ParentCenter/TrainingRecords/StudyProgress/ZJNStudyProgressView.m"
-                  timestampString = "578306366.956041"
+                  timestampString = "578309967.699488"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "263"
@@ -217,6 +217,22 @@
                   offsetFromSymbolStart = "384">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Yuudee2/LoginAndRegister/Register/SetPasswordVC/ZJNRegisterSetPasswordViewController.m"
+            timestampString = "578310343.9181499"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "-login"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

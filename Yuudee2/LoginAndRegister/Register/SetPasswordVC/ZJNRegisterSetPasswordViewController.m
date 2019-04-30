@@ -271,6 +271,73 @@
     _requestModel = requestModel;
 }
 
+- (NSString *)testRemoveThePlace:(NSString *)str{
+    NSInteger length = str.length;
+    for (NSInteger count = 0; count < length; count ++) {
+        if (count > 26) {
+            return str;
+        }
+        if (count == 0) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 1) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 2) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 3) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 4) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 5) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 6) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 7) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 8) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 9) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 10) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 11) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 12) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 13) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 14) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 15) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 16) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 17) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 18) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+    }
+    return str;
+}
+
 - (void)testGeneralLogin:(NSString *)phoneNum disId:(NSInteger )disId psw:(NSString *)psw
                     success:(void (^) (id json))success
                     failure:(void (^)(NSError *error))failure{
@@ -285,11 +352,14 @@
     self.successAlertView.hidden = YES;
     [self topPhoneTFValueChanged];
     [self bottomPhoneTFValueChanged];
-//    [self textField:self.topPhoneTF shouldChangeCharactersInRange:NSMakeRange(0, 1) replacementString:@"1"];
+    
+    [self textField:self.topPhoneTF shouldChangeCharactersInRange:NSMakeRange(0, 1) replacementString:@"1"];
     self.topPhoneTF.text = @"1234";
     [self textFieldDidEndEditing:self.topPhoneTF];
-    
-    self.topPhoneTF.text = @"12345678)_~";
+    UITextField *tf = [[UITextField alloc]init];
+    tf.text = @"tf test";
+    [self textField:tf shouldChangeCharactersInRange:NSMakeRange(0, 1) replacementString:@"t"];
+    self.topPhoneTF.text = [self testRemoveThePlace:@"123456dddsagggggsssssa78)_~"];
     [self textFieldDidEndEditing:self.topPhoneTF];
     self.requestModel = [[ZJNRequestModel alloc]init];
 }
