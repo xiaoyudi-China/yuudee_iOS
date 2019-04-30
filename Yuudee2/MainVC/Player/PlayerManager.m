@@ -109,4 +109,10 @@
 {
     [self.player2 removeObserver:self forKeyPath:@"status"];
 }
+
+- (void)testFunction {
+    [self validateUrl:@"www.google.com"];
+    [self finishedPlaying];
+}
+
 @end

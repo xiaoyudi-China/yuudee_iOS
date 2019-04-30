@@ -244,27 +244,33 @@
 }
 
 #pragma mark - 查询累计的金币数量
+
+- (void)HTTPCoinCodeBlock:(NSArray *)array{
+    if (self.type - 1 < array.count) {
+        NSDictionary * dic = array[self.type-1];
+        NSString * gold = [NSString stringWithFormat:@"%@",dic[@"gold"]];
+        self.coinNum.text = [NSString stringWithFormat:@"%ld",[gold integerValue]];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            NSString * disStr = [NSString stringWithFormat:@"%ld",[gold integerValue] - 10];
+            if (self.isPass) {
+                disStr = @"0";
+            }else{
+                [self HTTPDisCoin];
+            }
+            [UIView animateWithDuration:0.5 animations:^{
+                self.coinNum.text = disStr;
+            }];
+        });
+    }
+}
+
 -(void)HTTPCoin
 {
     [[YuudeeRequest shareManager] request:Post url:GetCoin paras:@{@"token":[[ZJNTool shareManager] getToken]} completion:^(id response, NSError *error) {
         if ([response[@"code"] isEqual:@200]) {
             NSArray * array = response[@"data"];
-            if (self.type - 1 < array.count) {
-                NSDictionary * dic = array[self.type-1];
-                NSString * gold = [NSString stringWithFormat:@"%@",dic[@"gold"]];
-                self.coinNum.text = [NSString stringWithFormat:@"%ld",[gold integerValue]];
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    NSString * disStr = [NSString stringWithFormat:@"%ld",[gold integerValue] - 10];
-                    if (self.isPass) {
-                        disStr = @"0";
-                    }else{
-                        [self HTTPDisCoin];
-                    }
-                    [UIView animateWithDuration:0.5 animations:^{
-                        self.coinNum.text = disStr;
-                    }];
-                });
-            }
+            [self HTTPCoinCodeBlock:array];
+
         }else{
             NSLog(@"查询金币失败:%@",response[@"msg"]);
         }
@@ -517,6 +523,8 @@
     [self viewDidLoad];
  
     [self HTTPCoin];
+    [self HTTPCoinCodeBlock:@[@{@"gold":@"1"},@{@"gold":@"2"}]];
+    
     [self HTTPRest];
     [self codeRestBlock1];
     
@@ -530,7 +538,8 @@
     [self HTTPJZFJ];
     [self GoToJZFJ];
     [self HTTPDisCoin];
-
+    [self homeClick];
+    [self resetJiMu];
 }
 
 @end

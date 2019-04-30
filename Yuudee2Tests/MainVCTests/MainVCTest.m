@@ -170,25 +170,4 @@
     }];
 }
 
-//- (void)testRequestServer6 {
-//    XCTestExpectation *expectation = [self expectationWithDescription:@"..."];
-//    MainVC *vc = [[MainVC alloc] init];
-//    [vc testRequestServer6Token:@"eGK5ZCXQgxeQ8n3OZxJHA==" success:^(id json) {
-//        [expectation fulfill];
-//        XCTAssertNotNil(json, @"json 对象不为空");
-//        if ([[json[@"code"] stringValue] isEqualToString:@"200"]) {
-//            XCTAssertTrue(YES, @"接口请求成功");
-//        }else{
-//            XCTAssertFalse(NO, @"接口请求失败");
-//        }
-//    } failure:^(NSError *error) {
-//        [expectation fulfill];
-//        XCTAssertNotNil(error, @"error 不为空");
-//    }];
-//
-//    [self waitForExpectationsWithTimeout:30.f handler:^(NSError * _Nullable error) {
-//        NSLog(@"...");
-//    }];
-//}
-
 @end
