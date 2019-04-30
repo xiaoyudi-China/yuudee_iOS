@@ -11,4 +11,8 @@
 @interface ZJNAuthCodeTextField : ZJNBasicTextField
 -(void)changeAuthImage;
 @property (nonatomic ,copy)void (^authResult)(BOOL result);
+
+- (void)testVerifyImageCode:(NSString *)code
+                    success:(void (^) (id json))success
+                    failure:(void (^)(NSError *error))failure;
 @end

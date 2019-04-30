@@ -171,6 +171,7 @@
     self.phoneCode = disId;
     self.phone = phoneNum;
     [self nextBtnClick];
+    [self.getCodeTextField testFunction];
 }
 
 @end

@@ -12,4 +12,6 @@
 @property (nonatomic ,strong)NSString *begin;
 @property (nonatomic ,strong)NSString *timer;
 @property (nonatomic ,copy)void (^getAutnCodeBlock)(void);
+
+- (void)testFunction;
 @end

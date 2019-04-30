@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)loginWithModel:(ZJNUserInfoModel *)model;
 -(void)logout;
 -(BOOL)isLogin;
+- (void)saveToken:(NSString *)token;
 
 @end
 

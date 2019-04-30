@@ -13,6 +13,9 @@
 //@property (nonatomic ,strong)MQVerCodeImageView *verImageView;
 @property (nonatomic ,strong)UIImageView *verImageView;
 @property (nonatomic ,strong)NSString *authCode;
+
+@property (nonatomic, copy) void (^success) (id json);
+@property (nonatomic, copy) void (^failure) (NSError *error);
 @end
 @implementation ZJNAuthCodeTextField
 
@@ -70,8 +73,14 @@
         }else{
             [[[self superview] viewController] showHint:data[@"msg"]];
         }
+        if (self.success) {
+            self.success(data);
+        }
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
+        if (self.failure) {
+            self.failure(error);
+        }
     }];
     
 }
@@ -79,12 +88,16 @@
 -(void)changeAuthImage{
     self.verImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",Host,AuthImage]]]];
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+- (void)testVerifyImageCode:(NSString *)code success:(void (^)(id))success failure:(void (^)(NSError *))failure{
+    self.success = success;
+    self.failure = failure;
+    self.text = code;
+    UITextField *textfield = [[UITextField alloc]init];
+    textfield.text = code;
+//    [self verifyImageCode];
+    [self textFieldValueChanged:textfield];
+    [[ZJNTool shareManager] getToken];
 }
-*/
 
 @end

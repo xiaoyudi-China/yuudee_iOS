@@ -381,6 +381,7 @@
 }
 
 - (void)testFunction{
+    [[ZJNTool shareManager] saveToken:@"IFHmXHR3VHpOsdb5bZBQ=="];
     [self showQRCodeButtonClick];
     [self shareQRCode];
     [self shareWebPageToPlatformType:UMSocialPlatformType_QQ];

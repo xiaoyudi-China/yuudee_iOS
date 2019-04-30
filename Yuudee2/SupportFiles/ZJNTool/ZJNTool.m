@@ -35,6 +35,11 @@ static ZJNTool *tool = nil;
     
 }
 
+- (void)saveToken:(NSString *)token{
+    [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 //判断登陆
 -(void)loginWithModel:(ZJNUserInfoModel *)model{
     [[NSUserDefaults standardUserDefaults] setObject:model.id forKey:@"userid"];
