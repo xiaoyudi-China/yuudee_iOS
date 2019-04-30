@@ -23,9 +23,8 @@
 
 @property(nonatomic,assign)BOOL dissVC; //标识页面是否已消失
 /** 单元测试*/
-@property (nonatomic, copy) void (^success) (id json);
-@property (nonatomic, copy) void (^failure) (NSError *error);
-@property (nonatomic, copy) NSString *testToken;
+@property (nonatomic) BOOL isTest;
+
 @end
 
 @implementation QHWVC
@@ -84,6 +83,166 @@
     }
     [self HTTPRest];
 }
+
+- (void)codeRestBlock1 {
+    //将用掉的积木隐藏掉
+    for (int i = 1; i < 10; i ++) {
+        BOOL exist = NO;
+        for (NSString * item in self.restArr) {
+            if ([item isEqualToString:[NSString stringWithFormat:@"%d",i]]) {
+                exist = YES;
+            }
+        }
+        if (!exist) {
+            UIImageView * image = (id)[self.view viewWithTag:i];
+            image.hidden = YES;
+        }
+    }
+    if (self.isTest) {//单元测试
+        self.restArr = [NSMutableArray array];
+        [self.restArr addObject:@"1"];
+        [self.restArr addObject:@"2"];
+        [self.restArr addObject:@"4"];
+        
+    }
+    //处理gif逻辑
+    NSInteger arc = 1;
+    NSMutableArray * allArray = [NSMutableArray array];
+    for (int i = 1; i < 12; i ++) {
+        [allArray addObject:[NSString stringWithFormat:@"%d",i]];
+    }
+    NSString * old = [[NSUserDefaults standardUserDefaults] objectForKey:@"qhw"];
+    NSArray * oldArray = [old componentsSeparatedByString:@","];
+    if (old.length == 0 || oldArray.count == 12) { //初始状态和循环完一遍
+        if (oldArray.count == 12) {
+            [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"qhw"];
+        }
+        arc = arc4random()%11 + 1;
+        NSString * new = [@"" stringByAppendingString:[NSString stringWithFormat:@"%ld,",arc]];
+        [[NSUserDefaults standardUserDefaults] setObject:new forKey:@"qhw"];
+        
+    }else{ //已随机过
+        if (self.restArr.count == 9) { //换
+            NSMutableArray * muOldArr = [NSMutableArray arrayWithArray:oldArray];
+            [muOldArr removeLastObject];
+            NSMutableArray * allArray2 = [NSMutableArray arrayWithArray:allArray];
+            for (NSString * item in allArray) {
+                for (NSString * item2 in muOldArr) {
+                    if ([item isEqualToString:item2]) {
+                        [allArray2 removeObject:item];
+                    }
+                }
+            }
+            NSInteger count = allArray2.count;
+            NSInteger a = arc4random()%count;
+            NSString * arcString = allArray2[a];
+            arc = [arcString integerValue];
+            
+            NSString * new = [old stringByAppendingString:[NSString stringWithFormat:@"%@,",arcString]];
+            [[NSUserDefaults standardUserDefaults] setObject:new forKey:@"qhw"];
+            
+        }else{ //不换
+            for (int i = 0; i < oldArray.count; i ++) {
+                if (i == oldArray.count - 2) {
+                    NSString * item = oldArray[i];
+                    arc = [item integerValue];
+                }
+            }
+        }
+    }
+    self.gif.gifData = [NSData dataWithContentsOfFile: [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"qhw%ld",arc] ofType:@"gif"]];
+    [self.gif start];
+}
+
+- (void)codeRestBlock2{
+    for (int i = 0; i < self.restArr.count; i ++) {
+        NSString * item = self.restArr[i];
+        UIImageView * disImage = (id)[self.view viewWithTag:[item integerValue]];
+        [UIView animateWithDuration:3 animations:^{
+            disImage.center = CGPointMake(Screen_W/2*3, AdFloat(200));
+        }completion:^(BOOL finished) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(60 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                if (self.dissVC) return ;
+                if (i == self.restArr.count-1) {
+                    if (self.type == 1 || self.type == 2 || self.type == 4) {
+                        if (self.isAgainPass) {
+                            if (self.type == 4) {
+                                [[NSNotificationCenter defaultCenter] postNotificationName:@"Success" object:nil];
+                            }
+                            [self.navigationController popToRootViewControllerAnimated:YES];
+                        }else{
+                            PassVC * vc = [PassVC new];
+                            vc.type = self.type;
+                            [self.navigationController pushViewController:vc animated:YES];
+                        }
+                    }else{
+                        [self GoToJZFJ];
+                    }
+                }
+            });
+        }];
+    }
+}
+
+- (void)codeRestBlock3 {
+    //非通关,那么在剩余积木中随机一块飞走
+    NSLog(@"未通关,那么随机一块积木飞走");
+    NSInteger count = arc4random()%self.restArr.count + 1;
+    NSLog(@"随机出来的积木编号:%ld",count);
+    
+    //已完善儿童信息,那么将随机的积木编号上传
+    ZJNUserInfoModel *model = [[ZJNFMDBManager shareManager] searchCurrentUserInfoWithUserId:[[ZJNTool shareManager] getUserId]];
+    NSString * number = self.restArr[count-1];
+    NSString *IsRemind = model.IsRemind;
+    if (self.isTest) {//单元测试
+        IsRemind = @"1";
+    }
+    if (![IsRemind isEqualToString:@"1"]) {
+        [self HTTPPostNum:[number integerValue]];
+    }else{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.coinNum.text = @"0";
+        });
+    }
+    
+    //找到图片,执行动画
+    UIImageView * disImage = (id)[self.view viewWithTag:[number integerValue]];
+    [self.view insertSubview:disImage atIndex:13];
+    [UIView animateWithDuration:3 animations:^{
+        disImage.center = CGPointMake(Screen_W/2*3, AdFloat(200));
+    }completion:^(BOOL finished) {
+        NSInteger sleep = 10;
+        if (self.restArr.count == 1) {
+            sleep = 60;
+        }else{
+            sleep = 10;
+        }
+
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(sleep * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if (self.dissVC) return ;
+            
+            NSString *IsRemind = model.IsRemind;
+
+            if ([IsRemind isEqualToString:@"1"]) {
+                NSLog(@"未完善儿童信息,那么跳转家长中心");
+                ZJNParentCenterViewController *viewC = [[ZJNParentCenterViewController alloc]init];
+                [self.navigationController pushViewController:viewC animated:YES];
+            }else{
+                if (self.type == 1) {
+                    [self HTTPMC];
+                }else if (self.type == 2){
+                    [self HTTPDC];
+                }else if (self.type == 3){
+                    [self HTTPJZCZ];
+                }else if (self.type == 4){
+                    [self HTTPJZFJ];
+                }
+            }
+        });
+    }];
+    
+}
+
 #pragma mark - 查询累计的金币数量
 -(void)HTTPCoin
 {
@@ -116,185 +275,28 @@
 {
     NSMutableDictionary *paras = [NSMutableDictionary dictionary];
     paras[@"module"] = [NSString stringWithFormat:@"%ld",self.type];
-    if (self.testToken.length > 0) {//单元测试
-        paras[@"token"] = self.testToken;
-    }else {
-        paras[@"token"] = [[ZJNTool shareManager]getToken];
-    }
+    paras[@"token"] = [[ZJNTool shareManager]getToken];
+
     [[YuudeeRequest shareManager] request:Post url:Rest paras:paras completion:^(id response, NSError *error) {
         if ([response[@"code"] isEqual:@200]) {
-            if (self.success) {
-                self.success(response);
-            }
             for (NSDictionary * item in response[@"data"]) {
                 [self.restArr addObject:[NSString stringWithFormat:@"%@",item[@"number"]]];
             }
             NSLog(@"剩余积木数:%ld %@",self.restArr.count,self.restArr);
             
-            //将用掉的积木隐藏掉
-            for (int i = 1; i < 10; i ++) {
-                BOOL exist = NO;
-                for (NSString * item in self.restArr) {
-                    if ([item isEqualToString:[NSString stringWithFormat:@"%d",i]]) {
-                        exist = YES;
-                    }
-                }
-                if (!exist) {
-                    UIImageView * image = (id)[self.view viewWithTag:i];
-                    image.hidden = YES;
-                }
-            }
-            if (self.testToken.length > 0) {//单元测试
-                self.restArr = [NSMutableArray array];
-                [self.restArr addObject:@"1"];
-                [self.restArr addObject:@"2"];
-                [self.restArr addObject:@"4"];
-                
-            }
-            //处理gif逻辑
-            NSInteger arc = 1;
-            NSMutableArray * allArray = [NSMutableArray array];
-            for (int i = 1; i < 12; i ++) {
-                [allArray addObject:[NSString stringWithFormat:@"%d",i]];
-            }
-            NSString * old = [[NSUserDefaults standardUserDefaults] objectForKey:@"qhw"];
-            NSArray * oldArray = [old componentsSeparatedByString:@","];
-            if (old.length == 0 || oldArray.count == 12) { //初始状态和循环完一遍
-                if (oldArray.count == 12) {
-                    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"qhw"];
-                }
-                arc = arc4random()%11 + 1;
-                NSString * new = [@"" stringByAppendingString:[NSString stringWithFormat:@"%ld,",arc]];
-                [[NSUserDefaults standardUserDefaults] setObject:new forKey:@"qhw"];
-                
-            }else{ //已随机过
-                if (self.restArr.count == 9) { //换
-                    NSMutableArray * muOldArr = [NSMutableArray arrayWithArray:oldArray];
-                    [muOldArr removeLastObject];
-                    NSMutableArray * allArray2 = [NSMutableArray arrayWithArray:allArray];
-                    for (NSString * item in allArray) {
-                        for (NSString * item2 in muOldArr) {
-                            if ([item isEqualToString:item2]) {
-                                [allArray2 removeObject:item];
-                            }
-                        }
-                    }
-                    NSInteger count = allArray2.count;
-                    NSInteger a = arc4random()%count;
-                    NSString * arcString = allArray2[a];
-                    arc = [arcString integerValue];
-                    
-                    NSString * new = [old stringByAppendingString:[NSString stringWithFormat:@"%@,",arcString]];
-                    [[NSUserDefaults standardUserDefaults] setObject:new forKey:@"qhw"];
-                    
-                }else{ //不换
-                    for (int i = 0; i < oldArray.count; i ++) {
-                        if (i == oldArray.count - 2) {
-                            NSString * item = oldArray[i];
-                            arc = [item integerValue];
-                        }
-                    }
-                }
-            }
-            self.gif.gifData = [NSData dataWithContentsOfFile: [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"qhw%ld",arc] ofType:@"gif"]];
-            [self.gif start];
+            [self codeRestBlock1];
             
             //通关那么全部飞走
             if (self.isPass) {
                 NSLog(@"通关了,那么剩余积木全部飞走");
-                
                 [self resetJiMu];
+                [self codeRestBlock2];
                 
-                for (int i = 0; i < self.restArr.count; i ++) {
-                    NSString * item = self.restArr[i];
-                    UIImageView * disImage = (id)[self.view viewWithTag:[item integerValue]];
-                    [UIView animateWithDuration:3 animations:^{
-                        disImage.center = CGPointMake(Screen_W/2*3, AdFloat(200));
-                    }completion:^(BOOL finished) {
-                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(60 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                            if (self.dissVC) return ;
-                            if (i == self.restArr.count-1) {
-                                if (self.type == 1 || self.type == 2 || self.type == 4) {
-                                    if (self.isAgainPass) {
-                                        if (self.type == 4) {
-                                            [[NSNotificationCenter defaultCenter] postNotificationName:@"Success" object:nil];
-                                        }
-                                        [self.navigationController popToRootViewControllerAnimated:YES];
-                                    }else{
-                                        PassVC * vc = [PassVC new];
-                                        vc.type = self.type;
-                                        [self.navigationController pushViewController:vc animated:YES];
-                                    }
-                                }else{
-                                    [self GoToJZFJ];
-                                }
-                            }
-                        });
-                    }];
-                }
-                
-            }else{ //非通关,那么在剩余积木中随机一块飞走
-                NSLog(@"未通关,那么随机一块积木飞走");
-
-                NSInteger count = arc4random()%self.restArr.count + 1;
-                NSLog(@"随机出来的积木编号:%ld",count);
-                
-                //已完善儿童信息,那么将随机的积木编号上传
-                ZJNUserInfoModel *model = [[ZJNFMDBManager shareManager] searchCurrentUserInfoWithUserId:[[ZJNTool shareManager] getUserId]];
-                NSString * number = self.restArr[count-1];
-                NSString *IsRemind = model.IsRemind;
-                if (self.testToken.length > 0) {//单元测试
-                    IsRemind = @"1";
-                }
-                if (![IsRemind isEqualToString:@"1"]) {
-                    [self HTTPPostNum:[number integerValue]];
-                }else{
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                        self.coinNum.text = @"0";
-                    });
-                }
-                
-                //找到图片,执行动画
-                UIImageView * disImage = (id)[self.view viewWithTag:[number integerValue]];
-                [self.view insertSubview:disImage atIndex:13];
-                [UIView animateWithDuration:3 animations:^{
-                    disImage.center = CGPointMake(Screen_W/2*3, AdFloat(200));
-                }completion:^(BOOL finished) {
-                    NSInteger sleep = 10;
-                    if (self.restArr.count == 1) {
-                        sleep = 60;
-                    }else{
-                        sleep = 10;
-                    }
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(sleep * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                        if (self.dissVC) return ;
-                        
-                        NSString *IsRemind = model.IsRemind;
-                        if (self.testToken.length > 0) {//单元测试
-                            IsRemind = @"1";
-                        }
-                        if ([IsRemind isEqualToString:@"1"]) {
-                            NSLog(@"未完善儿童信息,那么跳转家长中心");
-                            ZJNParentCenterViewController *viewC = [[ZJNParentCenterViewController alloc]init];
-                            [self.navigationController pushViewController:viewC animated:YES];
-                        }else{
-                            if (self.type == 1) {
-                                [self HTTPMC];
-                            }else if (self.type == 2){
-                                [self HTTPDC];
-                            }else if (self.type == 3){
-                                [self HTTPJZCZ];
-                            }else if (self.type == 4){
-                                [self HTTPJZFJ];
-                            }
-                        }
-                    });
-                }];
+            }else{
+                [self codeRestBlock3];
             }
         }else if ([response[@"code"] isEqual:@205]){
-            if (self.success) {
-                self.success(response);
-            }
+
             NSInteger count = arc4random()%10 + 1;
             UIImageView * disImage = (id)[self.view viewWithTag:count];
             [self.view insertSubview:disImage atIndex:13];
@@ -304,9 +306,7 @@
                 [self.navigationController popToRootViewControllerAnimated:YES];
             }];
         }else {
-            if (self.failure) {
-                self.failure(response);
-            }
+
         }
     }];
 }
@@ -513,9 +513,15 @@
 }
 
 - (void)testFunction {
+    self.isTest = YES;
     [self viewDidLoad];
  
     [self HTTPCoin];
+    [self HTTPRest];
+    [self codeRestBlock1];
+    [self codeRestBlock2];
+    [self codeRestBlock3];
+
     [self HTTPPostNum:2];
     [self HTTPMC];
     [self HTTPDC];
@@ -523,16 +529,6 @@
     [self HTTPJZFJ];
     [self GoToJZFJ];
 
-}
-
-- (void)testRequestServerToken:(NSString *)token
-                       success:(void (^) (id json))success
-                       failure:(void (^)(NSError *error))failure{
-    self.success = success;
-    self.failure = failure;
-    self.testToken = token;
-    self.dissVC = YES;
-    [self HTTPRest];
 }
 
 @end
