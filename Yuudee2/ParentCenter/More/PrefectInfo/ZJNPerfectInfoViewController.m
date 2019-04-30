@@ -598,7 +598,6 @@
         [self tableView:self.tableView cellForRowAtIndexPath:indexPath];
         [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
     }
-    
 }
 
 - (void)testAddChild:(NSString *)token userName:(NSString *)name success:(void (^)(id))success failure:(void (^)(NSError *))failure{

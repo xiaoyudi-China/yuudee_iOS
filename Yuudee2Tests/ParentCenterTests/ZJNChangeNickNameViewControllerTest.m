@@ -38,7 +38,7 @@
 - (void)testUpdateChildInfo{
     XCTestExpectation *expectation = [self expectationWithDescription:@"..."];
     ZJNChangeNickNameViewController *vc = [[ZJNChangeNickNameViewController alloc]init];
-    [vc testUpdateChildInfo:@"ZqfRwzET/5fhR7XSBgZTOw==" userName:@"test" success:^(id json) {
+    [vc testUpdateChildInfo:@"IFHmXHR3VHpOsdb5bZBQ==" userName:@"test" success:^(id json) {
         [expectation fulfill];
         XCTAssertNotNil(json, @"json 对象不为空");
         if ([[json[@"code"] stringValue] isEqualToString:@"200"]) {

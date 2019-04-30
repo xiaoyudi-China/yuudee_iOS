@@ -22,7 +22,7 @@
 {
     NSString * can = [[NSUserDefaults standardUserDefaults] objectForKey:@"can"];
     if (![can isEqualToString:@"1"]) return;
-    
+    if (url.length == 0) return;
     NSString * path = [[NSBundle mainBundle]pathForResource:url ofType:nil];
     _player = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL fileURLWithPath:path] error:nil];
     [_player play];

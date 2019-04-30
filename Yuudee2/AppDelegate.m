@@ -55,11 +55,6 @@
     
     [self.window makeKeyAndVisible];
     
-//    NSArray *array = [self getAllProperties];
-//
-//    NSLog(@"%@",array);
-    // Override point for customization after application launch.
-    
 #warning 临时添加
 #if !TARGET_IPHONE_SIMULATOR
     NSArray *PATHS = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -74,55 +69,11 @@
     return YES;
 }
 
-/* 获取对象的所有属性 */
--(NSArray *)getAllProperties
-{
-    u_int count;
-    // 传递count的地址过去 &count
-    Ivar *ivars = class_copyIvarList([UISlider class], &count);
-    //arrayWithCapacity的效率稍微高那么一丢丢
-    NSMutableArray *propertiesArray = [NSMutableArray arrayWithCapacity:count];
-    
-    for (int i = 0; i < count ; i++)
-    {
-        //此刻得到的propertyName为c语言的字符串
-        const char* ivarName = ivar_getName(ivars[i]);
-        //此步骤把c语言的字符串转换为OC的NSString
-        [propertiesArray addObject: [NSString stringWithUTF8String: ivarName]];
-    }
-    //class_copyPropertyList底层为C语言，所以我们一定要记得释放properties
-    // You must free the array with free().
-    free(ivars);
-    
-    return propertiesArray;
-}
-
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-}
-
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-}
-
-
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [[NSNotificationCenter defaultCenter] postNotificationName:@"BecomeActive" object:nil];
 }
 
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
 -(void)sd_Image
 {
     NSString*userAgent=@"";

@@ -81,19 +81,13 @@
             return NO;
         }
     }
-//    if (range.length == 1 && string.length == 0) {
-//        return YES;
-//    }else if (textField.text.length>=13) {
-//        textField.text = [textField.text substringToIndex:13];
-//        return NO;
-//    }else{
-        BOOL isV = [NSString validateNickName:string];
-        if (isV) {
-            [self showHint:@"请输入字母，数字或文字形式的儿童昵称"];
+    
+    BOOL isV = [NSString validateNickName:string];
+    if (isV) {
+        [self showHint:@"请输入字母，数字或文字形式的儿童昵称"];
             
-            return NO;
-        }
-//    }
+        return NO;
+    }
     return YES;
     
 }
@@ -173,9 +167,6 @@
         }
     }
 }
-//-(void)dealloc{
-//    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"UITextFieldTextDidChangeNotification" object:self.nickNameTextField];
-//}
 
 - (void)testUpdateChildInfo:(NSString *)token userName:(NSString *)name
                 success:(void (^) (id json))success
@@ -185,7 +176,12 @@
     self.token = token;
     self.success = success;
     self.failure = failure;
+    [self textField:self.nickNameTextField shouldChangeCharactersInRange:NSMakeRange(0, 1) replacementString:@"1"];
     [self okBtnClick];
+    [self backBtnClick];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(greetingTextFieldChanged:) name:@"UITextFieldTextDidChangeNotification" object:self.nickNameTextField];
+    
 }
 
 @end
