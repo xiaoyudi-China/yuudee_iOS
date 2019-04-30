@@ -519,6 +519,7 @@
     [self HTTPCoin];
     [self HTTPRest];
     [self codeRestBlock1];
+    
     [self codeRestBlock2];
     [self codeRestBlock3];
 
@@ -528,6 +529,7 @@
     [self HTTPJZCZ];
     [self HTTPJZFJ];
     [self GoToJZFJ];
+    [self HTTPDisCoin];
 
 }
 
