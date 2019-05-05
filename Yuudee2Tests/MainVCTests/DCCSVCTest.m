@@ -3,7 +3,7 @@
 //  Yuudee2Tests
 //
 //  Created by zcy on 2019/4/28.
-//  Copyright © 2019 险峰科技. All rights reserved.
+//  Copyright © 2019 北京道口贷科技有限公司. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
