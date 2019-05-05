@@ -1093,7 +1093,8 @@
     [self light2];
     [self light3];
     [self fillLatest:@[] andData:nil andList:nil];
-    
+    [self valueChanged:self.resultTF];
+    [self textField:self.resultTF shouldChangeCharactersInRange:NSMakeRange(0, 0) replacementString:@"12"];
 }
 
 - (void)testData {
