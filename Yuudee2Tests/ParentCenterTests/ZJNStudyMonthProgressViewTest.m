@@ -38,7 +38,7 @@
 - (void)testDayFunction{
     ZJNStudyMonthProgressView *view = [[ZJNStudyMonthProgressView alloc]initWithStudyType:StudyDayProgressView];
     ZJNDayHistoryModel *dayModel = [[ZJNDayHistoryModel alloc]init];
-    dayModel.countTime = @"7489";
+    dayModel.countTime = @"58";
     dayModel.schedule = @"1";
     DayListModel *listModel = [[DayListModel alloc]init];
     listModel.studyTime = @"12";
@@ -51,7 +51,7 @@
 - (void)testWeekFunction{
     ZJNStudyMonthProgressView *view = [[ZJNStudyMonthProgressView alloc]initWithStudyType:StudyWeekProgressView];
     ZJNWeekHistoryModel *weekModel = [[ZJNWeekHistoryModel alloc]init];
-    weekModel.countTime = @"7489";
+    weekModel.countTime = @"3299";
     weekModel.schedule = @"1";
     ResultListModel *listModel = [[ResultListModel alloc]init];
     TimeListModel *timeModel = [[TimeListModel alloc]init];
@@ -86,7 +86,6 @@
     model03.countTime = @"4172";
     model03.time = @"2019-03-08";
     
-    
     model01.accuracyList = @[model02];
     model01.timeList = @[model03];
     
@@ -94,10 +93,7 @@
     list01.month = @"4";
     list01.list = @[model01];
 
-
     model.resultList = @[list01];
-    
-    
     
     [view testFunctionWithMonthModel:model];
 }

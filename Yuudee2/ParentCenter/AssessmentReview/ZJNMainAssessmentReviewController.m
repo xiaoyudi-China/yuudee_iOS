@@ -210,18 +210,6 @@
     delegate.window.rootViewController = [[ZJNNavigationController alloc] initWithRootViewController:[MainVC new]];
 }
 
-- (void)testToAssess:(NSString *)token
-             success:(void (^) (id json))success
-             failure:(void (^)(NSError *error))failure{
-    [[ZJNTool shareManager] saveToken:@"IFHmXHR3VHpOsdb5bZBQ=="];
-    [self viewDidLoad];
-    self.success = success;
-    self.failure = failure;
-    [self btnClick:nil];
-    [self backBtnClick];
-    [self getDataFromService];
-}
-
 -(void )testHeaderView{
     UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth(), 100)];
     UILabel *subTitleLabel = [UILabel createLabelWithTitle:@"问卷评估" textColor:HexColor(yellowColor()) font:FontWeight(22, UIFontWeightHeavy) textAlignment:NSTextAlignmentCenter numberOfLines:1];
@@ -307,10 +295,15 @@
 }
 
 - (void)testFunction{
+    [[ZJNTool shareManager] saveToken:@"IFHmXHR3VHpOsdb5bZBQ=="];
+    NSDictionary *dict = @{@"pcdiIsRemind":@"1",@"abcIsRemind":@"1",@"IsRemind":@"1"};
+    self.infoDic = dict;
     [self viewDidLoad];
     [self btnClick:nil];
     [self backBtnClick];
     [self testHeaderView];
+    [self tableView:self.tableView heightForHeaderInSection:0];
+    [self tableView:self.tableView viewForHeaderInSection:0];
 }
 
 @end
