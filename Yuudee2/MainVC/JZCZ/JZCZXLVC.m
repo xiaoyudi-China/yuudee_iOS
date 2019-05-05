@@ -586,6 +586,7 @@
     
     self.hasRight1 = NO;
     [self errorClick];
+    self.hasRight1 = YES;
     self.hasRight2 = NO;
     [self errorClick];
     [self Gogo];

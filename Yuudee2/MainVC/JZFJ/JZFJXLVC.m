@@ -156,6 +156,9 @@
                 for (int i = 0; i < 4; i ++) {
                     UIImageView * H = (id)[self.view viewWithTag:10+i];
                     GZPLabel * L = (id)[H viewWithTag:30 + i];
+                    if (self.isTest) {
+                        L.text = @"汽车1";
+                    }
                     if ([L.text isEqualToString:self.model.cardOneChar]) {
                         self.handView.center = H.center;
                         self.handView.alpha = 1;
@@ -247,6 +250,9 @@
             UIImageView * H = (id)[self.view viewWithTag:10 + i];
             UIImageView * I = (id)[H viewWithTag:20 + i];
             GZPLabel * L = (id)[H viewWithTag:30 + i];
+            if (self.isTest) {
+                L.text = @"汽车1";
+            }
             if ([L.text isEqualToString:self.model.cardThreeChar]) {
                 I.animationDuration = 1.5;
                 I.animationRepeatCount = 1000;
@@ -320,6 +326,9 @@
                             for (int i = 0; i < 4; i ++) {
                                 UIImageView * H = (id)[self.view viewWithTag:10 + i];
                                 GZPLabel * L = (id)[H viewWithTag:30 + i];
+                                if (self.isTest) {
+                                    L.text = @"汽车1";
+                                }
                                 if ([L.text isEqualToString:self.model.cardTwoChar]) {
                                     self.handView.center = H.center;
                                     self.handView.alpha = 1;
@@ -368,6 +377,9 @@
                                 for (int i = 0; i < 4; i ++) {
                                     UIImageView * H = (id)[self.view viewWithTag:10 + i];
                                     GZPLabel * L = (id)[H viewWithTag:30 + i];
+                                    if (self.isTest) {
+                                        L.text = @"汽车1";
+                                    }
                                     if ([L.text isEqualToString:self.model.cardThreeChar]) {
                                         self.handView.center = H.center;
                                         self.handView.alpha = 1;
@@ -384,6 +396,9 @@
             for (int i = 0; i < 4; i ++) {
                 UIImageView * H = (id)[self.view viewWithTag:10+i];
                 GZPLabel * L = (id)[H viewWithTag:30 + i];
+                if (self.isTest) {
+                    L.text = @"汽车1";
+                }
                 if ([L.text isEqualToString:self.model.cardOneChar]) {
                     self.handView.center = H.center;
                     self.handView.alpha = 1;
@@ -428,6 +443,9 @@
                                 for (int i = 0; i < 4; i ++) {
                                     UIImageView * H = (id)[self.view viewWithTag:10+i];
                                     GZPLabel * L = (id)[H viewWithTag:30 + i];
+                                    if (self.isTest) {
+                                        L.text = @"汽车1";
+                                    }
                                     if ([L.text isEqualToString:self.model.cardFourChar]) {
                                         self.handView.center = H.center;
                                         self.handView.alpha = 1;
@@ -448,6 +466,9 @@
             for (int i = 0; i < 4; i ++) {
                 UIImageView * H = (id)[self.view viewWithTag:10+i];
                 GZPLabel * L = (id)[H viewWithTag:30 + i];
+                if (self.isTest) {
+                    L.text = @"汽车1";
+                }
                 if ([L.text isEqualToString:arr[self.select]]) {
                     self.handView.center = H.center;
                     self.handView.alpha = 1;
@@ -534,6 +555,9 @@
             for (int i = 0; i < 4; i ++) {
                 UIImageView * H = (id)[self.view viewWithTag:10+i];
                 GZPLabel * L = (id)[H viewWithTag:30 + i];
+                if (self.isTest) {
+                    L.text = @"汽车1";
+                }
                 if ([L.text isEqualToString:arr[self.select]]) {
                     self.handView.center = H.center;
                     self.handView.alpha = 1;
@@ -679,6 +703,9 @@
     for (int i = 0; i < 4; i ++) {
         UIImageView * H = (id)[self.view viewWithTag:10+i];
         GZPLabel * L = (id)[H viewWithTag:30 + i];
+        if (self.isTest) {
+            L.text = @"汽车1";
+        }
         if ([L.text isEqualToString:arr[self.select]]) {
             self.handView.center = H.center;
             self.handView.alpha = 1;
@@ -692,8 +719,14 @@
     self.isPass = @"1";
     self.select = 0;
     self.dissVC = NO;
-    [self viewDidLoad];
     self.isTest = YES;
+
+    [self viewWillDisappear:YES];
+    [self viewDidLoad];
+    self.model.cardOneChar = @"汽车1";
+    self.model.cardTwoChar = @"汽车1";
+    self.model.cardThreeChar = @"汽车1";
+    self.model.cardFourChar = @"汽车1";
     self.select = 1;
     for (int a =0 ; a<4; a++) {
         UIView *view = [self.view viewWithTag:10+a];
@@ -707,6 +740,8 @@
     [self makeNav];
     [self homeClick];
     [self PostResult];
+
+    self.select = 0;
     [self errorClick];
 }
 

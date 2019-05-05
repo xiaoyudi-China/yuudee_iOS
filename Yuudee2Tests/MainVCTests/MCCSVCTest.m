@@ -66,7 +66,7 @@
 - (void)testRequestServer {
     XCTestExpectation *expectation = [self expectationWithDescription:@"..."];
     MCCSVC *vc = [[MCCSVC alloc] init];
-    [vc testRequestServerToken:@"xNx8eSh9iFTRL3962j/bw==" success:^(id json) {
+    [vc testRequestServerToken:@"eGK5ZCXQgxeQ8n3OZxJHA==" success:^(id json) {
         [expectation fulfill];
         XCTAssertNotNil(json, @"json 对象不为空");
         if ([[json[@"code"] stringValue] isEqualToString:@"200"]) {
