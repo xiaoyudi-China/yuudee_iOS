@@ -84,7 +84,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Yuudee2/ParentCenter/TrainingRecords/StudyProgress/ZJNStudyProgressView.m"
-            timestampString = "578289650.3532569"
+            timestampString = "578716737.015553"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "332"
@@ -100,7 +100,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Yuudee2/ParentCenter/TrainingRecords/StudyProgress/ZJNStudyProgressView.m"
-            timestampString = "578289650.3544689"
+            timestampString = "578716737.015741"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "263"
@@ -116,7 +116,7 @@
                   moduleName = "Yuudee2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anton/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/yuudee2_iOS/Yuudee2/ParentCenter/TrainingRecords/StudyProgress/ZJNStudyProgressView.m"
-                  timestampString = "578309967.688843"
+                  timestampString = "578716509.2232701"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "263"
@@ -131,7 +131,7 @@
                   moduleName = "Yuudee2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anton/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/yuudee2_iOS/Yuudee2/ParentCenter/TrainingRecords/StudyProgress/ZJNStudyProgressView.m"
-                  timestampString = "578309967.69385"
+                  timestampString = "578716509.227464"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "264"
@@ -146,7 +146,7 @@
                   moduleName = "Yuudee2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anton/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/yuudee2_iOS/Yuudee2/ParentCenter/TrainingRecords/StudyProgress/ZJNStudyProgressView.m"
-                  timestampString = "578309967.699488"
+                  timestampString = "578716509.230803"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "263"
@@ -169,6 +169,102 @@
             startingLineNumber = "152"
             endingLineNumber = "152"
             landmarkName = "-login"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Yuudee2/ParentCenter/TrainingRecords/StudyProgress/View/ZJNStudyMonthProgressView.m"
+            timestampString = "578716737.01594"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Yuudee2/ParentCenter/TrainingRecords/StudyProgress/View/ZJNStudyMonthProgressView.m"
+            timestampString = "578716737.016609"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "287"
+            endingLineNumber = "287"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ZJNStudyMonthProgressView tableView:cellForRowAtIndexPath:]"
+                  moduleName = "Yuudee2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anton/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/yuudee2_iOS/Yuudee2/ParentCenter/TrainingRecords/StudyProgress/View/ZJNStudyMonthProgressView.m"
+                  timestampString = "578716509.2596101"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "287"
+                  endingLineNumber = "287"
+                  offsetFromSymbolStart = "29307">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ZJNStudyMonthProgressView tableView:cellForRowAtIndexPath:]"
+                  moduleName = "Yuudee2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anton/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/yuudee2_iOS/Yuudee2/ParentCenter/TrainingRecords/StudyProgress/View/ZJNStudyMonthProgressView.m"
+                  timestampString = "578716509.262939"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "287"
+                  endingLineNumber = "287"
+                  offsetFromSymbolStart = "29378">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Yuudee2/ParentCenter/TrainingRecords/StudyProgress/View/ZJNStudyMonthProgressView.m"
+            timestampString = "578716737.017174"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Yuudee2/ParentCenter/TrainingRecords/StudyProgress/View/ZJNStudyMonthProgressView.m"
+            timestampString = "578716737.0177"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

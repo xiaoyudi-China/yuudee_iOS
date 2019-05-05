@@ -11,7 +11,4 @@
 @interface ZJNMainAssessmentReviewController : UIViewController
 
 - (void)testFunction;
-- (void)testToAssess:(NSString *)token
-                    success:(void (^) (id json))success
-                    failure:(void (^)(NSError *error))failure;
 @end
