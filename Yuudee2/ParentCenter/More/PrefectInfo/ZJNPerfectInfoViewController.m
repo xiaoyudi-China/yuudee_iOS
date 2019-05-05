@@ -275,14 +275,18 @@
 -(void)setPickerView{
     [ZJNAddressPickerView showZJNAddressPickerViewWithResultBlock:^(ZJNAreaModel * _Nonnull province, ZJNAreaModel * _Nonnull city, ZJNAreaModel * _Nonnull area) {
 
-        ZJNTextFieldTableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
-        cell.textField.text = [NSString stringWithFormat:@"%@-%@-%@",SetStr(province.areaname),SetStr(city.areaname),SetStr(area.areaname)];
-        self.saveModel.address = [NSString stringWithFormat:@"%@-%@-%@",SetStr(province.areaname),SetStr(city.areaname),SetStr(area.areaname)];
-        self.infoModel.countiyId = province.areaid;
-        self.infoModel.provinceId = city.areaid;
-        self.infoModel.cityId = area.areaid;
+        [self configCellWith:province city:city area:area];
     }];
 
+}
+
+- (void)configCellWith:(ZJNAreaModel *)province city:(ZJNAreaModel *)city area:(ZJNAreaModel *)area{
+    ZJNTextFieldTableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
+    cell.textField.text = [NSString stringWithFormat:@"%@-%@-%@",SetStr(province.areaname),SetStr(city.areaname),SetStr(area.areaname)];
+    self.saveModel.address = [NSString stringWithFormat:@"%@-%@-%@",SetStr(province.areaname),SetStr(city.areaname),SetStr(area.areaname)];
+    self.infoModel.countiyId = province.areaid;
+    self.infoModel.provinceId = city.areaid;
+    self.infoModel.cityId = area.areaid;
 }
 
 -(void)showStrTitleWithTitle:(NSString *)title optionArray:(NSArray *)array indexPath:(NSIndexPath *)indexPath{
@@ -590,10 +594,7 @@
         [self tableView:self.tableView cellForRowAtIndexPath:indexPath];
         [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
     }
-
 }
-
-
 
 - (void)testAddChild:(NSString *)token userName:(NSString *)name success:(void (^)(id))success failure:(void (^)(NSError *))failure{
     [[ZJNTool shareManager] saveToken:token];
@@ -603,28 +604,32 @@
     self.success = success;
     self.failure = failure;
     [self loginBtnClick];
-    self.infoModel.name =  @"1";
-    [self loginBtnClick];
-    self.infoModel.sex = @"1";
-    [self loginBtnClick];
-    self.infoModel.birthdate = @"1";
-    [self loginBtnClick];
-    self.infoModel.countiyId = @"1";
-    [self loginBtnClick];
-    self.infoModel.medical = @"1";
-    [self loginBtnClick];
-    self.infoModel.medicalState = @"1";
-    [self loginBtnClick];
-    self.infoModel.firstLanguage = @"10";
-    [self loginBtnClick];
-    self.infoModel.secondLanguage = @"10";
-    [self loginBtnClick];
-    self.infoModel.fatherCulture = @"1";
-    [self loginBtnClick];
-    self.infoModel.motherCulture = @"1";
+    self.infoModel.trainingMethod = @"2";
     [self loginBtnClick];
     self.infoModel.trainingMethod = @"2";
     [self loginBtnClick];
+    self.infoModel.motherCulture = @"1";
+    [self loginBtnClick];
+    self.infoModel.fatherCulture = @"1";
+    [self loginBtnClick];
+    self.infoModel.secondLanguage = @"10";
+    [self loginBtnClick];
+    self.infoModel.firstLanguage = @"10";
+    [self loginBtnClick];
+    self.infoModel.medical = @"1";
+    [self loginBtnClick];
+    self.infoModel.medical = @"1";
+    [self loginBtnClick];
+    self.infoModel.countiyId = @"1";
+    [self loginBtnClick];
+    self.infoModel.birthdate = @"1";
+    [self loginBtnClick];
+    self.infoModel.sex = @"1";
+    [self loginBtnClick];
+    self.infoModel.name =  @"1";
+    [self loginBtnClick];
+
+
     self.infoModel.trainingRests = @"1";
     [self loginBtnClick];
     
@@ -633,8 +638,23 @@
     UITextField *tf = [[UITextField alloc]init];
     tf.text = @"123";
     [self textField:tf shouldChangeCharactersInRange:NSMakeRange(0, 1) replacementString:@"1"];
+
+    ZJNAreaModel *provice = [[ZJNAreaModel alloc]init];
+    provice.areaid = @"12";
+    provice.areaname = @"北京";
+    provice.areacode = @"12";
+
+    ZJNAreaModel *city = [[ZJNAreaModel alloc]init];
+    city.areaid = @"12";
+    city.areaname = @"北京";
+    city.areacode = @"12";
     
+    ZJNAreaModel *area = [[ZJNAreaModel alloc]init];
+    area.areaid = @"12";
+    area.areaname = @"北京";
+    area.areacode = @"12";
     
+    [self configCellWith:provice city:city area:area];
     [[ZJNMedicalPickerView alloc] testFunction];
     [[ZJNAddressPickerView alloc] testFunction];
 }

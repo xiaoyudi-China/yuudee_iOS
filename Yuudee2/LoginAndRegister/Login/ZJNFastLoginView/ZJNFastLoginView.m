@@ -326,6 +326,7 @@
     [self isRegistedPhone:@"13661316354"];
     
     self.getCodeTextField.text = @"1234";
+    self.authCodeTextField.text = @"1234";
     self.phoneTextField.text = @"13661316354";
     self.phoneTextField.plainPhoneNum = @"13661316354";
     [self loginBtnClick];
