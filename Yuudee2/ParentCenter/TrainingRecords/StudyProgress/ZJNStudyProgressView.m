@@ -399,38 +399,71 @@
     }
 }
 
-- (void)testInfo:(NSString *)token
-                    success:(void (^) (id json))success
-                    failure:(void (^)(NSError *error))failure{
-    self.success = success;
-    self.failure = failure;
-
-    self.dayModel.countTime = @"3610";
-    self.studyType = MCDYStruct;
-    [self showDayTitle];
-    
-    self.dayModel.countTime = @"610";
-    self.studyType = DCDYStruct;
-    [self showDayTitle];
-    
-    self.dayModel.countTime = @"30";
-    self.studyType = JZJGZCStruct;
-    [self showDayTitle];
-    
-    self.dayModel.countTime = @"30";
-    self.studyType = JZJGFJStruct;
-    [self showDayTitle];
-    
-    self.studyType = MCDYStruct;
-    [self monthStudyHistory];
-    [self weekStudyHistory];
-    [self dayStudyHistory];
-    
-    [self monthBtnClick];
-    [self weakBtnClick];
-    [self dayBtnClick];
-    
-    [self homeBtnClick];
+- (NSString *)testRemoveThePlace:(NSString *)str{
+    NSInteger length = str.length;
+    for (NSInteger count = 0; count < length; count ++) {
+        if (count > 26) {
+            return str;
+        }
+        if (count == 0) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 1) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 2) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 3) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 4) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 5) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 6) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 7) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 8) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 9) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 10) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 11) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 12) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 13) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 14) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 15) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 16) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 17) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+        if (count == 18) {
+            str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        }
+    }
+    return str;
 }
 
 - (void)testFunction{
@@ -454,6 +487,8 @@
     [self monthStudyHistory];
     [self weekStudyHistory];
     [self dayStudyHistory];
+    
+    self.minuteLabel.text = [self testRemoveThePlace:@"小雨滴测试，pcdi问卷调查结果显示以及结果预测。"];
     
     [self monthBtnClick];
     [self weakBtnClick];

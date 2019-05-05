@@ -17,7 +17,4 @@ typedef NS_ENUM(NSInteger ,StudyType) {
 @property (nonatomic ,assign)StudyType studyType;
 
 -(void)testFunction;
-- (void)testInfo:(NSString *)token
-         success:(void (^) (id json))success
-         failure:(void (^)(NSError *error))failure;
 @end
