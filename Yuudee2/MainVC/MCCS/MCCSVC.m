@@ -752,7 +752,9 @@
     self.hasRight1 = YES;
 
     _model.cardColorChar = @"汽车1";
+    self.hasRight2 = NO;
     [self huaBanClick:[view gestureRecognizers][0]];
+    self.isPass = @"1";
     _model.cardColorChar = @"汽车";
     [self huaBanClick:[view gestureRecognizers][0]];
     self.hasRight1 = NO;

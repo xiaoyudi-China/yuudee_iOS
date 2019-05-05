@@ -870,11 +870,28 @@
     self.isPass = @"1";
 
     [self viewDidLoad];
+    [self viewWillDisappear:YES];
     self.select = 1;
-    for (int a =0 ; a<4; a++) {
-        UIView *view = [self.view viewWithTag:10+a];
-        [self huaBanClick:[view gestureRecognizers][0]];
-    }
+    UIView *view = [self.view viewWithTag:10];
+    [self huaBanClick:[view gestureRecognizers][0]];
+    view = [self.view viewWithTag:11];
+    self.select = 1;
+    [self huaBanClick:[view gestureRecognizers][0]];
+    self.select = 0;
+    [self huaBanClick:[view gestureRecognizers][0]];
+    view = [self.view viewWithTag:12];
+    self.select = 0;
+    [self huaBanClick:[view gestureRecognizers][0]];
+    self.select = 2;
+    [self huaBanClick:[view gestureRecognizers][0]];
+    
+    view = [self.view viewWithTag:13];
+    self.select = 3;
+    [self huaBanClick:[view gestureRecognizers][0]];
+    self.select = 0;
+    [self huaBanClick:[view gestureRecognizers][0]];
+    
+    
     [self Gogo];
     [self overPlay];
     [self goNextVC];
