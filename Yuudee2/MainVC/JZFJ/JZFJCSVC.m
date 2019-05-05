@@ -898,6 +898,10 @@
     [self action];
     [self makeNav];
     [self homeClick];
+    self.dissVC = NO;
+    self.isPass = @"1";
+    [self PostResult];
+    self.isPass = @"0";
     [self PostResult];
 }
 
